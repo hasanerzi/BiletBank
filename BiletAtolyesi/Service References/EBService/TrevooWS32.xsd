@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="T_RunningAccountStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdvanceInvoice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Balance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="CCPaymentBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CommissionsInFirstPool" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CommissionsInPool" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Credit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_RunningAccountStatus" nillable="true" type="tns:T_RunningAccountStatus" />
+  <xs:complexType name="ArrayOfT_PoolAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PoolAccount" nillable="true" type="tns:T_PoolAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PoolAccount" nillable="true" type="tns:ArrayOfT_PoolAccount" />
+  <xs:complexType name="T_PoolAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BalanceAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BalanceCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BalanceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileCurrencyAmount" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PoolAccount" nillable="true" type="tns:T_PoolAccount" />
+</xs:schema>

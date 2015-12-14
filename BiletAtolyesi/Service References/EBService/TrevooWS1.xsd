@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Promotion" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Promotion" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Trevoo.Definitions" />
+  <xs:complexType name="ArrayOfT_ProductPromotionCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_ProductPromotionCategory" nillable="true" type="tns:T_ProductPromotionCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_ProductPromotionCategory" nillable="true" type="tns:ArrayOfT_ProductPromotionCategory" />
+  <xs:complexType name="T_ProductPromotionCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChildCategories" nillable="true" type="tns:ArrayOfT_ProductPromotionCategory" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentCategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfT_ProductPromotion" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ProductPromotionCategory" nillable="true" type="tns:T_ProductPromotionCategory" />
+  <xs:complexType name="ArrayOfT_ProductPromotion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_ProductPromotion" nillable="true" type="tns:T_ProductPromotion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_ProductPromotion" nillable="true" type="tns:ArrayOfT_ProductPromotion" />
+  <xs:complexType name="T_ProductPromotion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckInDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckOutDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DaysAfterCheckIn" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationId" type="xs:int" />
+      <xs:element minOccurs="0" name="Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastSellerCommission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductStaticId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.Definitions" minOccurs="0" name="ProductType" type="q1:E_ProductTypes" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="RoomId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Star" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ProductPromotion" nillable="true" type="tns:T_ProductPromotion" />
+  <xs:complexType name="ArrayOfT_BusinessPromotionMatching">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_BusinessPromotionMatching" nillable="true" type="tns:T_BusinessPromotionMatching" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_BusinessPromotionMatching" nillable="true" type="tns:ArrayOfT_BusinessPromotionMatching" />
+  <xs:complexType name="T_BusinessPromotionMatching">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PromotionCategoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="SuperBusinessId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_BusinessPromotionMatching" nillable="true" type="tns:T_BusinessPromotionMatching" />
+</xs:schema>

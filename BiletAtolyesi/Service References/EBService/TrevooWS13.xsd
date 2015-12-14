@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Hotel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Hotel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:complexType name="HotelSearchRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivePageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="CheckInDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckOutDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DestinationIdList" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DominateDestinationControl" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IfResultPerPageSpecified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IfShortDescriptionSpecified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxHotelOptionGroupCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultsPerPage" type="xs:int" />
+      <xs:element minOccurs="0" name="RoomList" nillable="true" type="tns:ArrayOfHotelRoom" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StaticHotelIdList" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ifMaxHotelOptionGroupSpecified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ifSummaryTextSpecified" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelSearchRequest" nillable="true" type="tns:HotelSearchRequest" />
+  <xs:complexType name="ArrayOfHotelRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelRoom" nillable="true" type="tns:HotelRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelRoom" nillable="true" type="tns:ArrayOfHotelRoom" />
+  <xs:complexType name="HotelRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdultCount" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildAgeList" nillable="true" type="q3:ArrayOfint" />
+      <xs:element minOccurs="0" name="ChildCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelRoom" nillable="true" type="tns:HotelRoom" />
+  <xs:complexType name="HotelSearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivePageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="CheckInDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckOutDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destinations" nillable="true" type="tns:ArrayOfDestination" />
+      <xs:element minOccurs="0" name="Hotels" nillable="true" type="tns:ArrayOfHotelOption" />
+      <xs:element minOccurs="0" name="PageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalItemCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UnfilteredTotalItemCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelSearchResponse" nillable="true" type="tns:HotelSearchResponse" />
+  <xs:complexType name="ArrayOfDestination">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Destination" nillable="true" type="tns:Destination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDestination" nillable="true" type="tns:ArrayOfDestination" />
+  <xs:complexType name="Destination">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DestinationId" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="_DestinationId" type="xs:int" />
+      <xs:element minOccurs="0" name="_DestinationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="_Longitude" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Destination" nillable="true" type="tns:Destination" />
+  <xs:complexType name="ArrayOfHotelOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelOption" nillable="true" type="tns:HotelOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelOption" nillable="true" type="tns:ArrayOfHotelOption" />
+  <xs:complexType name="HotelOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DistinctBoardList" nillable="true" type="tns:ArrayOfBoardAmount" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DistinctDiscountList" nillable="true" type="q4:ArrayOfint" />
+      <xs:element minOccurs="0" name="ExclusiveDeal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HotelAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KmToAirport" type="xs:decimal" />
+      <xs:element minOccurs="0" name="KmToCityCenter" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RoomItems" nillable="true" type="tns:ArrayOfHotelOptionGroup" />
+      <xs:element minOccurs="0" name="StarRating" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StaticHotelId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelOption" nillable="true" type="tns:HotelOption" />
+  <xs:complexType name="ArrayOfBoardAmount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BoardAmount" nillable="true" type="tns:BoardAmount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBoardAmount" nillable="true" type="tns:ArrayOfBoardAmount" />
+  <xs:complexType name="BoardAmount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Discounts" nillable="true" type="tns:ArrayOfHotelOptionGroupItemDiscount" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BoardAmount" nillable="true" type="tns:BoardAmount" />
+  <xs:complexType name="ArrayOfHotelOptionGroupItemDiscount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelOptionGroupItemDiscount" nillable="true" type="tns:HotelOptionGroupItemDiscount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelOptionGroupItemDiscount" nillable="true" type="tns:ArrayOfHotelOptionGroupItemDiscount" />
+  <xs:complexType name="HotelOptionGroupItemDiscount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DiscountType" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ValueType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelOptionGroupItemDiscount" nillable="true" type="tns:HotelOptionGroupItemDiscount" />
+  <xs:complexType name="ArrayOfHotelOptionGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelOptionGroup" nillable="true" type="tns:HotelOptionGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelOptionGroup" nillable="true" type="tns:ArrayOfHotelOptionGroup" />
+  <xs:complexType name="HotelOptionGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q5:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GroupId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IfMinSellingPriceSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfHotelOptionGroupItem" />
+          <xs:element minOccurs="0" name="PublishedPrice" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HotelOptionGroup" nillable="true" type="tns:HotelOptionGroup" />
+  <xs:complexType name="ArrayOfHotelOptionGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelOptionGroupItem" nillable="true" type="tns:HotelOptionGroupItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelOptionGroupItem" nillable="true" type="tns:ArrayOfHotelOptionGroupItem" />
+  <xs:complexType name="HotelOptionGroupItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q6:T_ProductItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdultCount" type="xs:int" />
+          <xs:element minOccurs="0" name="AvailRoomCount" type="xs:int" />
+          <xs:element minOccurs="0" name="BoardCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BoardId" type="xs:int" />
+          <xs:element minOccurs="0" name="BoardName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChildAges" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChildCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CotsNotGuaranteed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Deal" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemDefinition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ItemId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LanguageBoardName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LanguageRoomName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PublishedPrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RoomCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoomCount" type="xs:int" />
+          <xs:element minOccurs="0" name="RoomId" type="xs:int" />
+          <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SharingBedding" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SpecialDeal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="discounts" nillable="true" type="tns:ArrayOfHotelOptionGroupItemDiscount" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HotelOptionGroupItem" nillable="true" type="tns:HotelOptionGroupItem" />
+  <xs:complexType name="ArrayOfHotelBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelBooking" nillable="true" type="tns:HotelBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelBooking" nillable="true" type="tns:ArrayOfHotelBooking" />
+  <xs:complexType name="HotelBooking">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q7:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BuyingAgencyBaseFare" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BuyingCurrency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckInDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CheckOutDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelEmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelFaxNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelImageUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelPhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HotelStar" nillable="true" type="xs:string" />
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ImportantRemarks" nillable="true" type="q8:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ReservationExpireDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Rooms" nillable="true" type="tns:ArrayOfBookingRoom" />
+          <xs:element minOccurs="0" name="StaticHotelId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="confirmationInfo" nillable="true" type="tns:BookingConfirmationInfo" />
+          <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ifReservationEnabled" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HotelBooking" nillable="true" type="tns:HotelBooking" />
+  <xs:complexType name="ArrayOfBookingRoom">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookingRoom" nillable="true" type="tns:BookingRoom" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookingRoom" nillable="true" type="tns:ArrayOfBookingRoom" />
+  <xs:complexType name="BookingRoom">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q9:T_ProductItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdultCount" type="xs:int" />
+          <xs:element minOccurs="0" name="BoardId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BoardType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BuyingAgencyBaseFare" type="xs:decimal" />
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildAgeList" nillable="true" type="q10:ArrayOfint" />
+          <xs:element minOccurs="0" name="ChildCount" type="xs:int" />
+          <xs:element minOccurs="0" name="CotsNotGuaranteed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PaxReferences" nillable="true" type="q9:ArrayOfT_ReversePaxReference" />
+          <xs:element minOccurs="0" name="RoomId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoomType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceBoardType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceRoomType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SharingBedding" type="xs:boolean" />
+          <xs:element minOccurs="0" name="policy" nillable="true" type="tns:ArrayOfCancellationPolicy" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BookingRoom" nillable="true" type="tns:BookingRoom" />
+  <xs:complexType name="ArrayOfCancellationPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CancellationPolicy" nillable="true" type="tns:CancellationPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCancellationPolicy" nillable="true" type="tns:ArrayOfCancellationPolicy" />
+  <xs:complexType name="CancellationPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DateTimeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateTimeTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancellationPolicy" nillable="true" type="tns:CancellationPolicy" />
+  <xs:complexType name="BookingConfirmationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="agencyReference" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="comments" nillable="true" type="q11:ArrayOfstring" />
+      <xs:element minOccurs="0" name="confirmationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="paymentGuaranteedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="suppilierVatNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="supplierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="supplierReference" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookingConfirmationInfo" nillable="true" type="tns:BookingConfirmationInfo" />
+  <xs:complexType name="StaticHotelSearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hotels" nillable="true" type="tns:ArrayOfStaticHotelOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaticHotelSearchResponse" nillable="true" type="tns:StaticHotelSearchResponse" />
+  <xs:complexType name="ArrayOfStaticHotelOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StaticHotelOption" nillable="true" type="tns:StaticHotelOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStaticHotelOption" nillable="true" type="tns:ArrayOfStaticHotelOption" />
+  <xs:complexType name="StaticHotelOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HotelAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="StarRating" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StaticHotelId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StaticHotelOption" nillable="true" type="tns:StaticHotelOption" />
+  <xs:complexType name="ArrayOfHotelsProCodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelsProCodes" nillable="true" type="tns:HotelsProCodes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelsProCodes" nillable="true" type="tns:ArrayOfHotelsProCodes" />
+  <xs:complexType name="HotelsProCodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HotelsProCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StaticHotelId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelsProCodes" nillable="true" type="tns:HotelsProCodes" />
+  <xs:complexType name="DestinationList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DestList" nillable="true" type="tns:ArrayOfDestination" />
+      <xs:element minOccurs="0" name="_DestList" nillable="true" type="tns:ArrayOfDestination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationList" nillable="true" type="tns:DestinationList" />
+  <xs:complexType name="HotelDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DistanceToLocations" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hotel" nillable="true" type="tns:HotelOption" />
+      <xs:element minOccurs="0" name="HotelComments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelConceptDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelFacility" nillable="true" type="tns:ArrayOfFacility" />
+      <xs:element minOccurs="0" name="HotelHowToGetThere" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelLocationDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelMealDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelPaymentMethods" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelRoomDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelSportDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Longtitude" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MetaHotelId" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoomFacility" nillable="true" type="tns:ArrayOfFacility" />
+      <xs:element minOccurs="0" name="destinationId" type="xs:int" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="images" nillable="true" type="q13:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelDetail" nillable="true" type="tns:HotelDetail" />
+  <xs:complexType name="ArrayOfFacility">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Facility" nillable="true" type="tns:Facility" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFacility" nillable="true" type="tns:ArrayOfFacility" />
+  <xs:complexType name="Facility">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fee" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Facility" nillable="true" type="tns:Facility" />
+  <xs:complexType name="ArrayOfHotelSeasonPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelSeasonPrice" nillable="true" type="tns:HotelSeasonPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHotelSeasonPrice" nillable="true" type="tns:ArrayOfHotelSeasonPrice" />
+  <xs:complexType name="HotelSeasonPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BoardId" type="xs:int" />
+      <xs:element minOccurs="0" name="BoardName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DoublePP" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExtraBed" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HotelRoomTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="HotelRoomTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinAccomodation" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="PriceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceTypeDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Single" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StaticHotelId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotelSeasonPrice" nillable="true" type="tns:HotelSeasonPrice" />
+  <xs:complexType name="ArrayOfSeasonAvailability">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SeasonAvailability" nillable="true" type="tns:SeasonAvailability" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSeasonAvailability" nillable="true" type="tns:ArrayOfSeasonAvailability" />
+  <xs:complexType name="SeasonAvailability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HotelRoomType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelRoomTypeId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SeasonAvailability" nillable="true" type="tns:SeasonAvailability" />
+</xs:schema>

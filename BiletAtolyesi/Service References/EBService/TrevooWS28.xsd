@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.Transfer.EF.WS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.Transfer.EF.WS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfT_TransferOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_TransferOptions" nillable="true" type="tns:T_TransferOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_TransferOptions" nillable="true" type="tns:ArrayOfT_TransferOptions" />
+  <xs:complexType name="T_TransferOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adult" type="xs:int" />
+      <xs:element minOccurs="0" name="ArrivalFlightArrivalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightDepartureTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BaseFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BookDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BookingCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="CancelDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Child" type="xs:int" />
+      <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ArrayOfT_TransferContacts" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfT_TransferCustomers" />
+      <xs:element minOccurs="0" name="DepartureFlightArrivalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightDepartureTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Details" nillable="true" type="tns:ArrayOfT_TransferDetails" />
+      <xs:element minOccurs="0" name="DropOffAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsReturn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MasterProductType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxPassenger" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumStops" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumWaitingTime" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPassenger" type="xs:int" />
+      <xs:element minOccurs="0" name="OficeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickupAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickupTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PictureURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProductItemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Provider" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShoppingFileId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Supplier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeBeforeConsultingWeb" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferWebInformation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VatNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Warning" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_TransferOptions" nillable="true" type="tns:T_TransferOptions" />
+  <xs:complexType name="ArrayOfT_TransferContacts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_TransferContacts" nillable="true" type="tns:T_TransferContacts" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_TransferContacts" nillable="true" type="tns:ArrayOfT_TransferContacts" />
+  <xs:complexType name="T_TransferContacts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactOperationDays" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactTimeFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactTimeTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferOption" nillable="true" type="tns:T_TransferOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_TransferContacts" nillable="true" type="tns:T_TransferContacts" />
+  <xs:complexType name="ArrayOfT_TransferCustomers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_TransferCustomers" nillable="true" type="tns:T_TransferCustomers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_TransferCustomers" nillable="true" type="tns:ArrayOfT_TransferCustomers" />
+  <xs:complexType name="T_TransferCustomers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AreaCityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CitizenCountryNameCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryNameCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DriversAge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GivenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NamePrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassengerQuantity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneTechType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SurName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_TransferCustomers" nillable="true" type="tns:T_TransferCustomers" />
+  <xs:complexType name="ArrayOfT_TransferDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_TransferDetails" nillable="true" type="tns:T_TransferDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_TransferDetails" nillable="true" type="tns:ArrayOfT_TransferDetails" />
+  <xs:complexType name="T_TransferDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Detail_Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Detail_Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Detail_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferOption" nillable="true" type="tns:T_TransferOptions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_TransferDetails" nillable="true" type="tns:T_TransferDetails" />
+</xs:schema>

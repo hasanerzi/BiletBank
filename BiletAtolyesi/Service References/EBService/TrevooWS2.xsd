@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Acc2014.Entity" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts.Entities" />
+  <xs:complexType name="IO_GetRunningAccountStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q1:T_OperationRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetRunningAccountStatusRequest" nillable="true" type="tns:IO_GetRunningAccountStatusRequest" />
+  <xs:complexType name="IO_GetRunningAccountStatusResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q2:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" minOccurs="0" name="RunningAccountStatus" nillable="true" type="q3:T_RunningAccountStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetRunningAccountStatusResult" nillable="true" type="tns:IO_GetRunningAccountStatusResult" />
+  <xs:complexType name="IO_GetPoolAccountsStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q4:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetPoolAccountsStatusRequest" nillable="true" type="tns:IO_GetPoolAccountsStatusRequest" />
+  <xs:complexType name="IO_GetPoolAccountsStatusResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q5:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" minOccurs="0" name="PoolAccounts" nillable="true" type="q6:ArrayOfT_PoolAccount" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetPoolAccountsStatusResult" nillable="true" type="tns:IO_GetPoolAccountsStatusResult" />
+  <xs:complexType name="IO_GetAccountBalanceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q7:T_OperationRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetAccountBalanceRequest" nillable="true" type="tns:IO_GetAccountBalanceRequest" />
+  <xs:complexType name="IO_GetAccountBalanceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q8:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Balance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Limit" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetAccountBalanceResponse" nillable="true" type="tns:IO_GetAccountBalanceResponse" />
+  <xs:complexType name="IO_AddUpLimitPoolRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q9:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromBusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="FromPoolName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidFrom" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidUntil" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddUpLimitPoolRequest" nillable="true" type="tns:IO_AddUpLimitPoolRequest" />
+  <xs:complexType name="IO_AddUpLimitPoolResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q10:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" minOccurs="0" name="Added" nillable="true" type="q11:UpLimitPool" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddUpLimitPoolResult" nillable="true" type="tns:IO_AddUpLimitPoolResult" />
+  <xs:complexType name="IO_ChangeStatusOfUpLimitPoolRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q12:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsDeleted" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UpLimitPoolId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ChangeStatusOfUpLimitPoolRequest" nillable="true" type="tns:IO_ChangeStatusOfUpLimitPoolRequest" />
+  <xs:complexType name="IO_ChangeStatusOfUpLimitPoolResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q13:T_OperationResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ChangeStatusOfUpLimitPoolResult" nillable="true" type="tns:IO_ChangeStatusOfUpLimitPoolResult" />
+  <xs:complexType name="IO_ListUpLimitPoolsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q14:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FetchInactives" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FromBusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidFrom" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidUntil" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ListUpLimitPoolsRequest" nillable="true" type="tns:IO_ListUpLimitPoolsRequest" />
+  <xs:complexType name="IO_ListUpLimitPoolsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q15:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" minOccurs="0" name="UpLimitPools" nillable="true" type="q16:ArrayOfUpLimitPool" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ListUpLimitPoolsResult" nillable="true" type="tns:IO_ListUpLimitPoolsResult" />
+  <xs:complexType name="IO_ListUpLimitPoolPaymentsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q17:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FromBusinessId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ToBusinessId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpLimitPoolId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ListUpLimitPoolPaymentsRequest" nillable="true" type="tns:IO_ListUpLimitPoolPaymentsRequest" />
+  <xs:complexType name="IO_ListUpLimitPoolPaymentsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q18:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" minOccurs="0" name="UpLimitPoolPayments" nillable="true" type="q19:ArrayOfUpLimitPoolPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ListUpLimitPoolPaymentsResult" nillable="true" type="tns:IO_ListUpLimitPoolPaymentsResult" />
+  <xs:complexType name="IO_DoMoneyTransferRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q20:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromBusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="FromPoolName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SelectedMoneyFlowId" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_DoMoneyTransferRequest" nillable="true" type="tns:IO_DoMoneyTransferRequest" />
+  <xs:complexType name="IO_DoMoneyTransferResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q21:T_OperationResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_DoMoneyTransferResult" nillable="true" type="tns:IO_DoMoneyTransferResult" />
+  <xs:complexType name="IO_SearchMoneyFlowsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q22:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="EntryEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EntryStartDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PoolName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SearchMoneyFlowsRequest" nillable="true" type="tns:IO_SearchMoneyFlowsRequest" />
+  <xs:complexType name="IO_SearchMoneyFlowsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q23:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Acc2014.Entity" minOccurs="0" name="MoneyFlows" nillable="true" type="q24:ArrayOfMoneyFlowSearchResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SearchMoneyFlowsResult" nillable="true" type="tns:IO_SearchMoneyFlowsResult" />
+  <xs:complexType name="IO_AddMoneyToVirtualPoolRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q25:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FromPoolName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddMoneyToVirtualPoolRequest" nillable="true" type="tns:IO_AddMoneyToVirtualPoolRequest" />
+  <xs:complexType name="IO_AddMoneyToVirtualPoolResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q26:T_OperationResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddMoneyToVirtualPoolResult" nillable="true" type="tns:IO_AddMoneyToVirtualPoolResult" />
+  <xs:complexType name="IO_SetCreditLimitRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q27:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpirationTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SetCreditLimitRequest" nillable="true" type="tns:IO_SetCreditLimitRequest" />
+  <xs:complexType name="IO_SetCreditLimitResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q28:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts.Entities" minOccurs="0" name="CreditLimit" nillable="true" type="q29:T_CreditLimit" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SetCreditLimitResult" nillable="true" type="tns:IO_SetCreditLimitResult" />
+</xs:schema>

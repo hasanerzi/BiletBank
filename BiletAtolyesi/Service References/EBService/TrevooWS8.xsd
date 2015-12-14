@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping.Views" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Car" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Hotel" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Transfer" />
+  <xs:complexType name="T_Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BaseFare_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BaseFare_Refund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BookingCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExchangeCurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExchangeCurrencyRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ext_FreeData_Detail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ext_FreeData_RefundPolicy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ext_FreeField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRefundable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastPriceChange_SessionId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="LastPriceChange_TransactionId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastSellerCommission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NetFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="Refund_Charge" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFeeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceFee_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee_Original" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee_Refund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping.Views" minOccurs="0" name="StatusTable" nillable="true" type="q1:ProductStatusTable" />
+      <xs:element minOccurs="0" name="Taxes" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Taxes_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Taxes_Refund" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping.Views" minOccurs="0" name="TimeTable" nillable="true" type="q2:ProductTimeTable" />
+      <xs:element minOccurs="0" name="TotalFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Product" nillable="true" type="tns:T_Product" />
+  <xs:complexType name="T_ProductItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BaseFare_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BaseFare_Refund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CampaignCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ext_FreeData_Detail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ext_FreeData_RefundPolicy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRefundDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRefundPerformed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRefundWaitingFinalization" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRefundWaitingOffer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReissue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastSellerCommission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NetFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductItemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RefundRequestId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Refund_Charge" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFeeOnRefund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFeeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceFee_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee_Original" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ServiceFee_Refund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Taxes" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Taxes_Discount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Taxes_Refund" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalFare" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ProductItem" nillable="true" type="tns:T_ProductItem" />
+  <xs:complexType name="T_ShoppingFile">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air" minOccurs="0" name="AirBookings" nillable="true" type="q3:ArrayOfT_AirBooking" />
+      <xs:element minOccurs="0" name="BillingInformation" nillable="true" type="tns:T_BillingInformation" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Car" minOccurs="0" name="CarBookings" nillable="true" type="q4:ArrayOfT_CarBooking" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerInfo" nillable="true" type="tns:CustomerInfo" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Hotel" minOccurs="0" name="HotelBookings" nillable="true" type="q5:ArrayOfHotelBooking" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IfFinalized" nillable="true" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance" minOccurs="0" name="InsuranceBookings" nillable="true" type="q6:ArrayOfInsuranceBooking" />
+      <xs:element minOccurs="0" name="IsPriceChanged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReservationCancelled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is_3D_Payment_Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is_CC_Payment_Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Is_RA_Payment_Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastTransactionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastTransactionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Passengers" nillable="true" type="tns:ArrayOfT_Passenger" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping.Views" minOccurs="0" name="PaymentOptions" nillable="true" type="q7:T_PaymentOptions" />
+      <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfT_Payment" />
+      <xs:element minOccurs="0" name="PriceSummary" nillable="true" type="tns:T_PriceSummary" />
+      <xs:element minOccurs="0" name="RefundRequests" nillable="true" type="tns:ArrayOfT_RefundRequest" />
+      <xs:element minOccurs="0" name="RemainingSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TimeZone" type="ser:duration" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Transfer" minOccurs="0" name="TransferBookings" nillable="true" type="q8:ArrayOfTransferBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ShoppingFile" nillable="true" type="tns:T_ShoppingFile" />
+  <xs:complexType name="T_ReversePaxReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="LocalPaxType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocalSequenceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="PassengerId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PaxReferenceId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ReversePaxReference" nillable="true" type="tns:T_ReversePaxReference" />
+  <xs:complexType name="T_BillingInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address_City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_Detail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IfCompany" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TaxNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxOffice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_BillingInformation" nillable="true" type="tns:T_BillingInformation" />
+  <xs:complexType name="CustomerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:CustomerPhone" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerInfo" nillable="true" type="tns:CustomerInfo" />
+  <xs:complexType name="CustomerPhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerPhone" nillable="true" type="tns:CustomerPhone" />
+  <xs:complexType name="ArrayOfT_ReversePaxReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_ReversePaxReference" nillable="true" type="tns:T_ReversePaxReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_ReversePaxReference" nillable="true" type="tns:ArrayOfT_ReversePaxReference" />
+  <xs:complexType name="ArrayOfT_Passenger">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Passenger" nillable="true" type="tns:T_Passenger" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Passenger" nillable="true" type="tns:ArrayOfT_Passenger" />
+  <xs:complexType name="T_Passenger">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CitizenNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FrequentFlayerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IfContact" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaxReferences" nillable="true" type="tns:ArrayOfT_ForwardPaxReference" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SequenceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="TempTag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WheelChairServiceType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Passenger" nillable="true" type="tns:T_Passenger" />
+  <xs:complexType name="ArrayOfT_ForwardPaxReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_ForwardPaxReference" nillable="true" type="tns:T_ForwardPaxReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_ForwardPaxReference" nillable="true" type="tns:ArrayOfT_ForwardPaxReference" />
+  <xs:complexType name="T_ForwardPaxReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProductItemId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ForwardPaxReference" nillable="true" type="tns:T_ForwardPaxReference" />
+  <xs:complexType name="ArrayOfT_PaymentInstallmentOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PaymentInstallmentOption" nillable="true" type="tns:T_PaymentInstallmentOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PaymentInstallmentOption" nillable="true" type="tns:ArrayOfT_PaymentInstallmentOption" />
+  <xs:complexType name="T_PaymentInstallmentOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountOfInterest" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BonusInstallmentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InstallmentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="InstallmentOptionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="MontlyPayment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Program" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RateOfInterest" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RemainingSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SubTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalInstallmentCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PaymentInstallmentOption" nillable="true" type="tns:T_PaymentInstallmentOption" />
+  <xs:complexType name="ArrayOfT_Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Payment" nillable="true" type="tns:T_Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Payment" nillable="true" type="tns:ArrayOfT_Payment" />
+  <xs:complexType name="T_Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CC_BankName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CC_BonusInstallmentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CC_CardHolder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CC_CardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CC_InstallmentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CC_MonthlyPayment" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ext_FreeData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="InterestAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LastApprovedCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SellingCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Payment" nillable="true" type="tns:T_Payment" />
+  <xs:complexType name="T_PriceSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrandTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PriceItems" nillable="true" type="tns:ArrayOfT_PriceItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PriceSummary" nillable="true" type="tns:T_PriceSummary" />
+  <xs:complexType name="ArrayOfT_PriceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PriceItem" nillable="true" type="tns:T_PriceItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PriceItem" nillable="true" type="tns:ArrayOfT_PriceItem" />
+  <xs:complexType name="T_PriceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InCart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProductType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PriceItem" nillable="true" type="tns:T_PriceItem" />
+  <xs:complexType name="ArrayOfT_RefundRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_RefundRequest" nillable="true" type="tns:T_RefundRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_RefundRequest" nillable="true" type="tns:ArrayOfT_RefundRequest" />
+  <xs:complexType name="T_RefundRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answer_Is_Accepted" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Answer_Is_Rejected" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Answered_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Cancelled_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Entry_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Finalized_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Finalized_IsApproved" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Finalized_IsDeclined" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Ref_IsRefundable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShoppingFileId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_RefundRequest" nillable="true" type="tns:T_RefundRequest" />
+  <xs:complexType name="ArrayOfT_StoredBillingInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_StoredBillingInformation" nillable="true" type="tns:T_StoredBillingInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_StoredBillingInformation" nillable="true" type="tns:ArrayOfT_StoredBillingInformation" />
+  <xs:complexType name="T_StoredBillingInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address_City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_Detail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address_ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="TaxNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxOffice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_StoredBillingInformation" nillable="true" type="tns:T_StoredBillingInformation" />
+  <xs:complexType name="ArrayOfT_ShoppingFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_ShoppingFile" nillable="true" type="tns:T_ShoppingFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_ShoppingFile" nillable="true" type="tns:ArrayOfT_ShoppingFile" />
+</xs:schema>

@@ -1,0 +1,1353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{379FF97F-E172-4DB3-9987-321D46BBCB28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BiletAtolyesi</RootNamespace>
+    <AssemblyName>BiletAtolyesi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\EBService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AddMoneyToVirtualPoolResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AddNewUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AddPaymentProductResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AddUpLimitPoolResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AirChangeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AirExpirationChangeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AirProviderResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AirScheduleChangeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AirSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AllocateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AnswerRefundRequest_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ApplyForAgencyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_AskTHYMiles_Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_CarAddEquipmentRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_CarCondRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_CarEquipRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_CarRemoveEquipmentRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_CarSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ChangeSCResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ChangeStatusOfUpLimitPoolResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_DeleteBillingInformationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_DoMoneyTransferResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_DummyGroupRequestResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_EmptyInvoiceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_FinalizeShoppingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetAccountBalanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetAgencyByIdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetBusinessPromotionMatchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetComByPaymentTypeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetCurrencyRateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetCurrentXRateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetDescendantAgencyNamesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetDestinationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetGroupRequestsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetHotelsProCodeResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetInstallmentOptions_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetPoolAccountsStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetRoutingListResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetRulesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetRunningAccountStatusResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetShoppingFilesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetStoredBillingInformationsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetUserNamesByAgencyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetUserPermissionsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_GetUsersByAgencyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_HotelDetailResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_HotelProvidersResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_HotelSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_HotelSeasonAvailabilityResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_HotelSeasonPriceResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_Init3DPayment_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_InsertGroupRequestResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_InsuranceSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_InvoiceReadyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_InvoiceWantedResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ListUpLimitPoolPaymentsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ListUpLimitPoolsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_LogOut_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_MakeCreditCardPaymentResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_MakePrebookingResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_MakeRefundRequest_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_MakeRunningAccountPaymentResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_NewShoppingFile_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_PokeShoppingFile_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_PromotionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_ReadShoppingFileResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_RefreshShoppingFile_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_RemoveProductResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_RemovePromotionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SaveBusinessPromotionMatchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SaveCarEquipmentRS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SavePromotionCategoryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SavePromotionResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SearchForAgencyResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SearchMoneyFlowsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SearchShoppingFilesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_SetCreditLimitResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_StaticHotelSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_StoreBillingInformationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_TransferBookedItems.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_TransferSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_UpdateBillingInformationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_UpdatePassengersResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_UpdateUserPermissionsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.IO_UpdateUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\EBService\BiletAtolyesi.EBService.T_LoginResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\EBService\TrevooWS.disco" />
+    <None Include="Service References\EBService\configuration91.svcinfo" />
+    <None Include="Service References\EBService\configuration.svcinfo" />
+    <None Include="Service References\EBService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Theme\assets\css\custom.css" />
+    <Content Include="Theme\assets\css\dashboard.css" />
+    <Content Include="Theme\assets\css\docs.css" />
+    <Content Include="Theme\assets\css\font-awesome-ie7.css" />
+    <Content Include="Theme\assets\css\font-awesome.css" />
+    <Content Include="Theme\assets\css\fullwidth.css" />
+    <Content Include="Theme\assets\css\intro.css" />
+    <Content Include="Theme\assets\css\jquery-ui.css" />
+    <Content Include="Theme\assets\css\jquery.easy-pie-chart.css" />
+    <Content Include="Theme\assets\css\pygments-manni.css" />
+    <Content Include="Theme\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Theme\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Theme\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Theme\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Theme\assets\ico\favicon.png" />
+    <Content Include="Theme\assets\js\application.js" />
+    <Content Include="Theme\assets\js\counter.js" />
+    <Content Include="Theme\assets\js\customizer.js" />
+    <Content Include="Theme\assets\js\filesaver.js" />
+    <Content Include="Theme\assets\js\functions.js" />
+    <Content Include="Theme\assets\js\helper-plugins\jquery.ba-throttle-debounce.min.js" />
+    <Content Include="Theme\assets\js\helper-plugins\jquery.mousewheel.min.js" />
+    <Content Include="Theme\assets\js\helper-plugins\jquery.touchSwipe.min.js" />
+    <Content Include="Theme\assets\js\helper-plugins\jquery.transit.min.js" />
+    <Content Include="Theme\assets\js\holder.js" />
+    <Content Include="Theme\assets\js\html5shiv.js" />
+    <Content Include="Theme\assets\js\initialize-carousel-detailspage.js" />
+    <Content Include="Theme\assets\js\initialize-google-map-contact.js" />
+    <Content Include="Theme\assets\js\initialize-google-map.js" />
+    <Content Include="Theme\assets\js\initialize-loginpage.js" />
+    <Content Include="Theme\assets\js\jquery-ui.js" />
+    <Content Include="Theme\assets\js\jquery.carouFredSel-6.2.1-packed.js" />
+    <Content Include="Theme\assets\js\jquery.customSelect.js" />
+    <Content Include="Theme\assets\js\jquery.easing.js" />
+    <Content Include="Theme\assets\js\jquery.easy-pie-chart.js" />
+    <Content Include="Theme\assets\js\jquery.nicescroll.min.js" />
+    <Content Include="Theme\assets\js\jquery.nicescroll.plus.js" />
+    <Content Include="Theme\assets\js\jquery.preload.js" />
+    <Content Include="Theme\assets\js\jquery.sparkline.js" />
+    <Content Include="Theme\assets\js\jquery.v2.0.3.js" />
+    <Content Include="Theme\assets\js\js-about.js" />
+    <Content Include="Theme\assets\js\js-blog.js" />
+    <Content Include="Theme\assets\js\js-dashboard.js" />
+    <Content Include="Theme\assets\js\js-details.js" />
+    <Content Include="Theme\assets\js\js-index.js" />
+    <Content Include="Theme\assets\js\js-index3.js" />
+    <Content Include="Theme\assets\js\js-index7.js" />
+    <Content Include="Theme\assets\js\js-intro.js" />
+    <Content Include="Theme\assets\js\js-intro2.js" />
+    <Content Include="Theme\assets\js\js-intro3.js" />
+    <Content Include="Theme\assets\js\js-list.js" />
+    <Content Include="Theme\assets\js\js-list2.js" />
+    <Content Include="Theme\assets\js\js-list3.js" />
+    <Content Include="Theme\assets\js\js-list4.js" />
+    <Content Include="Theme\assets\js\js-payment.js" />
+    <Content Include="Theme\assets\js\js-profile.js" />
+    <Content Include="Theme\assets\js\jszip.js" />
+    <Content Include="Theme\assets\js\less.js" />
+    <Content Include="Theme\assets\js\modernizr.custom.js" />
+    <Content Include="Theme\assets\js\raw-files.js" />
+    <Content Include="Theme\assets\js\respond.min.js" />
+    <Content Include="Theme\assets\js\uglify.js" />
+    <Content Include="Theme\css\autowidth.css" />
+    <Content Include="Theme\css\fullscreen.css" />
+    <Content Include="Theme\css\fullwidth.css" />
+    <Content Include="Theme\css\responsive.css" />
+    <Content Include="Theme\css\simple.css" />
+    <Content Include="Theme\dashboard\index.html" />
+    <Content Include="Theme\dist\css\bootstrap-theme.css" />
+    <Content Include="Theme\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Theme\dist\css\bootstrap.css" />
+    <Content Include="Theme\dist\css\bootstrap.min.css" />
+    <Content Include="Theme\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\dist\js\bootstrap.js" />
+    <Content Include="Theme\dist\js\bootstrap.min.js" />
+    <Content Include="Theme\examples\carousel\carousel.css" />
+    <Content Include="Theme\examples\carousel\index.html" />
+    <Content Include="Theme\examples\grid\grid.css" />
+    <Content Include="Theme\examples\grid\index.html" />
+    <Content Include="Theme\examples\jumbotron-narrow\index.html" />
+    <Content Include="Theme\examples\jumbotron-narrow\jumbotron-narrow.css" />
+    <Content Include="Theme\examples\jumbotron\index.html" />
+    <Content Include="Theme\examples\jumbotron\jumbotron.css" />
+    <Content Include="Theme\examples\justified-nav\index.html" />
+    <Content Include="Theme\examples\justified-nav\justified-nav.css" />
+    <Content Include="Theme\examples\navbar-fixed-top\index.html" />
+    <Content Include="Theme\examples\navbar-fixed-top\navbar-fixed-top.css" />
+    <Content Include="Theme\examples\navbar-static-top\index.html" />
+    <Content Include="Theme\examples\navbar-static-top\navbar-static-top.css" />
+    <Content Include="Theme\examples\navbar\index.html" />
+    <Content Include="Theme\examples\navbar\navbar.css" />
+    <Content Include="Theme\examples\non-responsive\index.html" />
+    <Content Include="Theme\examples\non-responsive\non-responsive.css" />
+    <Content Include="Theme\examples\offcanvas\index.html" />
+    <Content Include="Theme\examples\offcanvas\offcanvas.css" />
+    <Content Include="Theme\examples\offcanvas\offcanvas.js" />
+    <Content Include="Theme\examples\screenshots\carousel.jpg" />
+    <Content Include="Theme\examples\screenshots\grid.jpg" />
+    <Content Include="Theme\examples\screenshots\jumbotron-narrow.jpg" />
+    <Content Include="Theme\examples\screenshots\jumbotron.jpg" />
+    <Content Include="Theme\examples\screenshots\justified-nav.jpg" />
+    <Content Include="Theme\examples\screenshots\navbar-fixed.jpg" />
+    <Content Include="Theme\examples\screenshots\navbar-static.jpg" />
+    <Content Include="Theme\examples\screenshots\navbar.jpg" />
+    <Content Include="Theme\examples\screenshots\non-responsive.jpg" />
+    <Content Include="Theme\examples\screenshots\offcanvas.jpg" />
+    <Content Include="Theme\examples\screenshots\sign-in.jpg" />
+    <Content Include="Theme\examples\screenshots\starter-template.jpg" />
+    <Content Include="Theme\examples\screenshots\sticky-footer-navbar.jpg" />
+    <Content Include="Theme\examples\screenshots\sticky-footer.jpg" />
+    <Content Include="Theme\examples\screenshots\theme.jpg" />
+    <Content Include="Theme\examples\signin\index.html" />
+    <Content Include="Theme\examples\signin\signin.css" />
+    <Content Include="Theme\examples\starter-template\index.html" />
+    <Content Include="Theme\examples\starter-template\starter-template.css" />
+    <Content Include="Theme\examples\sticky-footer-navbar\index.html" />
+    <Content Include="Theme\examples\sticky-footer-navbar\sticky-footer-navbar.css" />
+    <Content Include="Theme\examples\sticky-footer\index.html" />
+    <Content Include="Theme\examples\sticky-footer\sticky-footer.css" />
+    <Content Include="Theme\examples\theme\index.html" />
+    <Content Include="Theme\examples\theme\theme.css" />
+    <Content Include="Theme\fonts\fontawesome-webfont.svg" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\images\about-arrow.png" />
+    <Content Include="Theme\images\about-man.jpg" />
+    <Content Include="Theme\images\about-men2.jpg" />
+    <Content Include="Theme\images\about-women.jpg" />
+    <Content Include="Theme\images\about-women2.jpg" />
+    <Content Include="Theme\images\animated-overlay.gif" />
+    <Content Include="Theme\images\arrow.png" />
+    <Content Include="Theme\images\arrows.png" />
+    <Content Include="Theme\images\back-icon.png" />
+    <Content Include="Theme\images\basejump.jpg" />
+    <Content Include="Theme\images\bg.jpg" />
+    <Content Include="Theme\images\bigrating-0.png" />
+    <Content Include="Theme\images\bigrating-1.png" />
+    <Content Include="Theme\images\bigrating-2.png" />
+    <Content Include="Theme\images\bigrating-3.png" />
+    <Content Include="Theme\images\bigrating-4.png" />
+    <Content Include="Theme\images\bigrating-5.png" />
+    <Content Include="Theme\images\botswana.jpg" />
+    <Content Include="Theme\images\breadcrumb.png" />
+    <Content Include="Theme\images\btn-book.png" />
+    <Content Include="Theme\images\btn-plus-over.png" />
+    <Content Include="Theme\images\btn-plus.png" />
+    <Content Include="Theme\images\calendar.png" />
+    <Content Include="Theme\images\calendar2.png" />
+    <Content Include="Theme\images\car.png" />
+    <Content Include="Theme\images\caret.png" />
+    <Content Include="Theme\images\check.png" />
+    <Content Include="Theme\images\circle.png" />
+    <Content Include="Theme\images\collapsearrow.png" />
+    <Content Include="Theme\images\couple.png" />
+    <Content Include="Theme\images\cruise.jpg" />
+    <Content Include="Theme\images\dash\arrow.png" />
+    <Content Include="Theme\images\dash\avatar.jpg" />
+    <Content Include="Theme\images\dash\avatar2.jpg" />
+    <Content Include="Theme\images\dash\avatar3.jpg" />
+    <Content Include="Theme\images\dash\icon-bookings.png" />
+    <Content Include="Theme\images\dash\icon-email.png" />
+    <Content Include="Theme\images\dash\icon-revenue.png" />
+    <Content Include="Theme\images\dash\icon-visits.png" />
+    <Content Include="Theme\images\dash\lines.png" />
+    <Content Include="Theme\images\dash\logo.png" />
+    <Content Include="Theme\images\dash\logout.png" />
+    <Content Include="Theme\images\dash\no-avatar.jpg" />
+    <Content Include="Theme\images\delete.png" />
+    <Content Include="Theme\images\delete_old.png" />
+    <Content Include="Theme\images\details-slider\slide1.jpg" />
+    <Content Include="Theme\images\details-slider\slide2.jpg" />
+    <Content Include="Theme\images\details-slider\slide3.jpg" />
+    <Content Include="Theme\images\details-slider\slide4.jpg" />
+    <Content Include="Theme\images\details-slider\slide5.jpg" />
+    <Content Include="Theme\images\details-slider\slide6.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide1.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide2.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide3.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide4.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide5.jpg" />
+    <Content Include="Theme\images\details-slider\thumb\slide6.jpg" />
+    <Content Include="Theme\images\dubai.jpg" />
+    <Content Include="Theme\images\egypt-thumb.jpg" />
+    <Content Include="Theme\images\egypt.jpg" />
+    <Content Include="Theme\images\fav-book-icons.png" />
+    <Content Include="Theme\images\filter-rating-1.png" />
+    <Content Include="Theme\images\filter-rating-2.png" />
+    <Content Include="Theme\images\filter-rating-3.png" />
+    <Content Include="Theme\images\filter-rating-4.png" />
+    <Content Include="Theme\images\filter-rating-5.png" />
+    <Content Include="Theme\images\girl-car.png" />
+    <Content Include="Theme\images\girl-cruise.png" />
+    <Content Include="Theme\images\girl.png" />
+    <Content Include="Theme\images\girl2.png" />
+    <Content Include="Theme\images\grid-icon.png" />
+    <Content Include="Theme\images\home-icon.png" />
+    <Content Include="Theme\images\hotelpref-ico-green.png" />
+    <Content Include="Theme\images\hotelpref-ico.png" />
+    <Content Include="Theme\images\icon-facebook.png" />
+    <Content Include="Theme\images\icon-gplus.png" />
+    <Content Include="Theme\images\icon-location.png" />
+    <Content Include="Theme\images\icon-phone.png" />
+    <Content Include="Theme\images\icon-quote.png" />
+    <Content Include="Theme\images\icon-twitter.png" />
+    <Content Include="Theme\images\icon-youtube.png" />
+    <Content Include="Theme\images\items2\item1.jpg" />
+    <Content Include="Theme\images\items2\item2.jpg" />
+    <Content Include="Theme\images\items2\item3.jpg" />
+    <Content Include="Theme\images\items2\item4.jpg" />
+    <Content Include="Theme\images\items2\item5.jpg" />
+    <Content Include="Theme\images\items2\item6.jpg" />
+    <Content Include="Theme\images\items2\item7.jpg" />
+    <Content Include="Theme\images\items2\item8.jpg" />
+    <Content Include="Theme\images\items\item1.jpg" />
+    <Content Include="Theme\images\items\item10.jpg" />
+    <Content Include="Theme\images\items\item11.jpg" />
+    <Content Include="Theme\images\items\item12.jpg" />
+    <Content Include="Theme\images\items\item2.jpg" />
+    <Content Include="Theme\images\items\item3.jpg" />
+    <Content Include="Theme\images\items\item4.jpg" />
+    <Content Include="Theme\images\items\item5.jpg" />
+    <Content Include="Theme\images\items\item6.jpg" />
+    <Content Include="Theme\images\items\item7.jpg" />
+    <Content Include="Theme\images\items\item8.jpg" />
+    <Content Include="Theme\images\items\item9.jpg" />
+    <Content Include="Theme\images\li.png" />
+    <Content Include="Theme\images\li2.png" />
+    <Content Include="Theme\images\loading.gif" />
+    <Content Include="Theme\images\loading_.gif" />
+    <Content Include="Theme\images\lock.png" />
+    <Content Include="Theme\images\login-bg.jpg" />
+    <Content Include="Theme\images\login-blue.png" />
+    <Content Include="Theme\images\login-home.png" />
+    <Content Include="Theme\images\logo-intro.png" />
+    <Content Include="Theme\images\logo.png" />
+    <Content Include="Theme\images\logosmal.png" />
+    <Content Include="Theme\images\logosmal2.png" />
+    <Content Include="Theme\images\logo_.png" />
+    <Content Include="Theme\images\machu_picchu.jpg" />
+    <Content Include="Theme\images\palmbg.jpg" />
+    <Content Include="Theme\images\palmleafs.png" />
+    <Content Include="Theme\images\parisbg.jpg" />
+    <Content Include="Theme\images\plane.jpg" />
+    <Content Include="Theme\images\profile-icons.png" />
+    <Content Include="Theme\images\rating-4.png" />
+    <Content Include="Theme\images\road.jpg" />
+    <Content Include="Theme\images\rome-thumb.jpg" />
+    <Content Include="Theme\images\rome.jpg" />
+    <Content Include="Theme\images\select-intro.png" />
+    <Content Include="Theme\images\select-over.png" />
+    <Content Include="Theme\images\select.png" />
+    <Content Include="Theme\images\slider\bahamas.jpg" />
+    <Content Include="Theme\images\slider\couple.png" />
+    <Content Include="Theme\images\slider\paris.jpg" />
+    <Content Include="Theme\images\slider\rome.jpg" />
+    <Content Include="Theme\images\slider\santorini.jpg" />
+    <Content Include="Theme\images\slider\zakynthos.jpg" />
+    <Content Include="Theme\images\slides\airbg.jpg" />
+    <Content Include="Theme\images\slides\badge.png" />
+    <Content Include="Theme\images\slides\black-150x150.jpg" />
+    <Content Include="Theme\images\slides\black-300x156.jpg" />
+    <Content Include="Theme\images\slides\black.jpg" />
+    <Content Include="Theme\images\slides\bottle.png" />
+    <Content Include="Theme\images\slides\brokkoli.png" />
+    <Content Include="Theme\images\slides\burger.png" />
+    <Content Include="Theme\images\slides\carrots.png" />
+    <Content Include="Theme\images\slides\citybg.jpg" />
+    <Content Include="Theme\images\slides\cloud1.png" />
+    <Content Include="Theme\images\slides\cloud2.png" />
+    <Content Include="Theme\images\slides\coke.png" />
+    <Content Include="Theme\images\slides\coloredbg.png" />
+    <Content Include="Theme\images\slides\company1.png" />
+    <Content Include="Theme\images\slides\company2.png" />
+    <Content Include="Theme\images\slides\company3.png" />
+    <Content Include="Theme\images\slides\corn.png" />
+    <Content Include="Theme\images\slides\drink1.jpg" />
+    <Content Include="Theme\images\slides\drink2.jpg" />
+    <Content Include="Theme\images\slides\drink3.jpg" />
+    <Content Include="Theme\images\slides\drop.png" />
+    <Content Include="Theme\images\slides\dude1.png" />
+    <Content Include="Theme\images\slides\dude2.png" />
+    <Content Include="Theme\images\slides\dummy.png" />
+    <Content Include="Theme\images\slides\floor.png" />
+    <Content Include="Theme\images\slides\girl1.png" />
+    <Content Include="Theme\images\slides\glare.png" />
+    <Content Include="Theme\images\slides\glare2.png" />
+    <Content Include="Theme\images\slides\glare3.png" />
+    <Content Include="Theme\images\slides\grid-150x150.png" />
+    <Content Include="Theme\images\slides\grid-300x300.png" />
+    <Content Include="Theme\images\slides\grid.png" />
+    <Content Include="Theme\images\slides\guy11.png" />
+    <Content Include="Theme\images\slides\hairbg.jpg" />
+    <Content Include="Theme\images\slides\imac.jpg" />
+    <Content Include="Theme\images\slides\imac.png" />
+    <Content Include="Theme\images\slides\image1.jpg" />
+    <Content Include="Theme\images\slides\image10.jpg" />
+    <Content Include="Theme\images\slides\image11.jpg" />
+    <Content Include="Theme\images\slides\image12.jpg" />
+    <Content Include="Theme\images\slides\image13.jpg" />
+    <Content Include="Theme\images\slides\image14.jpg" />
+    <Content Include="Theme\images\slides\image15.jpg" />
+    <Content Include="Theme\images\slides\image16.jpg" />
+    <Content Include="Theme\images\slides\image17.jpg" />
+    <Content Include="Theme\images\slides\image18.jpg" />
+    <Content Include="Theme\images\slides\image19.jpg" />
+    <Content Include="Theme\images\slides\image2.jpg" />
+    <Content Include="Theme\images\slides\image20.jpg" />
+    <Content Include="Theme\images\slides\image21.jpg" />
+    <Content Include="Theme\images\slides\image22.jpg" />
+    <Content Include="Theme\images\slides\image23.jpg" />
+    <Content Include="Theme\images\slides\image24.jpg" />
+    <Content Include="Theme\images\slides\image3.jpg" />
+    <Content Include="Theme\images\slides\image4.jpg" />
+    <Content Include="Theme\images\slides\image5.jpg" />
+    <Content Include="Theme\images\slides\image6.jpg" />
+    <Content Include="Theme\images\slides\image7.jpg" />
+    <Content Include="Theme\images\slides\image8.jpg" />
+    <Content Include="Theme\images\slides\image9.jpg" />
+    <Content Include="Theme\images\slides\ipad.png" />
+    <Content Include="Theme\images\slides\iphone.png" />
+    <Content Include="Theme\images\slides\lightsplash22.jpg" />
+    <Content Include="Theme\images\slides\milk.png" />
+    <Content Include="Theme\images\slides\new.png" />
+    <Content Include="Theme\images\slides\officebg2.jpg" />
+    <Content Include="Theme\images\slides\p1.jpg" />
+    <Content Include="Theme\images\slides\p10.jpg" />
+    <Content Include="Theme\images\slides\p11.jpg" />
+    <Content Include="Theme\images\slides\p12.jpg" />
+    <Content Include="Theme\images\slides\p2.jpg" />
+    <Content Include="Theme\images\slides\p3.jpg" />
+    <Content Include="Theme\images\slides\p4.jpg" />
+    <Content Include="Theme\images\slides\p5.jpg" />
+    <Content Include="Theme\images\slides\p6.jpg" />
+    <Content Include="Theme\images\slides\p7.jpg" />
+    <Content Include="Theme\images\slides\p8.jpg" />
+    <Content Include="Theme\images\slides\p9.jpg" />
+    <Content Include="Theme\images\slides\papaya.png" />
+    <Content Include="Theme\images\slides\plane.png" />
+    <Content Include="Theme\images\slides\revolve1.png" />
+    <Content Include="Theme\images\slides\shadow.png" />
+    <Content Include="Theme\images\slides\showbizpro.png" />
+    <Content Include="Theme\images\slides\slide13.jpg" />
+    <Content Include="Theme\images\slides\slide21.jpg" />
+    <Content Include="Theme\images\slides\slide2_wide1.jpg" />
+    <Content Include="Theme\images\slides\slide31.jpg" />
+    <Content Include="Theme\images\slides\slide3_wide1.jpg" />
+    <Content Include="Theme\images\slides\slide4.jpg" />
+    <Content Include="Theme\images\slides\slide4_wide1.jpg" />
+    <Content Include="Theme\images\slides\slide5.jpg" />
+    <Content Include="Theme\images\slides\slide51.jpg" />
+    <Content Include="Theme\images\slides\slide5_wide.jpg" />
+    <Content Include="Theme\images\slides\sliderrev1.png" />
+    <Content Include="Theme\images\slides\space.jpg" />
+    <Content Include="Theme\images\slides\strawberries.png" />
+    <Content Include="Theme\images\slides\thumb1.jpg" />
+    <Content Include="Theme\images\slides\thumb2.jpg" />
+    <Content Include="Theme\images\slides\thumb3.jpg" />
+    <Content Include="Theme\images\slides\thumb4.jpg" />
+    <Content Include="Theme\images\slides\tomatoes.png" />
+    <Content Include="Theme\images\slides\transparent.png" />
+    <Content Include="Theme\images\slides\versionthree.png" />
+    <Content Include="Theme\images\slides\video.jpg" />
+    <Content Include="Theme\images\slides\videobutton.jpg" />
+    <Content Include="Theme\images\slides\videoshadow.png" />
+    <Content Include="Theme\images\slides\wide1.jpg" />
+    <Content Include="Theme\images\slides\wideimage.jpg" />
+    <Content Include="Theme\images\slides\wideimage2.jpg" />
+    <Content Include="Theme\images\slides\woman.png" />
+    <Content Include="Theme\images\slides\woman11.png" />
+    <Content Include="Theme\images\smallrating-1.png" />
+    <Content Include="Theme\images\smallrating-2.png" />
+    <Content Include="Theme\images\smallrating-3.png" />
+    <Content Include="Theme\images\smallrating-4.png" />
+    <Content Include="Theme\images\smallrating-5.png" />
+    <Content Include="Theme\images\smallthumb-1.jpg" />
+    <Content Include="Theme\images\smallthumb-2.jpg" />
+    <Content Include="Theme\images\smallthumb-3.jpg" />
+    <Content Include="Theme\images\socials.png" />
+    <Content Include="Theme\images\spacer.png" />
+    <Content Include="Theme\images\sprite.png" />
+    <Content Include="Theme\images\surfer-thumb.jpg" />
+    <Content Include="Theme\images\surfer.jpg" />
+    <Content Include="Theme\images\test.jpg" />
+    <Content Include="Theme\images\thumb-africa.jpg" />
+    <Content Include="Theme\images\thumb-dubai.jpg" />
+    <Content Include="Theme\images\thumb-egipt.jpg" />
+    <Content Include="Theme\images\thumb-hawaii.jpg" />
+    <Content Include="Theme\images\thumb-img.jpg" />
+    <Content Include="Theme\images\thumb-machupicchu.jpg" />
+    <Content Include="Theme\images\thumb-santorini.jpg" />
+    <Content Include="Theme\images\thumb.png" />
+    <Content Include="Theme\images\thumbs\regular_thumb1.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb2.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb3.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb4.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb5.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb6.jpg" />
+    <Content Include="Theme\images\thumbs\regular_thumb7.jpg" />
+    <Content Include="Theme\images\thumbs\thumb1.jpg" />
+    <Content Include="Theme\images\thumbs\thumb2.jpg" />
+    <Content Include="Theme\images\thumbs\thumb3.jpg" />
+    <Content Include="Theme\images\thumbs\thumb4.jpg" />
+    <Content Include="Theme\images\thumbs\thumb5.jpg" />
+    <Content Include="Theme\images\thumbs\thumb6.jpg" />
+    <Content Include="Theme\images\tiles\accordionswitch.png" />
+    <Content Include="Theme\images\tiles\bgtile.jpg" />
+    <Content Include="Theme\images\tiles\bullets_boxed.png" />
+    <Content Include="Theme\images\tiles\bullets_round.png" />
+    <Content Include="Theme\images\tiles\bullets_square.png" />
+    <Content Include="Theme\images\tiles\buynow.png" />
+    <Content Include="Theme\images\tiles\check.png" />
+    <Content Include="Theme\images\tiles\dragnotch.png" />
+    <Content Include="Theme\images\tiles\dragsliderbg.png" />
+    <Content Include="Theme\images\tiles\logo.png" />
+    <Content Include="Theme\images\tiles\minishadow.png" />
+    <Content Include="Theme\images\tiles\minishadow2.png" />
+    <Content Include="Theme\images\tiles\minishadow3.png" />
+    <Content Include="Theme\images\tiles\preview1.png" />
+    <Content Include="Theme\images\tiles\preview2.png" />
+    <Content Include="Theme\images\tiles\preview3.png" />
+    <Content Include="Theme\images\tiles\radio.png" />
+    <Content Include="Theme\images\tiles\selectpreview.png" />
+    <Content Include="Theme\images\tiles\shadow3_large.png" />
+    <Content Include="Theme\images\tiles\sliderconfigheadline.png" />
+    <Content Include="Theme\images\tiles\transition_3dch.png" />
+    <Content Include="Theme\images\tiles\transition_3dcv.png" />
+    <Content Include="Theme\images\tiles\transition_bg.png" />
+    <Content Include="Theme\images\tiles\transition_boxes.png" />
+    <Content Include="Theme\images\tiles\transition_cubic.png" />
+    <Content Include="Theme\images\tiles\transition_curtainone.png" />
+    <Content Include="Theme\images\tiles\transition_curtainthree.png" />
+    <Content Include="Theme\images\tiles\transition_curtaintwo.png" />
+    <Content Include="Theme\images\tiles\transition_custom.png" />
+    <Content Include="Theme\images\tiles\transition_fade.png" />
+    <Content Include="Theme\images\tiles\transition_flyin.png" />
+    <Content Include="Theme\images\tiles\transition_mixed.png" />
+    <Content Include="Theme\images\tiles\transition_papercut.png" />
+    <Content Include="Theme\images\tiles\transition_slidedown.png" />
+    <Content Include="Theme\images\tiles\transition_slideleft.png" />
+    <Content Include="Theme\images\tiles\transition_slideright.png" />
+    <Content Include="Theme\images\tiles\transition_slideup.png" />
+    <Content Include="Theme\images\tiles\transition_slotfadehorizontal.png" />
+    <Content Include="Theme\images\tiles\transition_slotfadevertical.png" />
+    <Content Include="Theme\images\tiles\transition_slotslidehorizontal.png" />
+    <Content Include="Theme\images\tiles\transition_slotslidevertical.png" />
+    <Content Include="Theme\images\tiles\transition_slotzoomhorizontal.png" />
+    <Content Include="Theme\images\tiles\transition_slotzoomvertical.png" />
+    <Content Include="Theme\images\tiles\transition_turnoff.png" />
+    <Content Include="Theme\images\tip-arrow.png" />
+    <Content Include="Theme\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Theme\images\ui-icons_222222_256x240.png" />
+    <Content Include="Theme\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Theme\images\ui-icons_454545_256x240.png" />
+    <Content Include="Theme\images\ui-icons_888888_256x240.png" />
+    <Content Include="Theme\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Theme\images\user-avatar.jpg" />
+    <Content Include="Theme\images\user-rating-0.png" />
+    <Content Include="Theme\images\user-rating-1.png" />
+    <Content Include="Theme\images\user-rating-2.png" />
+    <Content Include="Theme\images\user-rating-3.png" />
+    <Content Include="Theme\images\user-rating-4.png" />
+    <Content Include="Theme\images\user-rating-5.png" />
+    <Content Include="Theme\images\user.png" />
+    <Content Include="Theme\js\affix.js" />
+    <Content Include="Theme\js\alert.js" />
+    <Content Include="Theme\js\button.js" />
+    <Content Include="Theme\js\carousel.js" />
+    <Content Include="Theme\js\collapse.js" />
+    <Content Include="Theme\js\dropdown.js" />
+    <Content Include="Theme\js\lightbox.js" />
+    <Content Include="Theme\js\modal.js" />
+    <Content Include="Theme\js\popover.js" />
+    <Content Include="Theme\js\scrollspy.js" />
+    <Content Include="Theme\js\tab.js" />
+    <Content Include="Theme\js\tests\index.html" />
+    <Content Include="Theme\js\tests\phantom.js" />
+    <Content Include="Theme\js\tests\server.js" />
+    <Content Include="Theme\js\tests\unit\affix.js" />
+    <Content Include="Theme\js\tests\unit\alert.js" />
+    <Content Include="Theme\js\tests\unit\button.js" />
+    <Content Include="Theme\js\tests\unit\carousel.js" />
+    <Content Include="Theme\js\tests\unit\collapse.js" />
+    <Content Include="Theme\js\tests\unit\dropdown.js" />
+    <Content Include="Theme\js\tests\unit\modal.js" />
+    <Content Include="Theme\js\tests\unit\phantom.js" />
+    <Content Include="Theme\js\tests\unit\popover.js" />
+    <Content Include="Theme\js\tests\unit\scrollspy.js" />
+    <Content Include="Theme\js\tests\unit\tab.js" />
+    <Content Include="Theme\js\tests\unit\tooltip.js" />
+    <Content Include="Theme\js\tests\unit\transition.js" />
+    <Content Include="Theme\js\tests\vendor\jquery.js" />
+    <Content Include="Theme\js\tests\vendor\qunit.css" />
+    <Content Include="Theme\js\tests\vendor\qunit.js" />
+    <Content Include="Theme\js\tooltip.js" />
+    <Content Include="Theme\js\transition.js" />
+    <Content Include="Theme\plugins\animo\animate+animo.css" />
+    <Content Include="Theme\plugins\animo\animo.js" />
+    <Content Include="Theme\plugins\jslider\css\jslider.blue.css" />
+    <Content Include="Theme\plugins\jslider\css\jslider.css" />
+    <Content Include="Theme\plugins\jslider\css\jslider.plastic.css" />
+    <Content Include="Theme\plugins\jslider\css\jslider.round-blue.css" />
+    <Content Include="Theme\plugins\jslider\css\jslider.round.css" />
+    <Content Include="Theme\plugins\jslider\css\jslider.round.plastic.css" />
+    <Content Include="Theme\plugins\jslider\img\jslider.blue.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.plastic.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round-blue.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round.plastic.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round.png" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round_old.png" />
+    <Content Include="Theme\plugins\jslider\js\draggable-0.1.js" />
+    <Content Include="Theme\plugins\jslider\js\jquery.dependClass-0.1.js" />
+    <Content Include="Theme\plugins\jslider\js\jquery.numberformatter-1.2.3.js" />
+    <Content Include="Theme\plugins\jslider\js\jquery.slider - Copy.js" />
+    <Content Include="Theme\plugins\jslider\js\jquery.slider.js" />
+    <Content Include="Theme\plugins\jslider\js\jshashtable-2.1_src.js" />
+    <Content Include="Theme\plugins\jslider\js\tmpl.js" />
+    <Content Include="Theme\rs-plugin\assets\arrowleft.png" />
+    <Content Include="Theme\rs-plugin\assets\arrowright.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_large_left.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_large_right.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_left.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_left2.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_right.png" />
+    <Content Include="Theme\rs-plugin\assets\arrow_right2.png" />
+    <Content Include="Theme\rs-plugin\assets\black50.png" />
+    <Content Include="Theme\rs-plugin\assets\boxed_bgtile.png" />
+    <Content Include="Theme\rs-plugin\assets\bullet - Copy.png" />
+    <Content Include="Theme\rs-plugin\assets\bullet.png" />
+    <Content Include="Theme\rs-plugin\assets\bullets.png" />
+    <Content Include="Theme\rs-plugin\assets\bullets2.png" />
+    <Content Include="Theme\rs-plugin\assets\bullet_boxed.png" />
+    <Content Include="Theme\rs-plugin\assets\coloredbg.png" />
+    <Content Include="Theme\rs-plugin\assets\grain.png" />
+    <Content Include="Theme\rs-plugin\assets\large_left.png" />
+    <Content Include="Theme\rs-plugin\assets\large_left2.png" />
+    <Content Include="Theme\rs-plugin\assets\large_right.png" />
+    <Content Include="Theme\rs-plugin\assets\large_right2.png" />
+    <Content Include="Theme\rs-plugin\assets\left-ico.png" />
+    <Content Include="Theme\rs-plugin\assets\loader.gif" />
+    <Content Include="Theme\rs-plugin\assets\loader2.gif" />
+    <Content Include="Theme\rs-plugin\assets\loader3.gif" />
+    <Content Include="Theme\rs-plugin\assets\navigdots.png" />
+    <Content Include="Theme\rs-plugin\assets\navigdots_bgtile.png" />
+    <Content Include="Theme\rs-plugin\assets\right-ico.png" />
+    <Content Include="Theme\rs-plugin\assets\shadow1.png" />
+    <Content Include="Theme\rs-plugin\assets\shadow2.png" />
+    <Content Include="Theme\rs-plugin\assets\shadow3.png" />
+    <Content Include="Theme\rs-plugin\assets\slider-bg.png" />
+    <Content Include="Theme\rs-plugin\assets\small_left.png" />
+    <Content Include="Theme\rs-plugin\assets\small_left_boxed.png" />
+    <Content Include="Theme\rs-plugin\assets\small_right.png" />
+    <Content Include="Theme\rs-plugin\assets\small_right_boxed.png" />
+    <Content Include="Theme\rs-plugin\assets\timer.png" />
+    <Content Include="Theme\rs-plugin\assets\timerdot.png" />
+    <Content Include="Theme\rs-plugin\assets\transparent.jpg" />
+    <Content Include="Theme\rs-plugin\assets\white50.png" />
+    <Content Include="Theme\rs-plugin\css\settings.css" />
+    <Content Include="Theme\rs-plugin\css\settings2.css" />
+    <Content Include="Theme\rs-plugin\images\decor_inside.png" />
+    <Content Include="Theme\rs-plugin\images\decor_inside_white.png" />
+    <Content Include="Theme\rs-plugin\images\decor_testimonial.png" />
+    <Content Include="Theme\rs-plugin\images\gradient\g30.png" />
+    <Content Include="Theme\rs-plugin\images\gradient\g40.png" />
+    <Content Include="Theme\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Theme\rs-plugin\js\jquery.themepunch.revolution.min_.js" />
+    <Content Include="Theme\rs-plugin\pluginsources\jquery.themepunch.plugins.min.js" />
+    <Content Include="Theme\rs-plugin\pluginsources\jquery.themepunch.revolution.js" />
+    <Content Include="Theme\rs-plugin\videojs\font\vjs.svg" />
+    <Content Include="Theme\rs-plugin\videojs\video-js.min.css" />
+    <Content Include="Theme\rs-plugin\videojs\video-js.png" />
+    <Content Include="Theme\rs-plugin\videojs\video-js.swf" />
+    <Content Include="Theme\rs-plugin\videojs\video.js" />
+    <Content Include="Theme\updates\update1\css\masonry.css" />
+    <Content Include="Theme\updates\update1\css\style01.css" />
+    <Content Include="Theme\updates\update1\img\activities\act01.jpg" />
+    <Content Include="Theme\updates\update1\img\activities\act02.jpg" />
+    <Content Include="Theme\updates\update1\img\activities\act03.jpg" />
+    <Content Include="Theme\updates\update1\img\activities\act04.jpg" />
+    <Content Include="Theme\updates\update1\img\activities\act05.jpg" />
+    <Content Include="Theme\updates\update1\img\activities\act06.jpg" />
+    <Content Include="Theme\updates\update1\img\airfrance.png" />
+    <Content Include="Theme\updates\update1\img\arrival.png" />
+    <Content Include="Theme\updates\update1\img\arrow-btm.png" />
+    <Content Include="Theme\updates\update1\img\arrow-top.png" />
+    <Content Include="Theme\updates\update1\img\arrow.png" />
+    <Content Include="Theme\updates\update1\img\bgflights.png" />
+    <Content Include="Theme\updates\update1\img\car.jpg" />
+    <Content Include="Theme\updates\update1\img\caricon.png" />
+    <Content Include="Theme\updates\update1\img\cars\car01.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car02.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car03.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car04.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car05.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car06.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car07.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car08.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car09.jpg" />
+    <Content Include="Theme\updates\update1\img\cars\car10.jpg" />
+    <Content Include="Theme\updates\update1\img\cruise1.jpg" />
+    <Content Include="Theme\updates\update1\img\cruise1aft.jpg" />
+    <Content Include="Theme\updates\update1\img\cruise1mid.jpg" />
+    <Content Include="Theme\updates\update1\img\cruiseempress.jpg" />
+    <Content Include="Theme\updates\update1\img\cruisemain.jpg" />
+    <Content Include="Theme\updates\update1\img\cruiseriviera.jpg" />
+    <Content Include="Theme\updates\update1\img\cruises\cruise01.jpg" />
+    <Content Include="Theme\updates\update1\img\cruises\cruise02.jpg" />
+    <Content Include="Theme\updates\update1\img\cruises\cruise03.jpg" />
+    <Content Include="Theme\updates\update1\img\cruises\cruise04.jpg" />
+    <Content Include="Theme\updates\update1\img\cruises\cruise05.jpg" />
+    <Content Include="Theme\updates\update1\img\cruiseupper.jpg" />
+    <Content Include="Theme\updates\update1\img\dash.png" />
+    <Content Include="Theme\updates\update1\img\departure.png" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide1.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide2.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide3.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide4.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide5.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\slide6.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide1.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide2.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide3.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide4.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide5.jpg" />
+    <Content Include="Theme\updates\update1\img\details-slider\thumb\slide6.jpg" />
+    <Content Include="Theme\updates\update1\img\emirates.png" />
+    <Content Include="Theme\updates\update1\img\hotelicon.png" />
+    <Content Include="Theme\updates\update1\img\icon-air.png" />
+    <Content Include="Theme\updates\update1\img\icon-gas.png" />
+    <Content Include="Theme\updates\update1\img\icon-gear.png" />
+    <Content Include="Theme\updates\update1\img\items2\item1.jpg" />
+    <Content Include="Theme\updates\update1\img\items2\item2.jpg" />
+    <Content Include="Theme\updates\update1\img\items2\item3.jpg" />
+    <Content Include="Theme\updates\update1\img\items2\item4.jpg" />
+    <Content Include="Theme\updates\update1\img\loading.gif" />
+    <Content Include="Theme\updates\update1\img\logo.png" />
+    <Content Include="Theme\updates\update1\img\logo1.png" />
+    <Content Include="Theme\updates\update1\img\logo2.png" />
+    <Content Include="Theme\updates\update1\img\logo3.png" />
+    <Content Include="Theme\updates\update1\img\logo4.png" />
+    <Content Include="Theme\updates\update1\img\logo5.png" />
+    <Content Include="Theme\updates\update1\img\pic01.jpg" />
+    <Content Include="Theme\updates\update1\img\pic02.jpg" />
+    <Content Include="Theme\updates\update1\img\pic03.jpg" />
+    <Content Include="Theme\updates\update1\img\pic04.jpg" />
+    <Content Include="Theme\updates\update1\img\pic05.jpg" />
+    <Content Include="Theme\updates\update1\img\pic06.jpg" />
+    <Content Include="Theme\updates\update1\img\rooms.jpg" />
+    <Content Include="Theme\updates\update1\img\slider\slide1.jpg" />
+    <Content Include="Theme\updates\update1\img\slider\slide2.jpg" />
+    <Content Include="Theme\updates\update1\img\slider\slide3.jpg" />
+    <Content Include="Theme\updates\update1\img\slider\slide3b.jpg" />
+    <Content Include="Theme\updates\update1\img\slider\slide4.jpg" />
+    <Content Include="Theme\updates\update1\img\stop.png" />
+    <Content Include="Theme\updates\update1\img\tarom.png" />
+    <Content Include="Theme\updates\update1\img\tip-arrow.png" />
+    <Content Include="Theme\updates\update1\img\wizz.png" />
+    <Content Include="Theme\updates\update1\js\initialize-wearesearching.js" />
+    <Content Include="Theme\updates\update1\js\jquery.carouFredSel-wrapper2.js" />
+    <Content Include="Theme\updates\update1\js\js-flights.js" />
+    <Content Include="Theme\updates\update1\js\js-new-homepage.js" />
+    <Content Include="Theme\updates\update1\js\masonry.pkgd.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Service References\EBService\Base.wsdl" />
+    <None Include="Service References\EBService\TrevooWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EBService\TrevooWS9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Theme\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\fonts\fontawesome-webfont.eot" />
+    <Content Include="Theme\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Theme\fonts\fontawesome-webfont.woff" />
+    <Content Include="Theme\fonts\FontAwesome.otf" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\images\.DS_Store" />
+    <Content Include="Theme\images\bigrating.psd" />
+    <Content Include="Theme\images\fav-book-icons.psd" />
+    <Content Include="Theme\images\grid-icon.psd" />
+    <Content Include="Theme\images\hotelpref-ico-green.psd" />
+    <Content Include="Theme\images\hotelpref-ico.psd" />
+    <Content Include="Theme\images\profile-icons.psd" />
+    <Content Include="Theme\images\select.psd" />
+    <Content Include="Theme\images\slides\.DS_Store" />
+    <Content Include="Theme\images\sprite.psd" />
+    <Content Include="Theme\images\user-rating.psd" />
+    <Content Include="Theme\js\.jshintrc" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round-blue.psd" />
+    <Content Include="Theme\plugins\jslider\img\jslider.round.psd" />
+    <Content Include="Theme\rs-plugin\.DS_Store" />
+    <Content Include="Theme\rs-plugin\assets\arrows.psd" />
+    <Content Include="Theme\rs-plugin\assets\arrows2.psd" />
+    <Content Include="Theme\rs-plugin\assets\bullet.psd" />
+    <Content Include="Theme\rs-plugin\assets\bullets.psd" />
+    <Content Include="Theme\rs-plugin\assets\small_arrows.psd" />
+    <Content Include="Theme\rs-plugin\css\.DS_Store" />
+    <Content Include="Theme\rs-plugin\images\.DS_Store" />
+    <Content Include="Theme\rs-plugin\js\.DS_Store" />
+    <Content Include="Theme\rs-plugin\pluginsources\.DS_Store" />
+    <Content Include="Theme\rs-plugin\videojs\.DS_Store" />
+    <Content Include="Theme\rs-plugin\videojs\demo.captions.vtt" />
+    <Content Include="Theme\rs-plugin\videojs\font\vjs.eot" />
+    <Content Include="Theme\rs-plugin\videojs\font\vjs.ttf" />
+    <Content Include="Theme\rs-plugin\videojs\font\vjs.woff" />
+    <Content Include="Theme\updates\update1\img\loading.psd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EBService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58205</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58205/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

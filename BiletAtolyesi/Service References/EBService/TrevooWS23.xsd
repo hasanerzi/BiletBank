@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Transfer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Transfer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfTransferBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferBooking" nillable="true" type="tns:TransferBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferBooking" nillable="true" type="tns:ArrayOfTransferBooking" />
+  <xs:complexType name="TransferBooking">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q1:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingItems" nillable="true" type="tns:ArrayOfTransferBookingItem" />
+          <xs:element minOccurs="0" name="BookingNote" nillable="true" type="tns:BookingNote" />
+          <xs:element minOccurs="0" name="TransferChargeConditions" nillable="true" type="tns:ArrayOfTransferChargeCondition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransferBooking" nillable="true" type="tns:TransferBooking" />
+  <xs:complexType name="ArrayOfTransferBookingItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferBookingItem" nillable="true" type="tns:TransferBookingItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferBookingItem" nillable="true" type="tns:ArrayOfTransferBookingItem" />
+  <xs:complexType name="TransferBookingItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q2:T_ProductItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adult" type="xs:int" />
+          <xs:element minOccurs="0" name="Child" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildAges" nillable="true" type="q3:ArrayOfint" />
+          <xs:element minOccurs="0" name="DropOffLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DropOffLocationId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DropOffLocationType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GeneralInformation" nillable="true" type="tns:ArrayOfTransferInformation" />
+          <xs:element minOccurs="0" name="IsReturn" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MasterProductType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaxPassenger" type="xs:int" />
+          <xs:element minOccurs="0" name="MinPassenger" type="xs:int" />
+          <xs:element minOccurs="0" name="PaxReference" nillable="true" type="q2:ArrayOfT_ReversePaxReference" />
+          <xs:element minOccurs="0" name="PickUpLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PickUpLocationId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PickUpLocationType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Selling_BaseFare" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Selling_BaseFare_Refund" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Selling_Refund_Charge" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Selling_ServiceFee" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Selling_ServiceFee_Refund" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TransferBookingCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferCustomers" nillable="true" type="tns:ArrayOfTransferCustomer" />
+          <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TransferImage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferInformation" nillable="true" type="tns:ArrayOfTransferInformation" />
+          <xs:element minOccurs="0" name="TransferName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferSupplier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransferType" type="tns:TransferType" />
+          <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VehicleName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TransferBookingItem" nillable="true" type="tns:TransferBookingItem" />
+  <xs:complexType name="ArrayOfTransferInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferInformation" nillable="true" type="tns:TransferInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferInformation" nillable="true" type="tns:ArrayOfTransferInformation" />
+  <xs:complexType name="TransferInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InformationDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InformationOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="InformationType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferInformation" nillable="true" type="tns:TransferInformation" />
+  <xs:complexType name="ArrayOfTransferCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferCustomer" nillable="true" type="tns:TransferCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferCustomer" nillable="true" type="tns:ArrayOfTransferCustomer" />
+  <xs:complexType name="TransferCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerGender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerSequenceNo" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerSurname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferCustomer" nillable="true" type="tns:TransferCustomer" />
+  <xs:simpleType name="TransferType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VIP">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransferType" nillable="true" type="tns:TransferType" />
+  <xs:complexType name="BookingNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalFlightArrivalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightDepartureTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalFlightRaceCourse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckInDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckOutDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureAreaId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightArrivalTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightDepartureTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlightRaceCourse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRoundTrip" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoomOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoomType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TicketType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookingNote" nillable="true" type="tns:BookingNote" />
+  <xs:complexType name="ArrayOfTransferChargeCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferChargeCondition" nillable="true" type="tns:TransferChargeCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferChargeCondition" nillable="true" type="tns:ArrayOfTransferChargeCondition" />
+  <xs:complexType name="TransferChargeCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="From" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="To" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferChargeConditionType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferChargeCondition" nillable="true" type="tns:TransferChargeCondition" />
+  <xs:complexType name="TransferSearchRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adult" type="xs:int" />
+      <xs:element minOccurs="0" name="Child" type="xs:int" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildAges" nillable="true" type="q4:ArrayOfint" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRoundTrip" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferType" type="tns:TransferType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferSearchRequest" nillable="true" type="tns:TransferSearchRequest" />
+  <xs:complexType name="TransferSearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartureOptions" nillable="true" type="tns:ArrayOfTransfer" />
+      <xs:element minOccurs="0" name="ReturnOptions" nillable="true" type="tns:ArrayOfTransfer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferSearchResponse" nillable="true" type="tns:TransferSearchResponse" />
+  <xs:complexType name="ArrayOfTransfer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transfer" nillable="true" type="tns:Transfer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransfer" nillable="true" type="tns:ArrayOfTransfer" />
+  <xs:complexType name="Transfer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adult" type="xs:int" />
+      <xs:element minOccurs="0" name="BookingProviderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Child" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ChildAges" nillable="true" type="q5:ArrayOfint" />
+      <xs:element minOccurs="0" name="Commission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DropOffLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeneralInformation" nillable="true" type="tns:ArrayOfTransferInformation" />
+      <xs:element minOccurs="0" name="ImageList" nillable="true" type="tns:ArrayOfTransferImage" />
+      <xs:element minOccurs="0" name="LastSellerCommission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MasterProductType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxPassenger" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumStops" type="xs:int" />
+      <xs:element minOccurs="0" name="MaximumWaitingTime" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPassenger" type="xs:int" />
+      <xs:element minOccurs="0" name="PickUpLocationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickUpLocationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PickupAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProviderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PurchaseId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Supplier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransferId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferInformation" nillable="true" type="tns:ArrayOfTransferInformation" />
+      <xs:element minOccurs="0" name="TransferItemReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferType" type="tns:TransferType" />
+      <xs:element minOccurs="0" name="VehicleId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transfer" nillable="true" type="tns:Transfer" />
+  <xs:complexType name="ArrayOfTransferImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransferImage" nillable="true" type="tns:TransferImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransferImage" nillable="true" type="tns:ArrayOfTransferImage" />
+  <xs:complexType name="TransferImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImageType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransferImage" nillable="true" type="tns:TransferImage" />
+</xs:schema>

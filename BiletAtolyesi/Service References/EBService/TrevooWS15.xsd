@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" />
+  <xs:complexType name="IO_LogOut_Request">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q1:T_OperationRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_LogOut_Request" nillable="true" type="tns:IO_LogOut_Request" />
+  <xs:complexType name="IO_LogOut_Result">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q2:T_OperationResult">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_LogOut_Result" nillable="true" type="tns:IO_LogOut_Result" />
+</xs:schema>

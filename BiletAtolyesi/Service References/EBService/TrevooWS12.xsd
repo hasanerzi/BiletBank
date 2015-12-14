@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance.Entity" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfInsuranceBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InsuranceBooking" nillable="true" type="tns:InsuranceBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsuranceBooking" nillable="true" type="tns:ArrayOfInsuranceBooking" />
+  <xs:complexType name="InsuranceBooking">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q1:T_Product">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Insurance.Entity" minOccurs="0" name="BookingItems" nillable="true" type="q2:ArrayOfInsuranceBookingItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InsuranceBooking" nillable="true" type="tns:InsuranceBooking" />
+  <xs:complexType name="ArrayOfInsurance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Insurance" nillable="true" type="tns:Insurance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsurance" nillable="true" type="tns:ArrayOfInsurance" />
+  <xs:complexType name="Insurance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoverageLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CoverageType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InsuranceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceStartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Plan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PolicyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="TransactionDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Insurance" nillable="true" type="tns:Insurance" />
+</xs:schema>

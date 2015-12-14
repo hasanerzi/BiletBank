@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" />
+  <xs:complexType name="IO_SearchForAgencyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q1:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="agencyCount" type="xs:int" />
+          <xs:element minOccurs="0" name="agencyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="agencyType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="beginDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="countyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dateApplied" type="xs:boolean" />
+          <xs:element minOccurs="0" name="district" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ifUnderAgencyWanted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tursabClassType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SearchForAgencyRequest" nillable="true" type="tns:IO_SearchForAgencyRequest" />
+  <xs:complexType name="IO_SearchForAgencyResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q2:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="agency" nillable="true" type="q3:ArrayOfT_Business" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_SearchForAgencyResult" nillable="true" type="tns:IO_SearchForAgencyResult" />
+  <xs:complexType name="IO_GetAgencyByIdRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q4:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IncludeSubAgencies" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetAgencyByIdRequest" nillable="true" type="tns:IO_GetAgencyByIdRequest" />
+  <xs:complexType name="IO_GetAgencyByIdResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q5:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="agency" nillable="true" type="q6:T_Business" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetAgencyByIdResult" nillable="true" type="tns:IO_GetAgencyByIdResult" />
+  <xs:complexType name="IO_GetDescendantAgencyNamesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q7:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetDescendantAgencyNamesRequest" nillable="true" type="tns:IO_GetDescendantAgencyNamesRequest" />
+  <xs:complexType name="IO_GetDescendantAgencyNamesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q8:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="names" nillable="true" type="tns:ArrayOfBusinessNameForm" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetDescendantAgencyNamesResult" nillable="true" type="tns:IO_GetDescendantAgencyNamesResult" />
+  <xs:complexType name="ArrayOfBusinessNameForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BusinessNameForm" nillable="true" type="tns:BusinessNameForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBusinessNameForm" nillable="true" type="tns:ArrayOfBusinessNameForm" />
+  <xs:complexType name="BusinessNameForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BusinessNameForm" nillable="true" type="tns:BusinessNameForm" />
+  <xs:complexType name="IO_GetUserNamesByAgencyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q9:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUserNamesByAgencyRequest" nillable="true" type="tns:IO_GetUserNamesByAgencyRequest" />
+  <xs:complexType name="IO_GetUserNamesByAgencyResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q10:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="names" nillable="true" type="tns:ArrayOfUserNameForm" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUserNamesByAgencyResult" nillable="true" type="tns:IO_GetUserNamesByAgencyResult" />
+  <xs:complexType name="ArrayOfUserNameForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserNameForm" nillable="true" type="tns:UserNameForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserNameForm" nillable="true" type="tns:ArrayOfUserNameForm" />
+  <xs:complexType name="UserNameForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserNameForm" nillable="true" type="tns:UserNameForm" />
+  <xs:complexType name="IO_GetUsersByAgencyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q11:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+          <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUsersByAgencyRequest" nillable="true" type="tns:IO_GetUsersByAgencyRequest" />
+  <xs:complexType name="IO_GetUsersByAgencyResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q12:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="users" nillable="true" type="q13:ArrayOfT_User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUsersByAgencyResult" nillable="true" type="tns:IO_GetUsersByAgencyResult" />
+  <xs:complexType name="IO_AddNewUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q14:T_OperationRequest">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="user" nillable="true" type="q15:T_User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddNewUserRequest" nillable="true" type="tns:IO_AddNewUserRequest" />
+  <xs:complexType name="IO_AddNewUserResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q16:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IfAdded" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AddNewUserResult" nillable="true" type="tns:IO_AddNewUserResult" />
+  <xs:complexType name="IO_UpdateUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q17:T_OperationRequest">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="user" nillable="true" type="q18:T_User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_UpdateUserRequest" nillable="true" type="tns:IO_UpdateUserRequest" />
+  <xs:complexType name="IO_UpdateUserResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q19:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IfUpdated" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_UpdateUserResult" nillable="true" type="tns:IO_UpdateUserResult" />
+  <xs:complexType name="IO_ApplyForAgencyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q20:T_OperationRequest">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="CreateBusinessForm" nillable="true" type="q21:T_Business" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="CreateUserForm" nillable="true" type="q22:T_User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ApplyForAgencyRequest" nillable="true" type="tns:IO_ApplyForAgencyRequest" />
+  <xs:complexType name="IO_ApplyForAgencyResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q23:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ifCreated" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_ApplyForAgencyResult" nillable="true" type="tns:IO_ApplyForAgencyResult" />
+  <xs:complexType name="IO_GetUserPermissionsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q24:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUserPermissionsRequest" nillable="true" type="tns:IO_GetUserPermissionsRequest" />
+  <xs:complexType name="IO_GetUserPermissionsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q25:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="permissions" nillable="true" type="q26:ArrayOfT_UserPermissions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetUserPermissionsResult" nillable="true" type="tns:IO_GetUserPermissionsResult" />
+  <xs:complexType name="IO_UpdateUserPermissionsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q27:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" minOccurs="0" name="permissions" nillable="true" type="q28:ArrayOfT_UserPermissions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_UpdateUserPermissionsRequest" nillable="true" type="tns:IO_UpdateUserPermissionsRequest" />
+  <xs:complexType name="IO_UpdateUserPermissionsResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q29:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ifUpdated" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_UpdateUserPermissionsResult" nillable="true" type="tns:IO_UpdateUserPermissionsResult" />
+</xs:schema>

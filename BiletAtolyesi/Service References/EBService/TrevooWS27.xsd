@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfT_Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Permission" nillable="true" type="tns:T_Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Permission" nillable="true" type="tns:ArrayOfT_Permission" />
+  <xs:complexType name="T_Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PermissionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionNo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Permission" nillable="true" type="tns:T_Permission" />
+  <xs:complexType name="T_UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IfRootOfBusiness" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_UserInfo" nillable="true" type="tns:T_UserInfo" />
+</xs:schema>

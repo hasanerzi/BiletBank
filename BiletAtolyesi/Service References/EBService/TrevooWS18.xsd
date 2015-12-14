@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication" />
+  <xs:complexType name="T_LoginRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q1:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Form" nillable="true" type="tns:T_LoginForm" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_LoginRequest" nillable="true" type="tns:T_LoginRequest" />
+  <xs:complexType name="T_LoginForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientIP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTestMode" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_LoginForm" nillable="true" type="tns:T_LoginForm" />
+  <xs:complexType name="T_LoginResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q2:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthenticationHeader" nillable="true" type="q2:T_AuthenticationHeader" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication" minOccurs="0" name="Permissions" nillable="true" type="q3:ArrayOfT_Permission" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication" minOccurs="0" name="UserInfo" nillable="true" type="q4:T_UserInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_LoginResult" nillable="true" type="tns:T_LoginResult" />
+</xs:schema>

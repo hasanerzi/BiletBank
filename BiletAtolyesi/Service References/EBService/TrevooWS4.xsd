@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:complexType name="T_OperationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthenticationHeader" nillable="true" type="tns:T_AuthenticationHeader" />
+      <xs:element minOccurs="0" name="ExtraParamList" nillable="true" type="tns:ArrayOfExtendedData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_OperationRequest" nillable="true" type="tns:T_OperationRequest" />
+  <xs:complexType name="T_AuthenticationHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SessionId" type="xs:long" />
+      <xs:element minOccurs="0" name="SessionToken" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_AuthenticationHeader" nillable="true" type="tns:T_AuthenticationHeader" />
+  <xs:complexType name="ArrayOfExtendedData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedData" nillable="true" type="tns:ExtendedData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtendedData" nillable="true" type="tns:ArrayOfExtendedData" />
+  <xs:complexType name="ExtendedData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedData" nillable="true" type="tns:ExtendedData" />
+  <xs:complexType name="T_OperationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FreeData" nillable="true" type="tns:ArrayOfT_FreeData" />
+      <xs:element minOccurs="0" name="HasError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ServiceError" nillable="true" type="tns:T_ServiceError" />
+      <xs:element minOccurs="0" name="TransactionLogs" nillable="true" type="tns:ArrayOfT_Log" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_OperationResult" nillable="true" type="tns:T_OperationResult" />
+  <xs:complexType name="ArrayOfT_FreeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FreeData" nillable="true" type="tns:T_FreeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FreeData" nillable="true" type="tns:ArrayOfT_FreeData" />
+  <xs:complexType name="T_FreeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_FreeData" nillable="true" type="tns:T_FreeData" />
+  <xs:complexType name="T_ServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DebugMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorDefinitionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorInstanceId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceFlags" nillable="true" type="tns:T_ErrorSourceFlags" />
+      <xs:element minOccurs="0" name="TypeFlags" nillable="true" type="tns:T_ErrorTypeFlags" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ServiceError" nillable="true" type="tns:T_ServiceError" />
+  <xs:complexType name="T_ErrorSourceFlags">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsBookingProvider" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDatabase" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPaymentGate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSystem" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ErrorSourceFlags" nillable="true" type="tns:T_ErrorSourceFlags" />
+  <xs:complexType name="T_ErrorTypeFlags">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsAuthenticationError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAuthorizationError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInputFormatError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInputLogicError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInternalLogicError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUnknownError" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_ErrorTypeFlags" nillable="true" type="tns:T_ErrorTypeFlags" />
+  <xs:complexType name="ArrayOfT_Log">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Log" nillable="true" type="tns:T_Log" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Log" nillable="true" type="tns:ArrayOfT_Log" />
+  <xs:complexType name="T_Log">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Log" nillable="true" type="tns:T_Log" />
+  <xs:complexType name="T_ShoppingOperationResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" minOccurs="0" name="ShoppingFile" nillable="true" type="q1:T_ShoppingFile" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_ShoppingOperationResult" nillable="true" type="tns:T_ShoppingOperationResult" />
+</xs:schema>

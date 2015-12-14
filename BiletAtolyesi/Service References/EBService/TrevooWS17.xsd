@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="UpLimitPool">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreatedAgency" type="xs:int" />
+      <xs:element minOccurs="0" name="CreatedUser" type="xs:int" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromBusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="FromPoolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastUpdatedAgency" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastUpdatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUpdatedUser" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="ValidFrom" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidUntil" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpLimitPool" nillable="true" type="tns:UpLimitPool" />
+  <xs:complexType name="ArrayOfUpLimitPool">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpLimitPool" nillable="true" type="tns:UpLimitPool" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpLimitPool" nillable="true" type="tns:ArrayOfUpLimitPool" />
+  <xs:complexType name="ArrayOfUpLimitPoolPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UpLimitPoolPayment" nillable="true" type="tns:UpLimitPoolPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUpLimitPoolPayment" nillable="true" type="tns:ArrayOfUpLimitPoolPayment" />
+  <xs:complexType name="UpLimitPoolPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromBusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="FromUserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PaymentId" type="ser:guid" />
+      <xs:element minOccurs="0" name="PoolAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PoolCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionId" type="xs:long" />
+      <xs:element minOccurs="0" name="ShoppingFileId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ToBusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="UpLimitPoolId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpLimitPoolPayment" nillable="true" type="tns:UpLimitPoolPayment" />
+</xs:schema>

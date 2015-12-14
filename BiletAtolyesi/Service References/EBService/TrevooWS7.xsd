@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" />
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" minOccurs="0" name="request" nillable="true" type="q1:T_LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" minOccurs="0" name="LoginResult" nillable="true" type="q2:T_LoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JsonLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" minOccurs="0" name="request" nillable="true" type="q3:T_LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JsonLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" minOccurs="0" name="JsonLoginResult" nillable="true" type="q4:T_LoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" minOccurs="0" name="request" nillable="true" type="q5:IO_LogOut_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" minOccurs="0" name="LogOutResult" nillable="true" type="q6:IO_LogOut_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JsonLogOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" minOccurs="0" name="request" nillable="true" type="q7:IO_LogOut_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JsonLogOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Auth" minOccurs="0" name="JsonLogOutResult" nillable="true" type="q8:IO_LogOut_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginIsValid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Authentication.IO" minOccurs="0" name="request" nillable="true" type="q9:T_LoginRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginIsValidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginIsValidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CarSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q10:IO_CarSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CarSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="CarSearchResult" nillable="true" type="q11:IO_CarSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CarRentalCond">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q12:IO_CarCondRQ" />
+        <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CarRentalCondResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="CarRentalCondResult" nillable="true" type="q13:IO_CarCondRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarEquipments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="IO_CarEquipRQ" nillable="true" type="q14:IO_CarEquipRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarEquipmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetCarEquipmentsResult" nillable="true" type="q15:IO_CarEquipRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEquipment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q16:IO_CarAddEquipmentRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEquipmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="AddEquipmentResult" nillable="true" type="q17:IO_CarAddEquipmentRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveEquipment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q18:IO_CarRemoveEquipmentRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveEquipmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RemoveEquipmentResult" nillable="true" type="q19:IO_CarRemoveEquipmentRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCarEquipments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q20:IO_SaveCarEquipmentRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCarEquipmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="SaveCarEquipmentsResult" nillable="true" type="q21:IO_SaveCarEquipmentRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AirSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q22:IO_AirSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AirSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="AirSearchResult" nillable="true" type="q23:IO_AirSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAirProviders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q24:IO_AirProviderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAirProvidersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetAirProvidersResult" nillable="true" type="q25:IO_AirProviderResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutingList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q26:IO_GetRoutingListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoutingListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetRoutingListResult" nillable="true" type="q27:IO_GetRoutingListResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAirChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q28:IO_AirChangeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAirChangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetAirChangesResult" nillable="true" type="q29:IO_AirChangeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScheduleChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q30:IO_AirScheduleChangeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScheduleChangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetScheduleChangesResult" nillable="true" type="q31:IO_AirScheduleChangeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExpirationChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q32:IO_AirExpirationChangeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExpirationChangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetExpirationChangesResult" nillable="true" type="q33:IO_AirExpirationChangeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotelSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q34:IO_HotelSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotelSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="HotelSearchResult" nillable="true" type="q35:IO_HotelSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelProviders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q36:IO_HotelProviderRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelProvidersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetHotelProvidersResult" nillable="true" type="q37:IO_HotelProvidersResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q38:IO_AddPaymentProductRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPaymentProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="AddPaymentProductResult" nillable="true" type="q39:IO_AddPaymentProductResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComByPaymentType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q40:IO_GetComByPaymentTypeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComByPaymentTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetComByPaymentTypeResult" nillable="true" type="q41:IO_GetComByPaymentTypeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StaticHotelSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q42:IO_StaticHotelSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StaticHotelSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="StaticHotelSearchResult" nillable="true" type="q43:IO_StaticHotelSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelsProCodeResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q44:IO_GetHotelsProCodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelsProCodeResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetHotelsProCodeResultResult" nillable="true" type="q45:IO_GetHotelsProCodeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDestinations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q46:IO_GetDestinationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDestinationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetDestinationsResult" nillable="true" type="q47:IO_GetDestinationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotelDetailRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q48:IO_HotelDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotelDetailRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="HotelDetailRequestResult" nillable="true" type="q49:IO_HotelDetailResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelSeasonPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q50:IO_HotelSeasonPriceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelSeasonPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetHotelSeasonPriceResult" nillable="true" type="q51:IO_HotelSeasonPriceResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelSeasonAvailability">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q52:IO_HotelSeasonAvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHotelSeasonAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetHotelSeasonAvailabilityResult" nillable="true" type="q53:IO_HotelSeasonAvailabilityResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Allocate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q54:IO_AllocateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllocateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="AllocateResult" nillable="true" type="q55:IO_AllocateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBillingInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q56:IO_UpdateBillingInformationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBillingInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="UpdateBillingInformationResult" nillable="true" type="q57:IO_UpdateBillingInformationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassengers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q58:IO_UpdatePassengersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassengersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="UpdatePassengersResult" nillable="true" type="q59:IO_UpdatePassengersResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePrebooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q60:IO_MakePrebookingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePrebookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="MakePrebookingResult" nillable="true" type="q61:IO_MakePrebookingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q62:IO_RemoveProductRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RemoveProductResult" nillable="true" type="q63:IO_RemoveProductResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeServiceFee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q64:IO_ChangeSCRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeServiceFeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="ChangeServiceFeeResult" nillable="true" type="q65:IO_ChangeSCResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_FromRunningAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q66:IO_MakeRunningAccountPaymentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_FromRunningAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="MakePayment_FromRunningAccountResult" nillable="true" type="q67:IO_MakeRunningAccountPaymentResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_FromCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q68:IO_MakeCreditCardPaymenRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_FromCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="MakePayment_FromCreditCardResult" nillable="true" type="q69:IO_MakeCreditCardPaymentResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_Init3DPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q70:IO_Init3DPayment_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakePayment_Init3DPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="MakePayment_Init3DPaymentResult" nillable="true" type="q71:IO_Init3DPayment_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinalizeShopping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q72:IO_FinalizeShoppingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinalizeShoppingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="FinalizeShoppingResult" nillable="true" type="q73:IO_FinalizeShoppingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStoredBillingInformations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q74:IO_GetStoredBillingInformationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStoredBillingInformationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetStoredBillingInformationsResult" nillable="true" type="q75:IO_GetStoredBillingInformationsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreBillingInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q76:IO_StoreBillingInformationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreBillingInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="StoreBillingInformationResult" nillable="true" type="q77:IO_StoreBillingInformationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBillingInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q78:IO_DeleteBillingInformationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteBillingInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="DeleteBillingInformationResult" nillable="true" type="q79:IO_DeleteBillingInformationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadShoppingFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q80:IO_ReadShoppingFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadShoppingFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="ReadShoppingFileResult" nillable="true" type="q81:IO_ReadShoppingFileResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchShoppingFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q82:IO_SearchShoppingFilesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchShoppingFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="SearchShoppingFilesResult" nillable="true" type="q83:IO_SearchShoppingFilesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShoppingFiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q84:IO_GetShoppingFilesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShoppingFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetShoppingFilesResult" nillable="true" type="q85:IO_GetShoppingFilesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PokeShoppingFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q86:IO_PokeShoppingFile_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PokeShoppingFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="PokeShoppingFileResult" nillable="true" type="q87:IO_PokeShoppingFile_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshShoppingFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q88:IO_RefreshShoppingFile_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshShoppingFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RefreshShoppingFileResult" nillable="true" type="q89:IO_RefreshShoppingFile_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewShoppingFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q90:IO_NewShoppingFile_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewShoppingFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="NewShoppingFileResult" nillable="true" type="q91:IO_NewShoppingFile_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeRefundRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q92:IO_MakeRefundRequest_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MakeRefundRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="MakeRefundRequestResult" nillable="true" type="q93:IO_MakeRefundRequest_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnswerRefundRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q94:IO_AnswerRefundRequest_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnswerRefundRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="AnswerRefundRequestResult" nillable="true" type="q95:IO_AnswerRefundRequest_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallmentOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q96:IO_GetInstallmentOptions_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInstallmentOptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetInstallmentOptionsResult" nillable="true" type="q97:IO_GetInstallmentOptions_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q98:IO_GetRulesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetRulesResult" nillable="true" type="q99:IO_GetRulesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceReady">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceReadyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InvoiceReadyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceWanted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceWantedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InvoiceWantedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ticketNumbers" nillable="true" type="q100:ArrayOfstring" />
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="currencies" nillable="true" type="q101:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q102:IO_TransferSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="TransferSearchResult" nillable="true" type="q103:IO_TransferSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferShoppingFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="TransferBookedItemRQ" nillable="true" type="q104:IO_TransferBookedItemsRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransferShoppingFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetTransferShoppingFileResult" nillable="true" type="q105:IO_TransferBookedItems" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAsPdf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="html" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pdfPath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveAsPdfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveAsPdfResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceReady2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q106:IO_InvoiceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceReady2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InvoiceReady2Result" nillable="true" type="q107:IO_InvoiceReadyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceWanted2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q108:IO_InvoiceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvoiceWanted2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InvoiceWanted2Result" nillable="true" type="q109:IO_InvoiceWantedResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoice2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q110:IO_InvoiceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestInvoice2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RequestInvoice2Result" nillable="true" type="q111:IO_EmptyInvoiceResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoice2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q112:IO_InvoiceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoice2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="CancelInvoice2Result" nillable="true" type="q113:IO_EmptyInvoiceResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertGroupRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q114:IO_InsertGroupRequestRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertGroupRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InsertGroupRequestResult" nillable="true" type="q115:IO_InsertGroupRequestResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgencyGroupRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q116:IO_DummyGroupRequestRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgencyGroupRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetAgencyGroupRequestsResult" nillable="true" type="q117:IO_GetGroupRequestsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinalizeGroupRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q118:IO_FinalizeGroupRequestRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinalizeGroupRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="FinalizeGroupRequestResult" nillable="true" type="q119:IO_DummyGroupRequestResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsuranceSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q120:IO_InsuranceSearchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsuranceSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InsuranceSearchResult" nillable="true" type="q121:IO_InsuranceSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainPromotions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q122:IO_GetMainPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainPromotionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetMainPromotionsResult" nillable="true" type="q123:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q124:IO_GetPromotionProductRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetPromotionProductResult" nillable="true" type="q125:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainPromotionCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q126:IO_GetMainPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMainPromotionCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetMainPromotionCategoriesResult" nillable="true" type="q127:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPromotions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q128:IO_GetPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPromotionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetAllPromotionsResult" nillable="true" type="q129:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q130:IO_GetPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetPromotionCategoriesResult" nillable="true" type="q131:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionSubCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q132:IO_GetPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionSubCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetPromotionSubCategoriesResult" nillable="true" type="q133:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPromotionCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q134:IO_SavePromotionCategoryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPromotionCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InsertPromotionCategoryResult" nillable="true" type="q135:IO_SavePromotionCategoryResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromotionCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q136:IO_SavePromotionCategoryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromotionCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="UpdatePromotionCategoryResult" nillable="true" type="q137:IO_SavePromotionCategoryResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q138:IO_GetPromotionCategoryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetPromotionCategoryResult" nillable="true" type="q139:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPromotionCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q140:IO_SearchPromotionCategoryRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPromotionCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="SearchPromotionCategoriesResult" nillable="true" type="q141:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q142:IO_SearchPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="SearchPromotionResult" nillable="true" type="q143:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategoriesWithProviders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q144:IO_GetPromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPromotionCategoriesWithProvidersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetPromotionCategoriesWithProvidersResult" nillable="true" type="q145:IO_PromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q146:IO_SavePromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="InsertPromotionResult" nillable="true" type="q147:IO_SavePromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromotion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q148:IO_SavePromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePromotionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="UpdatePromotionResult" nillable="true" type="q149:IO_SavePromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBusinessPromotionMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q150:IO_SaveBusinessPromotionMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBusinessPromotionMatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="SaveBusinessPromotionMatchResult" nillable="true" type="q151:IO_SaveBusinessPromotionMatchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinessPromotionMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q152:IO_GetBusinessPromotionMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBusinessPromotionMatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="GetBusinessPromotionMatchResult" nillable="true" type="q153:IO_GetBusinessPromotionMatchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveBusinessPromotionMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q154:IO_SaveBusinessPromotionMatchRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveBusinessPromotionMatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RemoveBusinessPromotionMatchResult" nillable="true" type="q155:IO_SaveBusinessPromotionMatchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePromotionCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q156:IO_RemovePromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePromotionCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RemovePromotionCategoryResult" nillable="true" type="q157:IO_RemovePromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePromotionProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="request" nillable="true" type="q158:IO_RemovePromotionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemovePromotionProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Shopping" minOccurs="0" name="RemovePromotionProductResult" nillable="true" type="q159:IO_RemovePromotionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunningAccountStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q160:IO_GetRunningAccountStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRunningAccountStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="GetRunningAccountStatusResult" nillable="true" type="q161:IO_GetRunningAccountStatusResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPoolAccountsStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q162:IO_GetPoolAccountsStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPoolAccountsStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="GetPoolAccountsStatusResult" nillable="true" type="q163:IO_GetPoolAccountsStatusResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q164:IO_GetAccountBalanceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="GetAccountBalanceResult" nillable="true" type="q165:IO_GetAccountBalanceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpLimitPool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q166:IO_AddUpLimitPoolRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpLimitPoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="AddUpLimitPoolResult" nillable="true" type="q167:IO_AddUpLimitPoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeStatusOfUpLimitPool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q168:IO_ChangeStatusOfUpLimitPoolRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeStatusOfUpLimitPoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="ChangeStatusOfUpLimitPoolResult" nillable="true" type="q169:IO_ChangeStatusOfUpLimitPoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListUpLimitPools">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q170:IO_ListUpLimitPoolsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListUpLimitPoolsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="ListUpLimitPoolsResult" nillable="true" type="q171:IO_ListUpLimitPoolsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListUpLimitPoolPayments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q172:IO_ListUpLimitPoolPaymentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListUpLimitPoolPaymentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="ListUpLimitPoolPaymentsResult" nillable="true" type="q173:IO_ListUpLimitPoolPaymentsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoMoneyTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q174:IO_DoMoneyTransferRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoMoneyTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="DoMoneyTransferResult" nillable="true" type="q175:IO_DoMoneyTransferResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchMoneyFlows">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q176:IO_SearchMoneyFlowsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchMoneyFlowsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="SearchMoneyFlowsResult" nillable="true" type="q177:IO_SearchMoneyFlowsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMoneyToVirtualPool">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q178:IO_AddMoneyToVirtualPoolRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMoneyToVirtualPoolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="AddMoneyToVirtualPoolResult" nillable="true" type="q179:IO_AddMoneyToVirtualPoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCreditLimit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="request" nillable="true" type="q180:IO_SetCreditLimitRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCreditLimitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Accounting" minOccurs="0" name="SetCreditLimitResult" nillable="true" type="q181:IO_SetCreditLimitResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentXRate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="request" nillable="true" type="q182:IO_GetCurrentXRateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrentXRateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="GetCurrentXRateResult" nillable="true" type="q183:IO_GetCurrentXRateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrencyRate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="request" nillable="true" type="q184:IO_GetCurrencyRateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurrencyRateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="GetCurrencyRateResult" nillable="true" type="q185:IO_GetCurrencyRateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AskThyMiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="request" nillable="true" type="q186:IO_AskThyMiles_Request" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AskThyMilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" minOccurs="0" name="AskThyMilesResult" nillable="true" type="q187:IO_AskTHYMiles_Response" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAgency">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q188:IO_SearchForAgencyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAgencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="SearchAgencyResult" nillable="true" type="q189:IO_SearchForAgencyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgencyById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q190:IO_GetAgencyByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAgencyByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="GetAgencyByIdResult" nillable="true" type="q191:IO_GetAgencyByIdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDescendantAgencyNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q192:IO_GetDescendantAgencyNamesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDescendantAgencyNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="GetDescendantAgencyNamesResult" nillable="true" type="q193:IO_GetDescendantAgencyNamesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNamesByAgency">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q194:IO_GetUserNamesByAgencyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserNamesByAgencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="GetUserNamesByAgencyResult" nillable="true" type="q195:IO_GetUserNamesByAgencyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersByAgency">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q196:IO_GetUsersByAgencyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersByAgencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="GetUsersByAgencyResult" nillable="true" type="q197:IO_GetUsersByAgencyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q198:IO_AddNewUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="AddNewUserResult" nillable="true" type="q199:IO_AddNewUserResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q200:IO_UpdateUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q201="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="UpdateUserResult" nillable="true" type="q201:IO_UpdateUserResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyForAgency">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q202:IO_ApplyForAgencyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyForAgencyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="ApplyForAgencyResult" nillable="true" type="q203:IO_ApplyForAgencyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q204:IO_GetUserPermissionsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="GetUserPermissionsResult" nillable="true" type="q205:IO_GetUserPermissionsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="request" nillable="true" type="q206:IO_UpdateUserPermissionsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.AccountsBase" minOccurs="0" name="UpdateUserPermissionsResult" nillable="true" type="q207:IO_UpdateUserPermissionsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

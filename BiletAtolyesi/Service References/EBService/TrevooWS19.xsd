@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Acc2014.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Acc2014.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMoneyFlowSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MoneyFlowSearchResult" nillable="true" type="tns:MoneyFlowSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMoneyFlowSearchResult" nillable="true" type="tns:ArrayOfMoneyFlowSearchResult" />
+  <xs:complexType name="MoneyFlowSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionDateLocal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ActionDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsumerAccountId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ConsumerAccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Credit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Deposit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DevreOdemesi" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FlowId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsDirectDeposit" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPostDeposit" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReceive" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSend" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTurnover" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVirman" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Method" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Payment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Receive" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Remaining" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Return" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Send" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TEntryDateLocal" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TEntryOperator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViaAccountId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ViaAccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViaCredit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ViaCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViaDebt" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Virman" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="XAccountId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="XCredit" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="XCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XDebt" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MoneyFlowSearchResult" nillable="true" type="tns:MoneyFlowSearchResult" />
+</xs:schema>

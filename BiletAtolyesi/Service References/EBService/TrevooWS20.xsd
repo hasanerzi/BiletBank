@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.IO.Info" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd30" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Info" />
+  <xs:complexType name="IO_GetCurrentXRateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q1:T_OperationRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetCurrentXRateRequest" nillable="true" type="tns:IO_GetCurrentXRateRequest" />
+  <xs:complexType name="IO_GetCurrentXRateResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q2:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Info" minOccurs="0" name="Publication" nillable="true" type="q3:T_XRate_Publication" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetCurrentXRateResult" nillable="true" type="tns:IO_GetCurrentXRateResult" />
+  <xs:complexType name="IO_GetCurrencyRateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q4:T_OperationRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetCurrencyRateRequest" nillable="true" type="tns:IO_GetCurrencyRateRequest" />
+  <xs:complexType name="IO_GetCurrencyRateResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q5:T_OperationResult">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Info" minOccurs="0" name="Publications" nillable="true" type="q6:ArrayOfT_XRate_Publication" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_GetCurrencyRateResult" nillable="true" type="tns:IO_GetCurrencyRateResult" />
+  <xs:complexType name="IO_AskThyMiles_Request">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q7:T_OperationRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AirlineCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FFNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProviderNo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AskThyMiles_Request" nillable="true" type="tns:IO_AskThyMiles_Request" />
+  <xs:complexType name="IO_AskTHYMiles_Response">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Base" base="q8:T_OperationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MemberId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MemberName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalMiles" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IO_AskTHYMiles_Response" nillable="true" type="tns:IO_AskTHYMiles_Response" />
+</xs:schema>

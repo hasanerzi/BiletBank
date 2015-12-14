@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3da135f6-2884-489a-a91e-74952e3c67f1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://v4.biletbank.com:8083/TrevooWS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Base.wsdl" MetadataType="Wsdl" ID="f5d36a2c-813b-463a-a20e-6b1e71855fcd" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?wsdl" />
+    <MetadataFile FileName="TrevooWS.xsd" MetadataType="Schema" ID="15271df8-db69-4f3b-8531-9d6cb66156ed" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd11" />
+    <MetadataFile FileName="TrevooWS1.xsd" MetadataType="Schema" ID="0cc1f4b2-944b-446c-b276-06aea0ac321f" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd24" />
+    <MetadataFile FileName="TrevooWS2.xsd" MetadataType="Schema" ID="f4002cdb-4672-420f-aa9d-1b96c271d465" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd25" />
+    <MetadataFile FileName="TrevooWS3.xsd" MetadataType="Schema" ID="43c7f2af-8d1a-4275-b5fa-b3984a11775f" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd6" />
+    <MetadataFile FileName="TrevooWS4.xsd" MetadataType="Schema" ID="5213dec8-e509-4f54-947f-688b7944db30" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd3" />
+    <MetadataFile FileName="TrevooWS5.xsd" MetadataType="Schema" ID="b0505082-a65e-435a-894f-52b8d07dd077" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd12" />
+    <MetadataFile FileName="TrevooWS6.xsd" MetadataType="Schema" ID="07773b9e-70ad-43e3-85e7-7fdbfdd70760" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd13" />
+    <MetadataFile FileName="TrevooWS7.xsd" MetadataType="Schema" ID="0bfa5047-90c4-4fad-94da-a4cb6a2a2ebb" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd0" />
+    <MetadataFile FileName="TrevooWS8.xsd" MetadataType="Schema" ID="c721c23b-baa8-44da-8ef3-7adbfca721fb" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" />
+    <MetadataFile FileName="TrevooWS9.xsd" MetadataType="Schema" ID="4b28d3b8-4228-4aec-becf-af45d85f094a" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" />
+    <MetadataFile FileName="TrevooWS10.xsd" MetadataType="Schema" ID="a01b97ad-54ab-47de-8d48-00b888e3bdce" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd16" />
+    <MetadataFile FileName="TrevooWS11.xsd" MetadataType="Schema" ID="33715045-50f0-4701-bd56-0520bb259a39" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd8" />
+    <MetadataFile FileName="TrevooWS12.xsd" MetadataType="Schema" ID="79c2fdfc-eeb5-4804-8c1e-a28130ca8ff9" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd17" />
+    <MetadataFile FileName="TrevooWS13.xsd" MetadataType="Schema" ID="20f68f3e-4c29-4f6c-ba54-70cb3ebc11ad" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd14" />
+    <MetadataFile FileName="TrevooWS14.xsd" MetadataType="Schema" ID="2201e162-06fe-4c4b-a8fb-f52c094a08ed" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd15" />
+    <MetadataFile FileName="TrevooWS15.xsd" MetadataType="Schema" ID="86075812-8a3c-4eae-ab49-5d5e806a3386" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd5" />
+    <MetadataFile FileName="TrevooWS16.xsd" MetadataType="Schema" ID="5a0592d8-aac7-45dd-8841-9dba03f7a8b8" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd32" />
+    <MetadataFile FileName="TrevooWS17.xsd" MetadataType="Schema" ID="288dff22-1794-4f5e-a89b-90407140f396" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd26" />
+    <MetadataFile FileName="TrevooWS18.xsd" MetadataType="Schema" ID="b6216149-2f85-4c85-954d-2b5a28bc10d9" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd2" />
+    <MetadataFile FileName="TrevooWS19.xsd" MetadataType="Schema" ID="96495749-4cac-43a9-a473-329e8eb9f44e" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd27" />
+    <MetadataFile FileName="TrevooWS20.xsd" MetadataType="Schema" ID="22cc194f-23ce-422e-9bfb-0585aa7bbb59" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd29" />
+    <MetadataFile FileName="TrevooWS21.xsd" MetadataType="Schema" ID="132338da-5504-4161-9725-ec300da7dfe8" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd18" />
+    <MetadataFile FileName="TrevooWS22.xsd" MetadataType="Schema" ID="81d76a6b-4186-4d6c-a28f-d958c2fbc1c7" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd30" />
+    <MetadataFile FileName="TrevooWS23.xsd" MetadataType="Schema" ID="62087698-5fd0-4c97-8622-63e8bdcd195d" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd19" />
+    <MetadataFile FileName="TrevooWS24.xsd" MetadataType="Schema" ID="e6d26ded-c9a7-4fec-b1ae-06eb4af0f45f" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd31" />
+    <MetadataFile FileName="TrevooWS25.xsd" MetadataType="Schema" ID="f810e48d-2574-4b8a-81c6-41b6f2bed050" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd21" />
+    <MetadataFile FileName="TrevooWS26.xsd" MetadataType="Schema" ID="849d0fec-c2d5-43ac-8ff9-473c801c68e2" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd7" />
+    <MetadataFile FileName="TrevooWS27.xsd" MetadataType="Schema" ID="dc0a7c8b-65a6-432c-86a1-cf19d2d5e514" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd4" />
+    <MetadataFile FileName="TrevooWS28.xsd" MetadataType="Schema" ID="bbc1154d-5c09-4145-9311-d9eaf2f979af" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd22" />
+    <MetadataFile FileName="TrevooWS29.xsd" MetadataType="Schema" ID="67f9b525-7985-40de-904e-2c6a25224cee" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd28" />
+    <MetadataFile FileName="TrevooWS30.xsd" MetadataType="Schema" ID="71921197-da43-4578-ad37-c245db7127ad" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd23" />
+    <MetadataFile FileName="TrevooWS31.xsd" MetadataType="Schema" ID="057fdd5e-085b-4892-b87d-bc004c4574b7" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" />
+    <MetadataFile FileName="TrevooWS32.xsd" MetadataType="Schema" ID="e54ea4e2-8c33-4019-83e8-15f2b787129b" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd20" />
+    <MetadataFile FileName="TrevooWS.disco" MetadataType="Disco" ID="3b2b88a2-a2da-4571-b6fa-e73213ca9440" SourceId="1" SourceUrl="http://v4.biletbank.com:8083/TrevooWS.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

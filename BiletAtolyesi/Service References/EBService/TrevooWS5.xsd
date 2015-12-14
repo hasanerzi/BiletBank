@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfA_Flight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="A_Flight" nillable="true" type="tns:A_Flight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfA_Flight" nillable="true" type="tns:ArrayOfA_Flight" />
+  <xs:complexType name="A_Flight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightDuration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightId" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsBookingEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReferenceNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Segments" nillable="true" type="tns:ArrayOfA_FlightSegment" />
+      <xs:element minOccurs="0" name="StopCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_Flight" nillable="true" type="tns:A_Flight" />
+  <xs:complexType name="ArrayOfA_FlightSegment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="A_FlightSegment" nillable="true" type="tns:A_FlightSegment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfA_FlightSegment" nillable="true" type="tns:ArrayOfA_FlightSegment" />
+  <xs:complexType name="A_FlightSegment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalAirport" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalAirportTerminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ArrivalTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="Availability" type="xs:int" />
+      <xs:element minOccurs="0" name="BookingClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cabin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureAirport" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureAirportTerminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="ElectronicTicketing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EquipmentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FareBasis" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FareType" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarketingAirline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingAirline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isTechnicalStop" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_FlightSegment" nillable="true" type="tns:A_FlightSegment" />
+  <xs:complexType name="A_FareInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrandTotal" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Messages" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Paxes" nillable="true" type="tns:ArrayOfA_PaxInformation" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ServiceFeeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalTax" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_FareInformation" nillable="true" type="tns:A_FareInformation" />
+  <xs:complexType name="ArrayOfA_PaxInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="A_PaxInformation" nillable="true" type="tns:A_PaxInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfA_PaxInformation" nillable="true" type="tns:ArrayOfA_PaxInformation" />
+  <xs:complexType name="A_PaxInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LastSellerCommission" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaxCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PaxFare" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaxSubTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaxTax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaxType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductItemId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ServiceFeeType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_PaxInformation" nillable="true" type="tns:A_PaxInformation" />
+</xs:schema>

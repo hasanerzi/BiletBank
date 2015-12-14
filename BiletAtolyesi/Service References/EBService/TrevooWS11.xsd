@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd9" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" />
+  <xs:complexType name="T_AirSearchForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Options" nillable="true" type="tns:T_AirSearch_Options" />
+      <xs:element minOccurs="0" name="PaxItems" nillable="true" type="tns:ArrayOfT_AirSearch_PaxItem" />
+      <xs:element minOccurs="0" name="Segments" nillable="true" type="tns:ArrayOfT_AirSearch_SegmentItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_AirSearchForm" nillable="true" type="tns:T_AirSearchForm" />
+  <xs:complexType name="T_AirSearch_Options">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IfDirectFlightsOnly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IfFlexibleDates" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IfInternalNegotiatedFaresOnly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IfRefundablesOnly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IfThyMiles" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PreferedAirlines" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="SearchTimeoutMilliseconds" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_AirSearch_Options" nillable="true" type="tns:T_AirSearch_Options" />
+  <xs:complexType name="ArrayOfT_AirSearch_PaxItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_AirSearch_PaxItem" nillable="true" type="tns:T_AirSearch_PaxItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_AirSearch_PaxItem" nillable="true" type="tns:ArrayOfT_AirSearch_PaxItem" />
+  <xs:complexType name="T_AirSearch_PaxItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PaxCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaxCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_AirSearch_PaxItem" nillable="true" type="tns:T_AirSearch_PaxItem" />
+  <xs:complexType name="ArrayOfT_AirSearch_SegmentItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_AirSearch_SegmentItem" nillable="true" type="tns:T_AirSearch_SegmentItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_AirSearch_SegmentItem" nillable="true" type="tns:ArrayOfT_AirSearch_SegmentItem" />
+  <xs:complexType name="T_AirSearch_SegmentItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DepartureDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="tns:T_Airport" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="tns:T_Airport" />
+      <xs:element minOccurs="0" name="SequenceNo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_AirSearch_SegmentItem" nillable="true" type="tns:T_AirSearch_SegmentItem" />
+  <xs:complexType name="T_Airport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCity" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Airport" nillable="true" type="tns:T_Airport" />
+  <xs:complexType name="ArrayOfT_FlightOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FlightOption" nillable="true" type="tns:T_FlightOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FlightOption" nillable="true" type="tns:ArrayOfT_FlightOption" />
+  <xs:complexType name="T_FlightOption">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q2:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingProvider" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BookingProviderId" type="xs:int" />
+          <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsEticket" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNoSeatsAvailable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsReservable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OptionFlag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaxFareItems" nillable="true" type="tns:ArrayOfT_PaxFareItem" />
+          <xs:element minOccurs="0" name="SegmentAvailabilities" nillable="true" type="tns:ArrayOfT_SegmentAvailability" />
+          <xs:element minOccurs="0" name="Segments" nillable="true" type="tns:ArrayOfT_Segment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FlightOption" nillable="true" type="tns:T_FlightOption" />
+  <xs:complexType name="ArrayOfT_PaxFareItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PaxFareItem" nillable="true" type="tns:T_PaxFareItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PaxFareItem" nillable="true" type="tns:ArrayOfT_PaxFareItem" />
+  <xs:complexType name="T_PaxFareItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q3:T_ProductItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FreeBaggageAllowance" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaxCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaxSequence" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_PaxFareItem" nillable="true" type="tns:T_PaxFareItem" />
+  <xs:complexType name="ArrayOfT_SegmentAvailability">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SegmentAvailability" nillable="true" type="tns:T_SegmentAvailability" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_SegmentAvailability" nillable="true" type="tns:ArrayOfT_SegmentAvailability" />
+  <xs:complexType name="T_SegmentAvailability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableSeats" type="xs:int" />
+      <xs:element minOccurs="0" name="BookingClassCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPromo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SegmentSequenceNo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_SegmentAvailability" nillable="true" type="tns:T_SegmentAvailability" />
+  <xs:complexType name="ArrayOfT_Segment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Segment" nillable="true" type="tns:T_Segment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Segment" nillable="true" type="tns:ArrayOfT_Segment" />
+  <xs:complexType name="T_Segment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ArrivalTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="BookingClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureDay" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="DestinationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FareBasis" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FareType" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarketingAirline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OD_DestinationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OD_OriginCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatingAirline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SequenceNo" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Segment" nillable="true" type="tns:T_Segment" />
+  <xs:complexType name="ArrayOfT_MatrixCell">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_MatrixCell" nillable="true" type="tns:T_MatrixCell" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_MatrixCell" nillable="true" type="tns:ArrayOfT_MatrixCell" />
+  <xs:complexType name="T_MatrixCell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoxId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CellPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Column" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ReturnProductId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_MatrixCell" nillable="true" type="tns:T_MatrixCell" />
+  <xs:complexType name="ArrayOfT_RecommendationBox">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_RecommendationBox" nillable="true" type="tns:T_RecommendationBox" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_RecommendationBox" nillable="true" type="tns:ArrayOfT_RecommendationBox" />
+  <xs:complexType name="T_RecommendationBox">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q5:T_Product">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" minOccurs="0" name="DepartureFlights" nillable="true" type="q6:ArrayOfA_Flight" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" minOccurs="0" name="FareInfo" nillable="true" type="q7:A_FareInformation" />
+          <xs:element minOccurs="0" name="IsEticket" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsReservable" type="xs:boolean" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" minOccurs="0" name="OtherFlights" nillable="true" type="q8:ArrayOfA_Flight" />
+          <xs:element minOccurs="0" name="RecommendationId" type="xs:int" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Air.Amadeus" minOccurs="0" name="ReturnFlights" nillable="true" type="q9:ArrayOfA_Flight" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_RecommendationBox" nillable="true" type="tns:T_RecommendationBox" />
+  <xs:complexType name="ArrayOfT_AirBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_AirBooking" nillable="true" type="tns:T_AirBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_AirBooking" nillable="true" type="tns:ArrayOfT_AirBooking" />
+  <xs:complexType name="T_AirBooking">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q10:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BookingItems" nillable="true" type="tns:ArrayOfT_AirBookingItem" />
+          <xs:element minOccurs="0" name="CanBeReserved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Segments" nillable="true" type="tns:ArrayOfT_Segment" />
+          <xs:element minOccurs="0" name="VQ" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YR" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_AirBooking" nillable="true" type="tns:T_AirBooking" />
+  <xs:complexType name="ArrayOfT_AirBookingItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_AirBookingItem" nillable="true" type="tns:T_AirBookingItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_AirBookingItem" nillable="true" type="tns:ArrayOfT_AirBookingItem" />
+  <xs:complexType name="T_AirBookingItem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q11:T_ProductItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Baggage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ETicketLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoiceLink" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaxReference" nillable="true" type="q11:T_ReversePaxReference" />
+          <xs:element minOccurs="0" name="TicketNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VQ" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YR" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_AirBookingItem" nillable="true" type="tns:T_AirBookingItem" />
+</xs:schema>

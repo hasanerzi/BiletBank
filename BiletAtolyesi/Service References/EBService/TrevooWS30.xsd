@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.Sale.Entity.Group" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.Sale.Entity.Group" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfT_GroupRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_GroupRequest" nillable="true" type="tns:T_GroupRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_GroupRequest" nillable="true" type="tns:ArrayOfT_GroupRequest" />
+  <xs:complexType name="T_GroupRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdultCount" type="xs:int" />
+      <xs:element minOccurs="0" name="AdultFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AssignedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChildCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ChildFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureFlight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Explanation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlightType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupPNR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="InfantCount" type="xs:int" />
+      <xs:element minOccurs="0" name="InfantFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Institute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastModifiedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkedRequest" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LockedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MilitaryCount" type="xs:int" />
+      <xs:element minOccurs="0" name="MilitaryFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OtherFlight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Passengers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Requester" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequesterExplanation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequesterId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReservationExpiresAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReturnFlight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Route" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeniorCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SeniorFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentCount" type="xs:int" />
+      <xs:element minOccurs="0" name="StudentFare" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TicketNumbers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalFare" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_GroupRequest" nillable="true" type="tns:T_GroupRequest" />
+</xs:schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Car" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Car" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Trevoo.Car.Entities.WS" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" />
+  <xs:complexType name="ArrayOfT_CarBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_CarBooking" nillable="true" type="tns:T_CarBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_CarBooking" nillable="true" type="tns:ArrayOfT_CarBooking" />
+  <xs:complexType name="T_CarBooking">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Shopping" base="q1:T_Product">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaxReferenceId" type="ser:guid" />
+          <xs:element minOccurs="0" name="ProductItemId" type="ser:guid" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.Car.Entities.WS" minOccurs="0" name="Vehicle" nillable="true" type="q2:T_Vehicle" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_CarBooking" nillable="true" type="tns:T_CarBooking" />
+</xs:schema>

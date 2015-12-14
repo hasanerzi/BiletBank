@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/LocalTools.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/LocalTools.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfExpirationChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExpirationChange" nillable="true" type="tns:ExpirationChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExpirationChange" nillable="true" type="tns:ArrayOfExpirationChange" />
+  <xs:complexType name="ExpirationChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="Cancelled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Confirmed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConfirmedUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateUpdatedOnDb" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DateUpdatedOnPnr" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DbUpdateError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailSent" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailSentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MobilePhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PnrUpdateError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProviderData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="RecId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReservationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReservationExpiresAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReservationExpiresAtUpdated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RetrieveDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ShoppingFileId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="SmsDelivered" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SmsDeliveryDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SmsError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsMessageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsSent" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SmsSentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Ticketed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TryCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExpirationChange" nillable="true" type="tns:ExpirationChange" />
+  <xs:complexType name="ArrayOfScheduleChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScheduleChange" nillable="true" type="tns:ScheduleChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScheduleChange" nillable="true" type="tns:ArrayOfScheduleChange" />
+  <xs:complexType name="ScheduleChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailSent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EmailSentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsDateUpdatedOnTrevoo" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MobilePhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProductId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProviderId" type="xs:int" />
+      <xs:element minOccurs="0" name="RecId" type="xs:long" />
+      <xs:element minOccurs="0" name="RetrieveDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SegmentIndex" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" type="xs:long" />
+      <xs:element minOccurs="0" name="ShoppingFileId" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="SmsError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsMessageId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SmsSent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SmsSentDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransactionId" type="xs:long" />
+      <xs:element minOccurs="0" name="TrevooUpdateError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TryCount" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleChange" nillable="true" type="tns:ScheduleChange" />
+</xs:schema>

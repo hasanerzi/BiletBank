@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts.Entities" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" />
+  <xs:import schemaLocation="http://v4.biletbank.com:8083/TrevooWS.svc?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" />
+  <xs:complexType name="ArrayOfT_Business">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_Business" nillable="true" type="tns:T_Business" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_Business" nillable="true" type="tns:ArrayOfT_Business" />
+  <xs:complexType name="T_Business">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivityAreas" nillable="true" type="tns:ActivityAreasForm" />
+      <xs:element minOccurs="0" name="AgencyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Approved_TransactionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BillingForm" nillable="true" type="tns:Business_BillingInfoForm" />
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactForm" nillable="true" type="tns:Business_ContactForm" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounts.Entities" minOccurs="0" name="CreditLimit" nillable="true" type="q1:T_CreditLimit" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastTransactionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Level" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LocationForm" nillable="true" type="tns:Business_LocationForm" />
+      <xs:element minOccurs="0" name="ManagerContactForm" nillable="true" type="tns:Business_ManagerContactForm" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Trevoo.WS.Entities.Accounting" minOccurs="0" name="PoolAccounts" nillable="true" type="q2:ArrayOfT_PoolAccount" />
+      <xs:element minOccurs="0" name="StoppedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SubAgencies" nillable="true" type="tns:ArrayOfT_Business" />
+      <xs:element minOccurs="0" name="TursabForm" nillable="true" type="tns:Business_TursabForm" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Trevoo.Accounting.Entity" minOccurs="0" name="UpLimitPools" nillable="true" type="q3:ArrayOfUpLimitPool" />
+      <xs:element minOccurs="0" name="UpperBusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ifActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ifApproved" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ifForbidden" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_Business" nillable="true" type="tns:T_Business" />
+  <xs:complexType name="ActivityAreasForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FlightSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HotelSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OtherSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RentACarSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TourSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TransferSeller" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VacationSeller" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActivityAreasForm" nillable="true" type="tns:ActivityAreasForm" />
+  <xs:complexType name="Business_BillingInfoForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxOffice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Business_BillingInfoForm" nillable="true" type="tns:Business_BillingInfoForm" />
+  <xs:complexType name="Business_ContactForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Business_ContactForm" nillable="true" type="tns:Business_ContactForm" />
+  <xs:complexType name="Business_LocationForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HowToGetThere" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Neighborhoods" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Business_LocationForm" nillable="true" type="tns:Business_LocationForm" />
+  <xs:complexType name="Business_ManagerContactForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Business_ManagerContactForm" nillable="true" type="tns:Business_ManagerContactForm" />
+  <xs:complexType name="Business_TursabForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IfTursabMember" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Tursab_AgencyClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tursab_AgencyCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Business_TursabForm" nillable="true" type="tns:Business_TursabForm" />
+  <xs:complexType name="ArrayOfT_User">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_User" nillable="true" type="tns:T_User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_User" nillable="true" type="tns:ArrayOfT_User" />
+  <xs:complexType name="T_User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusinessId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IfActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ifRoot" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_User" nillable="true" type="tns:T_User" />
+  <xs:complexType name="ArrayOfT_UserPermissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_UserPermissions" nillable="true" type="tns:T_UserPermissions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_UserPermissions" nillable="true" type="tns:ArrayOfT_UserPermissions" />
+  <xs:complexType name="T_UserPermissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IfActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PermissionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_UserPermissions" nillable="true" type="tns:T_UserPermissions" />
+</xs:schema>
