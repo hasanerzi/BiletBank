@@ -11,9 +11,6 @@ namespace BiletAtolyesi.Controllers
     {
         public ActionResult Index()
         {
-
-            var ebc = new EBService.I_AuthenticationClient();
-
             return View();
         }
 

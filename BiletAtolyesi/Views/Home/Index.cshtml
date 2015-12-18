@@ -151,88 +151,59 @@
 
 
 
-<div class="container mt-130 z-index100">
+<div class="container mt-200 z-index100">
     <div class="row">
         <div class="col-md-12">
-            <div class="bs-example bs-example-tabs cstyle04">
+            <div class="cstyle04">
 
-                <ul class="nav nav-tabs" id="myTab">
-                    <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#air2"><span class="flight"></span><span class="hidetext">Air</span>&nbsp;</a></li>
+                <ul class="nav nav-tabs">
+                    <li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#air"><span class="flight"></span><span class="hidetext">UÇAK BİLETİ</span>&nbsp;</a></li>
                 </ul>
 
-                <div class="tab-content2" id="myTabContent">
-                    <div id="air2" class="tab-pane fade active in">
+                <div class="tab-content2" id="QuickSearch">
+                    <div id="air" class="tab-pane fade active in">
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="w50percent">
                                 <div class="wh90percent textleft">
-                                    <span class="opensans size13"><b>Flying from</b></span>
-                                    <input type="text" class="form-control" placeholder="City or airport">
+                                    <span class="opensans size18"><b>Nereden ?</b></span>
+                                    <input type="text" class="form-control departureIcon" placeholder="Şehir veya Havalanı adı">
                                 </div>
                             </div>
 
                             <div class="w50percentlast">
                                 <div class="wh90percent textleft right">
-                                    <span class="opensans size13"><b>To</b></span>
-                                    <input type="text" class="form-control" placeholder="City or airport">
+                                    <span class="opensans size18"><b> Nereye ? </b></span>
+                                    <input type="text" class="form-control arrivalIcon" placeholder="Şehir veya Havalanı adı">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="w50percent">
                                 <div class="wh90percent textleft">
-                                    <span class="opensans size13"><b>Departing</b></span>
-                                    <input type="text" class="form-control mySelectCalendar" id="datepicker3" placeholder="mm/dd/yyyy" />
+                                    <span class="opensans size18"><b>Gidiş Tarihi</b></span>
+                                    <input type="text" class="form-control inputCalendar" id="datepicker3" placeholder="mm/dd/yyyy" />
                                 </div>
                             </div>
 
                             <div class="w50percentlast">
                                 <div class="wh90percent textleft right">
-                                    <span class="opensans size13"><b>Returning</b></span>
-                                    <input type="text" class="form-control mySelectCalendar" id="datepicker4" placeholder="mm/dd/yyyy" />
+                                    <span class="opensans size18"><b>Dönüş Tarihi</b></span>
+                                    <input type="text" class="form-control inputCalendar" id="datepicker4" placeholder="mm/dd/yyyy" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <div class="room1">
-                                <div class="w50percent">
-                                    <div class="wh90percent textleft">
-                                        <span class="opensans size13"><b>Adult</b></span>
-                                        <select class="form-control mySelectBoxClass">
-                                            <option>1</option>
-                                            <option selected>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="w50percentlast">
-                                    <div class="wh90percent textleft right">
-                                        <span class="opensans size13"><b>Child</b></span>
-                                        <select class="form-control mySelectBoxClass">
-                                            <option>0</option>
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--End of 1st tab -->
                 </div>
 
                 <div class="searchbg2">
-                    <div class="left ca01"><a href="#">Advanced +</a></div>
+                    @*<div class="left ca01"><a href="#">Advanced +</a></div>*@
                     <form action="#">
-                        <button type="submit" class="btn-search right mr30">Search</button>
+                        <button type="submit" class="btn-search right mr30">Uygun Uçuşları Bul</button>
                     </form>
                 </div>
 

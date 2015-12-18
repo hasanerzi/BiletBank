@@ -875,7 +875,7 @@ color:#fff;
 #myTab > li > a > span.hidetext{display:none;}
 #myTab2 > li > a > span.hidetext{display:none;}
 @media (min-width: 992px) {
-.tab-content2{background:#ffffff; padding:30px 15px 30px 15px; height:193px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
+.tab-content2{background:#ffffff; padding:20px 15px 30px 15px; height:193px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
 #myTab > li > a > span.hidetext{display:inline-block;}
 #myTab2 > li > a > span.hidetext{display:inline-block;}
 }
@@ -883,8 +883,16 @@ color:#fff;
 
 
 
+#QuickSearch .form-control{border-color: rgba(1, 147, 222,.4); padding: 20px 10px; }
+#QuickSearch .form-control:focus{ border-color: #0193de; }
+#QuickSearch span.opensans{ line-height: 45px; }
+
+
 
 /*SPRITE IMAGES FOR TABS*/
+.nav-tabs > li{ background: none;border: none; }
+
+.nav-tabs > li > a{ padding: 18px 30px; box-shadow: 5px -1px 1px rgba(0, 0, 0, 0.1); }
 .nav-tabs > li.active > a span.flight {width:14px;height:18px; display:block; float:left; background:url('../../images/sprite.png')  0 0;}
 .nav-tabs > li.active > a:hover span.flight {width:14px;height:18px; display:block; float:left; background:url('../../images/sprite.png')  0 0;}
 .nav-tabs > li > a span.flight {width:14px;height:18px; display:block; float:left; background:url('../../images/sprite.png')  0 0; -webkit-transition:.2s;-moz-transition:.2s;transition:.2s}
@@ -971,7 +979,7 @@ color:#fff;
 #flighthotelcar2{height:203px; overflow-x: hidden;}
 
 @media (min-width: 992px) {
-#air2{height:71px; overflow-x: hidden;}
+#air2{height:90px; overflow-x: hidden;}
 #hotel2{height:71px; overflow-x: hidden;}
 #car2{height:71px; overflow-x: hidden;}
 #vacations2{height:71px; overflow-x: hidden;}
@@ -1494,13 +1502,26 @@ border-radius: 2px;
 
 
 
-.mySelectCalendar {
-background:url('../../images/calendar.png') #fff no-repeat right;
-background-position:98% 1px;
+
+
+.departureIcon {
+    background:url('../../updates/update1/img/departure.png') #fff no-repeat right;
+    background-position:2% 10px;
+    text-indent: 25px;
 }
-.mySelectCalendar2 {
+.arrivalIcon{
+    background:url('../../updates/update1/img/arrival.png') #fff no-repeat right;
+    background-position:2% 10px;
+    text-indent: 25px;
+}
+.inputCalendar {
+background:url('../../images/calendar.png') #fff no-repeat right;
+background-position:97% 5px;
+}
+
+.inputCalendar2 {
 background:url('../../images/calendar2.png') #fff no-repeat right;
-background-position:98% 1px;
+background-position:97% 5px;
 }
 
 
