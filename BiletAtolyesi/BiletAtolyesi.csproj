@@ -479,6 +479,7 @@
     <Content Include="Theme\assets\ico\apple-touch-icon-57-precomposed.png" />
     <Content Include="Theme\assets\ico\apple-touch-icon-72-precomposed.png" />
     <Content Include="Theme\assets\ico\favicon.png" />
+    <Content Include="Theme\assets\js\angular.min.js" />
     <Content Include="Theme\assets\js\application.js" />
     <Content Include="Theme\assets\js\counter.js" />
     <Content Include="Theme\assets\js\customizer.js" />
@@ -928,6 +929,7 @@
     <Content Include="Theme\images\user.png" />
     <Content Include="Theme\js\affix.js" />
     <Content Include="Theme\js\alert.js" />
+    <Content Include="Theme\js\angular.min.js" />
     <Content Include="Theme\js\button.js" />
     <Content Include="Theme\js\carousel.js" />
     <Content Include="Theme\js\collapse.js" />
