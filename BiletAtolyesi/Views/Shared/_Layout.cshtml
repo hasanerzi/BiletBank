@@ -153,9 +153,8 @@
     <!-- WRAP -->
     <div class="wrap cstyle03">
 
+
         @RenderBody()
-
-
 
 
         <!-- FOOTER -->
@@ -163,13 +162,13 @@
             <div class="container">
                 <footer>
                     <div class="footer">
-                        <a href="#" class="social1"><img src="/Theme/images/icon-facebook.png" alt=""/></a>
+                        <a href="#" class="social1"><img src="/Theme/images/icon-facebook.png" alt="" /></a>
                         <a href="#" class="social2"><img src="/Theme/images/icon-twitter.png" alt="" /></a>
                         <a href="#" class="social3"><img src="/Theme/images/icon-gplus.png" alt="" /></a>
                         <a href="#" class="social4"><img src="/Theme/images/icon-youtube.png" alt="" /></a>
-                        <br/><br/>
+                        <br /><br />
                         Copyright &copy; 2013 <a href="#">Travel Agency</a> All rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
-                        <br/><br/>
+                        <br /><br />
                         <a href="#top" id="gotop2" class="gotop"><img src="/Theme/images/spacer.png" alt="" /></a>
                     </div>
                 </footer>
@@ -177,10 +176,14 @@
         </div>
 
 
+
     </div>
 
+    <script type="text/javascript" src="/bower_components/requirejs/require.js" data-main="/App/scripts/bootstrap.min"></script>
 
-@Scripts.Render("~/bundles/scripts")
+
+    @Scripts.Render("~/bundles/scripts")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

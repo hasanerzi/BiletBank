@@ -14,8 +14,7 @@ namespace BiletAtolyesi
 
  
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Theme/assets/js/angular.min.js",
-                        "~/Theme/assets/js/jquery.v2.0.3.js"
+                         "~/Theme/assets/js/jquery.v2.0.3.js"
                         ));
 
 
