@@ -162,14 +162,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BusinessLayer\BiletBankClient.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\Airports.cs" />
+    <Compile Include="DAL\BILETBANK1.Designer.cs" />
     <Compile Include="DAL\BILETBANK2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BILETBANK.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Entity\Airport.cs" />
+    <Compile Include="DAL\Entity\Passenger.cs" />
     <Compile Include="DAL\MssqlDbAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +189,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="WebApi\BiletBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\lib\core\jquery-1.11.2.min.js" />

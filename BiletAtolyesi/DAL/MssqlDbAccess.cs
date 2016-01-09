@@ -15,7 +15,6 @@ namespace ProtectionConnLib_4.DataAccessModel
             {
                 return System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             }
-            set;
         }
         private volatile SqlConnection _conn = null;
         private readonly object _lock = new object();

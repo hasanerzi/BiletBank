@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BILETBANKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BILETBANKModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="BILETBANKModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="BILETBANKModel.Store.__MigrationHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AspNetRoles" EntityType="BILETBANKModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
@@ -165,7 +165,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BILETBANKModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -175,6 +176,7 @@
           <EntitySet Name="AspNetUserClaims" EntityType="BILETBANKModel.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="BILETBANKModel.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="BILETBANKModel.AspNetUsers" />
+          <EntitySet Name="Location" EntityType="BILETBANKModel.Location" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="BILETBANKModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -187,7 +189,6 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="Location" EntityType="BILETBANKModel.Location" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -248,6 +249,24 @@
           <NavigationProperty Name="AspNetUserLogins" Relationship="BILETBANKModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="BILETBANKModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AirportCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AirportName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CountryName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="LocalizedCountryName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="CityCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CityName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="LocalizedCityName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="StateCode" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StateName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="IfActive" Type="Int32" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="BILETBANKModel.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -280,24 +299,6 @@
           <End Role="AspNetRoles" Type="BILETBANKModel.AspNetRoles" Multiplicity="*" />
           <End Role="AspNetUsers" Type="BILETBANKModel.AspNetUsers" Multiplicity="*" />
         </Association>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="AirportCode" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="AirportName" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CountryCode" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CountryName" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="LocalizedCountryName" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CityCode" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="CityName" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="LocalizedCityName" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="StateCode" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="StateName" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Rating" />
-          <Property Type="Int32" Name="IfActive" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -359,6 +360,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="BILETBANKModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+                <ScalarProperty Name="AirportName" ColumnName="AirportName" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="LocalizedCountryName" ColumnName="LocalizedCountryName" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="LocalizedCityName" ColumnName="LocalizedCityName" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="IfActive" ColumnName="IfActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="BILETBANKModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetRoles">
               <ScalarProperty Name="Id" ColumnName="RoleId" />
@@ -367,25 +387,6 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Location">
-            <EntityTypeMapping TypeName="BILETBANKModel.Location">
-              <MappingFragment StoreEntitySet="Location">
-                <ScalarProperty Name="IfActive" ColumnName="IfActive" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="StateName" ColumnName="StateName" />
-                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
-                <ScalarProperty Name="LocalizedCityName" ColumnName="LocalizedCityName" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
-                <ScalarProperty Name="LocalizedCountryName" ColumnName="LocalizedCountryName" />
-                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
-                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
-                <ScalarProperty Name="AirportName" ColumnName="AirportName" />
-                <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
