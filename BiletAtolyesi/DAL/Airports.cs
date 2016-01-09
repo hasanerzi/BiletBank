@@ -13,7 +13,7 @@ namespace BiletBankCLClient.DAL
         /// Map from <airport-code/city-code> to <airport>
         /// </summary>
         private Dictionary<string, Entity.Airport> airports;
-        BILETBANKEntities dbcontext = new BILETBANKEntities();
+        BILETBANKDbEntities dbcontext = new BILETBANKDbEntities();
 
         public Airports()
         {

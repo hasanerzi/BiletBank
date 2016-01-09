@@ -11,7 +11,7 @@ namespace BiletAtolyesi.WebApi
 {
     public class BiletBank : ApiController
     {
-        BILETBANKEntities dbcontext = new BILETBANKEntities();
+        BILETBANKDbEntities dbcontext = new BILETBANKDbEntities();
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
