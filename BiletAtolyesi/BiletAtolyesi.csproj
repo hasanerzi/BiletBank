@@ -42,8 +42,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -163,6 +165,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\BILETBANK2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BILETBANK.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MssqlDbAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -301,6 +309,13 @@
     </Content>
     <Content Include="App\scripts\routes.min.js.map">
       <DependentUpon>routes.min.js</DependentUpon>
+    </Content>
+    <EntityDeploy Include="DAL\BILETBANK.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BILETBANK2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\BILETBANK.edmx.diagram">
+      <DependentUpon>BILETBANK.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -1433,6 +1448,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\EBService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
