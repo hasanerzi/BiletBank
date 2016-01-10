@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using BiletAtolyesi;
+
 namespace BiletBankCLClient
 {
     public class BiletBankClient
@@ -63,7 +63,7 @@ namespace BiletBankCLClient
         public BiletAtolyesi.EBService.T_FlightOption[] FlightOptions { get; set; }
         public BiletAtolyesi.EBService.T_FlightOption[] DepartureFlightOptions { get; set; }
         public BiletAtolyesi.EBService.T_FlightOption[] ReturnFlightOptions { get; set; }
-        
+
         /// <summary>
         /// AirSearch method fills this field to use in Allocate method
         /// </summary>
@@ -85,7 +85,7 @@ namespace BiletBankCLClient
         public BiletBankClient(string dataFolder, TextWriter writer)
         {
             this.writer = writer;
-            airports = new DAL.Airports();
+            airports = new DAL.Airports(Path.Combine(dataFolder, "Airports.csv"));
         }
 
         #endregion
@@ -301,7 +301,7 @@ namespace BiletBankCLClient
         /// <param name="departureIsCity">Specifies whether departure point is city</param>
         /// <param name="arrivalIsCity">Specifies whether arrival point is city</param>
         public void AirSearch(
-            string departure, string arrival, 
+            string departure, string arrival,
             string flightType, int[] paxCounts,
             DateTime departureDate, DateTime? returnDate = null,
             bool departureIsCity = false, bool arrivalIsCity = false)
@@ -532,7 +532,7 @@ namespace BiletBankCLClient
             string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9,7:0.00} {10}",
                 index.ToString().PadLeft(3, ' '), first.MarketingAirline, first.OD_OriginCode,
                 first.OD_DestinationCode, first.DepartureDay, first.DepartureTime, last.ArrivalTime,
-                first.FlightNumber.PadRight(8, ' '), (first.BookingClass ?? "").PadRight(2, ' '), 
+                first.FlightNumber.PadRight(8, ' '), (first.BookingClass ?? "").PadRight(2, ' '),
                 flightOption.TotalFare, flightOption.Currency);
             writer.WriteLine(line);
         }
@@ -554,7 +554,7 @@ namespace BiletBankCLClient
                 string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9}",
                     index, segment.MarketingAirline, segment.OriginCode, segment.DestinationCode,
                     segment.DepartureDay, segment.DepartureTime, segment.ArrivalTime,
-                    segment.FlightNumber.PadRight(8, ' '), (segment.BookingClass ?? "").PadRight(2, ' '), 
+                    segment.FlightNumber.PadRight(8, ' '), (segment.BookingClass ?? "").PadRight(2, ' '),
                     segmentAvail.AvailableSeats);
                 writer.WriteLine(line);
             }
@@ -628,7 +628,7 @@ namespace BiletBankCLClient
                 string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9:00}",
                     index, segment.MarketingAirline, segment.DepartureAirport, segment.ArrivalAirport,
                     segment.DepartureDate, segment.DepartureTime, segment.ArrivalTime,
-                    segment.FlightNumber.PadRight(8, ' '), segment.BookingClass.PadRight(2, ' '), 
+                    segment.FlightNumber.PadRight(8, ' '), segment.BookingClass.PadRight(2, ' '),
                     segment.Availability);
                 writer.WriteLine(line);
             }
@@ -699,7 +699,7 @@ namespace BiletBankCLClient
         }
 
         private BiletAtolyesi.EBService.IO_AllocateRequest CreateAllocateRequest(
-            BiletAtolyesi.EBService.T_FlightOption departureFlight, 
+            BiletAtolyesi.EBService.T_FlightOption departureFlight,
             BiletAtolyesi.EBService.T_FlightOption returnFlight,
             decimal serviceCharge)
         {
@@ -808,8 +808,8 @@ namespace BiletBankCLClient
         }
 
         private BiletAtolyesi.EBService.IO_AllocateRequest CreateAllocateRequest(
-            BiletAtolyesi.EBService.T_RecommendationBox recommendation, 
-            BiletAtolyesi.EBService.A_Flight departureFlight, 
+            BiletAtolyesi.EBService.T_RecommendationBox recommendation,
+            BiletAtolyesi.EBService.A_Flight departureFlight,
             BiletAtolyesi.EBService.A_Flight returnFlight,
             decimal serviceCharge)
         {
@@ -885,7 +885,7 @@ namespace BiletBankCLClient
         {
             BiletAtolyesi.EBService.I_ShoppingClient client = new BiletAtolyesi.EBService.I_ShoppingClient();
 
-            BiletAtolyesi.EBService.IO_UpdatePassengersRequest updatePassengersRequest = 
+            BiletAtolyesi.EBService.IO_UpdatePassengersRequest updatePassengersRequest =
                 CreateUpdatePassengersRequest(passengers);
             BiletAtolyesi.EBService.IO_UpdatePassengersResult updatePassengersResult = null;
 
@@ -1038,7 +1038,7 @@ namespace BiletBankCLClient
         /// <returns>true if trip is RT, otherwise false</returns>
         public bool IsSearchRoundTrip()
         {
-            if ((DepartureFlightOptions != null && DepartureFlightOptions.Length > 0) 
+            if ((DepartureFlightOptions != null && DepartureFlightOptions.Length > 0)
                 && (ReturnFlightOptions == null || ReturnFlightOptions.Length == 0))
             {
                 return true;

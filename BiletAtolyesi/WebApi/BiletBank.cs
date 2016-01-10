@@ -1,4 +1,4 @@
-﻿using BiletAtolyesi.DAL;
+﻿
 using BiletBankCLClient.DAL;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,6 @@ namespace BiletAtolyesi.WebApi
 {
     public class BiletBank : ApiController
     {
-        BILETBANKDbEntities dbcontext = new BILETBANKDbEntities();
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
@@ -30,7 +29,7 @@ namespace BiletAtolyesi.WebApi
             Airports airport;
            try
             {
-                airport = new Airports();
+                airport = new Airports("App_data");
 
             }
             catch (Exception ex)
