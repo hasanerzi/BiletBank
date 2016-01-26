@@ -41,7 +41,7 @@ namespace BiletAtolyesi.WebApi
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-           var response = Request.CreateResponse(HttpStatusCode.Created, airports.airports.Take(100));
+           var response = Request.CreateResponse(HttpStatusCode.Created, airports);
 
             return response;
         }
