@@ -82,10 +82,10 @@ namespace BiletBankCLClient
         /// <summary>
         ///  Default constructor
         /// </summary>
-        public BiletBankClient(string dataFolder)
+        public BiletBankClient(string paths)
         {
             this.writer = Console.Out;
-            airports = new DAL.Airports(Path.Combine(dataFolder, "Airports.csv"));
+            airports = new DAL.Airports(paths);
         }
 
         #endregion

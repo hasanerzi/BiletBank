@@ -8,14 +8,15 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace BiletAtolyesi.WebApi
 {
     public class BiletBankController : ApiController
     {
-
-        BiletBankClient client = new BiletBankClient(@"C:\Data");
+        public string DataFolder = "App_Data";
+        BiletBankClient client = new BiletBankClient(HttpContext.Current.Server.MapPath("~\\App_Data\\Airports.csv"));
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
@@ -34,7 +35,7 @@ namespace BiletAtolyesi.WebApi
             Airports airport;
            try
             {
-                airport = new Airports(@"C:\Data");
+                airport = new Airports(HttpContext.Current.Server.MapPath("~\\App_Data\\Airports.csv"));
 
             }
             catch (Exception ex)
@@ -42,7 +43,7 @@ namespace BiletAtolyesi.WebApi
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-           var response = Request.CreateResponse(HttpStatusCode.Created, airport);
+           var response = Request.CreateResponse(HttpStatusCode.Created, airport.airports);
 
             return response;
         }

@@ -12,7 +12,7 @@ namespace BiletBankCLClient.DAL
         /// <summary>
         /// Map from <airport-code/city-code> to <airport>
         /// </summary>
-        private Dictionary<string, Entity.Airport> airports;
+        public Dictionary<string, Entity.Airport> airports;
 
         public Airports(string fileName)
         {
