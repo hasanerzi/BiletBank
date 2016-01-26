@@ -15,7 +15,7 @@ namespace BiletAtolyesi.WebApi
     public class BiletBankController : ApiController
     {
 
-        BiletBankClient client = new BiletBankClient("App_Data");
+        BiletBankClient client = new BiletBankClient(@"C:\Data");
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
@@ -34,7 +34,7 @@ namespace BiletAtolyesi.WebApi
             Airports airport;
            try
             {
-                airport = new Airports("App_data");
+                airport = new Airports(@"C:\Data");
 
             }
             catch (Exception ex)
