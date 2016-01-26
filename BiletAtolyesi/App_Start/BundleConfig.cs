@@ -43,7 +43,9 @@ namespace BiletAtolyesi
                       "~/Theme/assets/css/font-awesome-ie7.css",
                       "~/Theme/css/fullscreen.css",
                       "~/Theme/rs-plugin/css/settings.css",
-                      "~/Theme/assets/css/jquery-ui.css"
+                      "~/Theme/assets/css/jquery-ui.css",
+                      "~/bower_components/angucomplete/angucomplete.css",
+                      "~/bower_components/angucomplete-alt/angucomplete-alt.css"
                       ));
         }
     }

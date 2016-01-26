@@ -1,17 +1,21 @@
-﻿define(['app'], function (app) {
+﻿define(['app', 'directives/forms'], function (app) {
     app.controller('HomeController',
 	[
 		'$rootScope',
 		'$scope',
 		'$http',
 		'$route',
-		function ($rootScope, $scope, $http, $route) {
+        'API_URL',
+		function ($rootScope, $scope, $http, $route, API_URL) {
 
 		    console.log("HomeController is running...");
 
-
-
-
+		    $scope.people = $http({
+		        method: 'POST',
+		        url: API_URL + '/GetAirports',
+		    }).success(function(res) {
+		        console.log(res);
+		    });
 
 
 		    //JQuery Functions

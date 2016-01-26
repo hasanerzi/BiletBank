@@ -61,7 +61,7 @@
 
             }
         ])
-        .constant('API_URL', 'http://api.pirbet.info/');
+        .constant('API_URL', '/api/BiletBank/');
 
 
     app.run(function ($rootScope) {

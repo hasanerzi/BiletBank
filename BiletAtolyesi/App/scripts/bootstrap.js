@@ -51,7 +51,7 @@ require.config({
 		'angular-loading-bar'						: ['angular'],
 		'angular-timer'						        : ['angular'],
 		'angular-bindonce'							: ['angular']
-
+ 
 	}
 
 });
@@ -61,7 +61,7 @@ require
 	[
 		'app',
 		'controllers/MainController'
-	],
+ 	],
 	function (app) {
 		angular.bootstrap(document, ['BiletApp']);
 	}

@@ -193,229 +193,227 @@ define(['app'], function (app) {
 	});
 
 
-	app.directive("dropdown", function ($rootScope) {
-		return {
-			restrict: "E",
-			template: '<div class="dropdown-container" ng-class="{ show: listVisible }"><div class="dropdown-display" ng-click="show();" ng-class="{ clicked: listVisible }"><span ng-if="!isPlaceholder">{{display}}</span><span class="placeholder" ng-if="isPlaceholder">{{placeholder}}lt;/span><i class="fa fa-angle-down"></i></div><div class="dropdown-list"><div><div bindonce ng-repeat="item in list" ng-click="select(item)" ng-class="{ selected: isSelected(item) }"><span>{{property !== undefined ? item[property] : item}}</span><i class="fa fa-check"></i></div></div></div></div>',
-			scope: {
-				placeholder: "@",
-				list: "=",
-				selected: "=",
-				property: "@"
-			},
-			link: function (scope) {
-				scope.listVisible = false;
-				scope.isPlaceholder = true;
+    /**
+ * Angucomplete
+ * Autocomplete directive for AngularJS
+ * By Daryl Rowland
+ */
 
-				scope.select = function (item) {
-					scope.isPlaceholder = false;
-					scope.selected = item;
-				};
+	app.directive('angucomplete', function ($parse, $http) {
+            return {
+                restrict: 'EA',
+                scope: {
+                    "id": "@id",
+                    "placeholder": "@placeholder",
+                    "selectedObject": "=selectedobject",
+                    "url": "@url",
+                    "titleField": "@titlefield",
+                    "descriptionField": "@descriptionfield",
+                    "imageField": "@imagefield",
+                    "inputClass": "@inputclass",
+                    "userPause": "@pause",
+                    "localData": "=localdata",
+                    "searchFields": "@searchfields",
+                    "minLengthUser": "@minlength"
+                },
+                template: '<div class="angucomplete-holder"><input id="{{id}}_value" ng-model="searchStr" type="text" placeholder="{{placeholder}}" class="{{inputClass}}" ng-keyup="keyPressed($event)"/><div id="{{id}}_dropdown" class="angucomplete-dropdown" ng-if="showDropdown"><div class="angucomplete-searching" ng-show="searching">Searching...</div><div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)">No results found</div><div class="angucomplete-row" ng-repeat="result in results" ng-click="selectResult(result)" ng-mouseover="hoverRow()" ng-class="{\'angucomplete-selected-row\': $index == currentIndex}"><div ng-if="result.image && result.image != \'\'" class="angucomplete-image-holder"><img ng-src="{{result.image}}" class="angucomplete-image"/></div><div>{{result.title}}</div><div ng-if="result.description && result.description != \'\'" class="angucomplete-description">{{result.description}}</div></div></div></div>',
+                controller: function ($scope) {
+                    $scope.lastFoundWord = null;
+                    $scope.currentIndex = null;
+                    $scope.justChanged = false;
+                    $scope.searchTimer = null;
+                    $scope.searching = false;
+                    $scope.pause = 500;
+                    $scope.minLength = 3;
 
-				scope.isSelected = function (item) {
-					return item[scope.property] === scope.selected[scope.property];
-				};
+                    if ($scope.minLengthUser && $scope.minLengthUser != "") {
+                        $scope.minLength = $scope.minLengthUser;
+                    }
 
-				scope.show = function () {
-					scope.listVisible = true;
-				};
+                    if ($scope.userPause) {
+                        $scope.pause = $scope.userPause;
+                    }
 
-				$rootScope.$on("documentClicked", function (inner, target) {
-					console.log($(target[0]).is(".dropdown-display.clicked") || $(target[0]).parents(".dropdown-display.clicked").length > 0);
-					if (!$(target[0]).is(".dropdown-display.clicked") && !$(target[0]).parents(".dropdown-display.clicked").length > 0)
-						scope.$apply(function () {
-							scope.listVisible = false;
-						});
-				});
+                    $scope.processResults = function (responseData) {
+                        if (responseData && responseData.length > 0) {
+                            $scope.results = [];
 
-				scope.$watch("selected", function (value) {
-					scope.isPlaceholder = scope.selected[scope.property] === undefined;
-					scope.display = scope.selected[scope.property];
-				});
-			}
-		}
-	});
+                            var titleFields = [];
+                            if ($scope.titleField && $scope.titleField != "") {
+                                titleFields = $scope.titleField.split(",");
+                            }
 
+                            for (var i = 0; i < responseData.length; i++) {
+                                // Get title variables
+                                var titleCode = "";
 
-	app.directive('bsDropdown', function ($compile) {
-		return {
-			restrict: 'E',
-			scope: {
-				items: '=dropdownData',
-				doSelect: '&selectVal',
-				selectedItem: '=preselectedItem',
-				defaultText: '@'
-			},
-			link: function (scope, element, attrs) {
-				var html = '';
-				switch (attrs.menuType) {
-					case "button":
-						html += '<div class="btn-group"><button class="btn button-label btn-info">Action</button><button class="btn btn-info dropdown-toggle" data-toggle="dropdown"> <span class="m-d-arrow"></span></button>';
-						break;
-					default:
-						html += '<div class="dropdown"><a class="dropdown-toggle" role="button" data-toggle="dropdown"  href="javascript:;"> <span class="default text">' + ((typeof scope.defaultText != 'undefined') ? scope.defaultText : 'Seçiniz') + '</span> <span class="m-d-arrow"></span></a>';
-						break;
-				}
-				html += '<ul class="dropdown-menu"><li bindonce ng-repeat="item in items"><a tabindex="-1" data-ng-click="selectVal(item)">{{item.name}}</a></li></ul></div>';
-				element.append($compile(html)(scope));
-				for (var i = 0; i < scope.items.length; i++) {
-					if (scope.items[i].id === scope.selectedItem) {
-						scope.bSelectedItem = scope.items[i];
-						break;
-					}
-				}
-				scope.selectVal = function (item) {
-					if (typeof item == 'undefined')
-						return false;
+                                for (var t = 0; t < titleFields.length; t++) {
+                                    if (t > 0) {
+                                        titleCode = titleCode + " + ' ' + ";
+                                    }
+                                    titleCode = titleCode + "responseData[i]." + titleFields[t];
+                                }
 
-					switch (attrs.menuType) {
-						case "button":
-							$('button.button-label', element).html(item.name);
-							break;
-						default:
-							$('a.dropdown-toggle', element).html('<span class="name">' + item.name + '</span> <span class="m-d-arrow"></span>');
-							break;
-					}
-					scope.doSelect({
-						selectedVal: item.id
-					});
-				};
-				scope.selectVal(scope.bSelectedItem);
-			}
-		};
-	});
+                                // Figure out description
+                                var description = "";
+
+                                if ($scope.descriptionField && $scope.descriptionField != "") {
+                                    eval("description = responseData[i]." + $scope.descriptionField);
+                                }
+
+                                // Figure out image
+                                var image = "";
+
+                                if ($scope.imageField && $scope.imageField != "") {
+                                    eval("image = responseData[i]." + $scope.imageField);
+                                }
+
+                                var resultRow = {
+                                    title: eval(titleCode),
+                                    description: description,
+                                    image: image,
+                                    originalObject: responseData[i]
+                                }
+
+                                $scope.results[$scope.results.length] = resultRow;
+                            }
 
 
+                        } else {
+                            $scope.results = [];
+                        }
+                    }
 
-	app.directive('slideable', function () {
-		return {
-			restrict: 'C',
-			compile: function (element, attr) {
-				// wrap tag
-				var contents = element.html();
-				element.html('<div class="slideable_content" style="margin:0 !important; padding:0 !important" >' + contents + '</div>');
+                    $scope.searchTimerComplete = function (str) {
+                        // Begin the search
 
-				return function postLink(scope, element, attrs) {
-					// default properties
-					attrs.duration = (!attrs.duration) ? '1s' : attrs.duration;
-					attrs.easing = (!attrs.easing) ? 'ease-in-out' : attrs.easing;
-					element.css({
-						'overflow': 'hidden',
-						'height': '0px',
-						'transitionProperty': 'height',
-						'transitionDuration': attrs.duration,
-						'transitionTimingFunction': attrs.easing
-					});
-				};
-			}
-		};
-	})
-	.directive('slideToggle', function () {
-		return {
-			restrict: 'A',
-			link: function (scope, element, attrs) {
-				var target, content;
+                        if (str.length >= $scope.minLength) {
+                            if ($scope.localData) {
+                                var searchFields = $scope.searchFields.split(",");
 
-				attrs.expanded = false;
+                                var matches = [];
 
-				element.bind('click', function () {
-					if (!target) target = document.querySelector(attrs.slideToggle);
-					if (!content) content = target.querySelector('.slideable_content');
+                                for (var i = 0; i < $scope.localData.length; i++) {
+                                    var match = false;
 
-					if (!attrs.expanded) {
-						content.style.border = '1px solid rgba(0,0,0,0)';
-						var y = content.clientHeight;
-						content.style.border = 0;
-						target.style.height = y + 'px';
-					} else {
-						target.style.height = '0px';
-					}
-					attrs.expanded = !attrs.expanded;
-				});
-			}
-		}
-	});
+                                    for (var s = 0; s < searchFields.length; s++) {
+                                        var evalStr = 'match = match || ($scope.localData[i].' + searchFields[s] + '.toLowerCase().indexOf("' + str.toLowerCase() + '") >= 0)';
+                                        eval(evalStr);
+                                    }
+
+                                    if (match) {
+                                        matches[matches.length] = $scope.localData[i];
+                                    }
+                                }
+
+                                $scope.searching = false;
+                                $scope.processResults(matches);
+                                $scope.$apply();
 
 
+                            } else {
+                                $http.get($scope.url + str, {}).
+                                success(function (responseData, status, headers, config) {
+                                    $scope.searching = false;
+                                    $scope.processResults(responseData);
+                                }).
+                                error(function (data, status, headers, config) {
+                                    console.log("error");
+                                });
+                            }
+                        }
 
-	app.directive('phoneInput', function($filter, $browser) {
-		return {
-			require: 'ngModel',
-			link: function($scope, $element, $attrs, ngModelCtrl) {
-				var listener = function() {
-					var value = $element.val().replace(/[^0-9]/g, '');
-					$element.val($filter('tel')(value, false));
-				};
+                    }
 
-				// This runs when we update the text field
-				ngModelCtrl.$parsers.push(function(viewValue) {
-					return viewValue.replace(/[^0-9]/g, '').slice(0,10);
-				});
+                    $scope.hoverRow = function (index) {
+                        $scope.currentIndex = index;
+                    }
 
-				// This runs when the model gets updated on the scope directly and keeps our view in sync
-				ngModelCtrl.$render = function() {
-					$element.val($filter('tel')(ngModelCtrl.$viewValue, false));
-				};
+                    $scope.keyPressed = function (event) {
+                        if (!(event.which == 38 || event.which == 40 || event.which == 13)) {
+                            if (!$scope.searchStr || $scope.searchStr == "") {
+                                $scope.showDropdown = false;
+                            } else {
 
-				$element.bind('change', listener);
-				$element.bind('keydown', function(event) {
-					var key = event.keyCode;
-					// If the keys include the CTRL, SHIFT, ALT, or META keys, or the arrow keys, do nothing.
-					// This lets us support copy and paste too
-					if (key == 91 || (15 < key && key < 19) || (37 <= key && key <= 40)){
-						return;
-					}
-					$browser.defer(listener); // Have to do this or changes don't get picked up properly
-				});
+                                if ($scope.searchStr.length >= $scope.minLength) {
+                                    $scope.showDropdown = true;
+                                    $scope.currentIndex = -1;
+                                    $scope.results = [];
 
-				$element.bind('paste cut', function() {
-					$browser.defer(listener);
-				});
-			}
+                                    if ($scope.searchTimer) {
+                                        clearTimeout($scope.searchTimer);
+                                    }
 
-		};
-	});
-	app.filter('tel', function () {
-		return function (tel) {
-			console.log(tel);
-			if (!tel) { return ''; }
+                                    $scope.searching = true;
 
-			var value = tel.toString().trim().replace(/^\+/, '');
+                                    $scope.searchTimer = setTimeout(function () {
+                                        $scope.searchTimerComplete($scope.searchStr);
+                                    }, $scope.pause);
+                                }
 
-			if (value.match(/[^0-9]/)) {
-				return tel;
-			}
 
-			var country, city, number;
+                            }
 
-			switch (value.length) {
-				case 1:
-				case 2:
-				case 3:
-					city = value;
-					break;
+                        } else {
+                            event.preventDefault();
+                        }
+                    }
 
-				default:
-					city = value.slice(0, 3);
-					number = value.slice(3);
-			}
+                    $scope.selectResult = function (result) {
+                        $scope.searchStr = result.title;
+                        $scope.selectedObject = result;
+                        $scope.showDropdown = false;
+                        $scope.results = [];
+                        //$scope.$apply();
+                    }
+                },
 
-			if(number){
-				if(number.length>3){
-					number = number.slice(0, 3) + '-' + number.slice(3,7);
-				}
-				else{
-					number = number;
-				}
+                link: function ($scope, elem, attrs, ctrl) {
 
-				return ("(" + city + ") " + number).trim();
-			}
-			else{
-				return "(" + city;
-			}
+                    elem.bind("keyup", function (event) {
+                        if (event.which === 40) {
+                            if (($scope.currentIndex + 1) < $scope.results.length) {
+                                $scope.currentIndex++;
+                                $scope.$apply();
+                                event.preventDefault;
+                                event.stopPropagation();
+                            }
 
-		};
-	});
+                            $scope.$apply();
+                        } else if (event.which == 38) {
+                            if ($scope.currentIndex >= 1) {
+                                $scope.currentIndex--;
+                                $scope.$apply();
+                                event.preventDefault;
+                                event.stopPropagation();
+                            }
 
+                        } else if (event.which == 13) {
+                            if ($scope.currentIndex >= 0 && $scope.currentIndex < $scope.results.length) {
+                                $scope.selectResult($scope.results[$scope.currentIndex]);
+                                $scope.$apply();
+                                event.preventDefault;
+                                event.stopPropagation();
+                            } else {
+                                $scope.results = [];
+                                $scope.$apply();
+                                event.preventDefault;
+                                event.stopPropagation();
+                            }
+
+                        } else if (event.which == 27) {
+                            $scope.results = [];
+                            $scope.showDropdown = false;
+                            $scope.$apply();
+                        } else if (event.which == 8) {
+                            $scope.selectedObject = null;
+                            $scope.$apply();
+                        }
+                    });
+
+
+                }
+            };
+        });
 
 });
