@@ -46,7 +46,7 @@ namespace BiletBankCLClient.DAL
             //    airport.StateName = item.StateName;
             //    airports[airport.AirportCode] = airport;
             //}
-            using (var reader = new StreamReader(File.OpenRead(fileName)))
+            using (var reader = new StreamReader(File.OpenRead(fileName), false, Encoding.UTF8))
             {
                 while (!reader.EndOfStream)
                 {
