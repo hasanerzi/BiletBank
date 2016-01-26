@@ -44,6 +44,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -53,6 +57,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -162,18 +174,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BusinessLayer\BiletBankClient.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\Airports.cs" />
-    <Compile Include="DAL\BILETBANK1.Designer.cs" />
-    <Compile Include="DAL\BILETBANK2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BILETBANK.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Entity\Airport.cs" />
+    <Compile Include="DAL\Entity\ApiModel.cs" />
     <Compile Include="DAL\Entity\Passenger.cs" />
     <Compile Include="DAL\MssqlDbAccess.cs" />
     <Compile Include="Global.asax.cs">
@@ -189,7 +197,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="WebApi\BiletBank.cs" />
+    <Compile Include="WebApi\BiletBankController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\lib\core\jquery-1.11.2.min.js" />
@@ -283,7 +291,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="BiletBankCLClient.rar" />
     <Content Include="App\lib\core\XSockets.latest.min.js.map" />
     <Content Include="App\lib\jquery\plugins\rs-plugin\.DS_Store" />
     <Content Include="App\lib\jquery\plugins\rs-plugin\assets\arrows.psd" />
@@ -316,13 +323,7 @@
     <Content Include="App\scripts\routes.min.js.map">
       <DependentUpon>routes.min.js</DependentUpon>
     </Content>
-    <EntityDeploy Include="DAL\BILETBANK.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BILETBANK2.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DAL\BILETBANK.edmx.diagram">
-      <DependentUpon>BILETBANK.edmx</DependentUpon>
-    </Content>
+    <Content Include="App_Data\Airports.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1263,7 +1264,9 @@
     <Content Include="Theme\updates\update1\js\js-flights.js" />
     <Content Include="Theme\updates\update1\js\js-new-homepage.js" />
     <Content Include="Theme\updates\update1\js\masonry.pkgd.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1439,9 +1442,7 @@
     <Content Include="Theme\rs-plugin\videojs\font\vjs.woff" />
     <Content Include="Theme\updates\update1\img\loading.psd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
