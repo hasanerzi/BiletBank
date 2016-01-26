@@ -51,7 +51,7 @@ namespace BiletBankCLClient
         /// <summary>
         /// Instance of DAL.Airports to get CountryCode from AirportCode
         /// </summary>
-        private DAL.Airports airports;
+        public DAL.Airports airports;
 
         #endregion
 

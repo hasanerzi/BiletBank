@@ -15,7 +15,6 @@ namespace BiletAtolyesi.WebApi
 {
     public class BiletBankController : ApiController
     {
-        public string DataFolder = "App_Data";
         BiletBankClient client = new BiletBankClient(HttpContext.Current.Server.MapPath("~\\App_Data\\Airports.csv"));
         // GET api/<controller>
         public IEnumerable<string> Get()
@@ -32,18 +31,17 @@ namespace BiletAtolyesi.WebApi
         // POST api/<controller>
         public HttpResponseMessage GetAirports()
         {
-            Airports airport;
+            Airports airports;
            try
             {
-                airport = new Airports(HttpContext.Current.Server.MapPath("~\\App_Data\\Airports.csv"));
-
+                airports = client.airports;
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-           var response = Request.CreateResponse(HttpStatusCode.Created, airport.airports);
+           var response = Request.CreateResponse(HttpStatusCode.Created, airports);
 
             return response;
         }
