@@ -12,7 +12,7 @@ namespace BiletBankCLClient.DAL
         /// <summary>
         /// Map from <airport-code/city-code> to <airport>
         /// </summary>
-        public Dictionary<string, Entity.Airport> airports;
+        public List<Entity.Airport> airports;
 
         public Airports(string fileName)
         {
@@ -25,7 +25,7 @@ namespace BiletBankCLClient.DAL
         /// <param name="fileName">Path of the CSV file</param>
         public void LoadAirports(string fileName)
         {
-            airports = new Dictionary<string, Entity.Airport>();
+            airports = new List<Entity.Airport>();
 
             //var dbairport=dbcontext.Location.Select(x => x);
 
@@ -71,21 +71,16 @@ namespace BiletBankCLClient.DAL
                     airport.IfActive = ToBoolean(values[11]);
                     if (!airport.IfActive || String.IsNullOrWhiteSpace(airport.AirportCode))
                         continue;
-                    airports[airport.AirportCode] = airport;
+                    airports.Add(airport);
                 }
             }
         }
 
-        public Entity.Airport GetAirport(string code)
-        {
-            if (airports.ContainsKey(code))
-                return airports[code];
-            return null;
-        }
+      
 
         public string GetAirportCountryCode(string code)
         {
-            Entity.Airport airport = GetAirport(code);
+            Entity.Airport airport = new Entity.Airport();// GetAirport(code);
             if (airport == null)
                 return null;
             return airport.CountryCode;
