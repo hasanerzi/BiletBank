@@ -76,11 +76,15 @@ namespace BiletBankCLClient.DAL
             }
         }
 
-      
+        public Entity.Airport GetAirport(string code)
+        {
+            var airport = airports.Where(x => x.AirportCode == code).FirstOrDefault();
+            return airport;           
+        }
 
         public string GetAirportCountryCode(string code)
         {
-            Entity.Airport airport = new Entity.Airport();// GetAirport(code);
+            Entity.Airport airport = GetAirport(code);
             if (airport == null)
                 return null;
             return airport.CountryCode;

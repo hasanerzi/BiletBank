@@ -41,17 +41,30 @@ namespace BiletAtolyesi.WebApi
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-           var response = Request.CreateResponse(HttpStatusCode.Created, airports);
+           var response = Request.CreateResponse(HttpStatusCode.Created, airports.airports.Take(100));
 
             return response;
         }
 
-        public HttpResponseMessage SearchAir(string departure,string arrival,string flightType,int[] paxCounts,DateTime departureDate,DateTime returnDate,bool departureIsCity,bool arrivalIsCity)
+        public HttpResponseMessage SearchAir(string departure, string arrival, string flightType, string paxes, DateTime departureDate, DateTime returnDate, bool departureIsCity = false, bool arrivalIsCity = false)
         {
             AirSearchModel result;
             try
             {
-                result = new AirSearchModel();
+            string[] paxItems = paxes.Split(';');
+            int[] paxCounts = new int[BiletBankClient.PaxTypes.Length];
+            foreach (string paxItem in paxItems)
+            {
+                string[] pair = paxItem.Split('/');
+                string paxType = pair[0];
+                int count = 1;
+                if (pair.Length == 2)
+                    Int32.TryParse(pair[1], out count);
+                int indexOf = Array.IndexOf(BiletBankClient.PaxTypes, paxType);
+                if (indexOf >= 0 && indexOf < paxCounts.Length)
+                    paxCounts[indexOf] = count;
+            }
+              result = new AirSearchModel();
 
                 client.AirSearch(departure, arrival, flightType, paxCounts, departureDate, returnDate, departureIsCity, arrivalIsCity);
                 result.DepartureFlightOptions = client.DepartureFlightOptions;
