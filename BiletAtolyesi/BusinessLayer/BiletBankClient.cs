@@ -82,9 +82,9 @@ namespace BiletBankCLClient
         /// <summary>
         ///  Default constructor
         /// </summary>
-        public BiletBankClient(string dataFolder, TextWriter writer)
+        public BiletBankClient(string dataFolder)
         {
-            this.writer = writer;
+            this.writer = Console.Out;
             airports = new DAL.Airports(Path.Combine(dataFolder, "Airports.csv"));
         }
 
@@ -487,180 +487,7 @@ namespace BiletBankCLClient
 
         #endregion
 
-        #region Step-3 :: Display
-
-        #region Display Flight Options
-
-        public void DisplayFlightOptions(BiletAtolyesi.EBService.T_FlightOption[] flightOptions)
-        {
-            if (flightOptions == null || flightOptions.Length == 0)
-                return;
-            // 
-            BiletAtolyesi.EBService.T_FlightOption[] departures = flightOptions.Where(x => x.OptionFlag == "OW" || x.OptionFlag == "OUT").ToArray();
-            BiletAtolyesi.EBService.T_FlightOption[] returns = flightOptions.Where(x => x.OptionFlag == "IN").ToArray();
-            if (departures.Length == 0 || returns.Length == 0)
-                return;
-            // 
-            writer.WriteLine("Departure Flights [{0}]:", departures.Length);
-            //foreach (BiletAtolyesi.EBService.T_FlightOption flightOption in departures)
-            for (int i = 0; i < departures.Length; ++i)
-            {
-                BiletAtolyesi.EBService.T_FlightOption flightOption = departures[i];
-                DisplayFlightOption(flightOption, i + 1, writer);
-            }
-            writer.WriteLine("------------------------------------");
-            if (returns.Length > 0)
-            {
-                writer.WriteLine();
-                writer.WriteLine("Return Flights [{0}]:", returns.Length);
-                //foreach (BiletAtolyesi.EBService.T_FlightOption flightOption in returns)
-                for (int i = 0; i < returns.Length; ++i)
-                {
-                    BiletAtolyesi.EBService.T_FlightOption flightOption = returns[i];
-                    DisplayFlightOption(flightOption, i + 1, writer);
-                }
-                writer.WriteLine("------------------------------------");
-                writer.WriteLine();
-            }
-        }
-
-        private void DisplayFlightOption(BiletAtolyesi.EBService.T_FlightOption flightOption,
-            int index, TextWriter writer)
-        {
-            BiletAtolyesi.EBService.T_Segment first = flightOption.Segments.First();
-            BiletAtolyesi.EBService.T_Segment last = flightOption.Segments.Last();
-            string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9,7:0.00} {10}",
-                index.ToString().PadLeft(3, ' '), first.MarketingAirline, first.OD_OriginCode,
-                first.OD_DestinationCode, first.DepartureDay, first.DepartureTime, last.ArrivalTime,
-                first.FlightNumber.PadRight(8, ' '), (first.BookingClass ?? "").PadRight(2, ' '),
-                flightOption.TotalFare, flightOption.Currency);
-            writer.WriteLine(line);
-        }
-
-        private void DisplayFlightOptionDetails(BiletAtolyesi.EBService.T_FlightOption flightOption)
-        {
-            if (flightOption == null)
-            {
-                writer.WriteLine();
-                return;
-            }
-            BiletAtolyesi.EBService.T_Segment[] segments = flightOption.Segments;
-            BiletAtolyesi.EBService.T_SegmentAvailability[] segmentsAvails = flightOption.SegmentAvailabilities;
-            for (int i = 0; i < segments.Length; ++i)
-            {
-                BiletAtolyesi.EBService.T_Segment segment = segments[i];
-                BiletAtolyesi.EBService.T_SegmentAvailability segmentAvail = segmentsAvails.FirstOrDefault(x => x.SegmentSequenceNo == segment.SequenceNo);
-                string index = (i + 1).ToString().PadLeft(3, ' ');
-                string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9}",
-                    index, segment.MarketingAirline, segment.OriginCode, segment.DestinationCode,
-                    segment.DepartureDay, segment.DepartureTime, segment.ArrivalTime,
-                    segment.FlightNumber.PadRight(8, ' '), (segment.BookingClass ?? "").PadRight(2, ' '),
-                    segmentAvail.AvailableSeats);
-                writer.WriteLine(line);
-            }
-            writer.WriteLine();
-        }
-
-        public void DisplayFlightOptionDetails(int flightNo, bool isDeparture)
-        {
-            BiletAtolyesi.EBService.T_FlightOption flightOption = GetFlightOption(flightNo, isDeparture);
-            DisplayFlightOptionDetails(flightOption);
-        }
-
-        #endregion
-
-        #region Display Recommendations
-
-        public void DisplayRecommendations(BiletAtolyesi.EBService.T_RecommendationBox[] recommendations)
-        {
-            if (recommendations == null || recommendations.Length == 0)
-                return;
-            // 
-            writer.WriteLine("Recommendations [{0}]:", recommendations.Length);
-            for (int i = 0; i < recommendations.Length; ++i)
-            {
-                string index = (i + 1).ToString().PadLeft(3, ' ');
-                BiletAtolyesi.EBService.T_RecommendationBox recommendation = recommendations[i];
-                writer.WriteLine("{0}) Recommendation: {1,7:0.00} {2}",
-                    index, recommendation.FareInfo.GrandTotal, recommendation.FareInfo.Currency);
-                // 
-                writer.WriteLine("     Departure Flights:");
-                DisplayFlights(recommendation.DepartureFlights);
-                writer.WriteLine("     -------------------------------");
-                // 
-                writer.WriteLine("     Return Flights:");
-                DisplayFlights(recommendation.ReturnFlights);
-                writer.WriteLine("     -------------------------------");
-                // 
-                // TODO: print OtherFlights for MP (multiple points) case
-            }
-            writer.WriteLine();
-        }
-
-        private void DisplayFlights(BiletAtolyesi.EBService.A_Flight[] flights)
-        {
-            for (int i = 0; i < flights.Length; ++i)
-            {
-                string index = (i + 1).ToString().PadLeft(3, ' ');
-                BiletAtolyesi.EBService.A_Flight flight = flights[i];
-                BiletAtolyesi.EBService.A_FlightSegment first = flight.Segments.First();
-                BiletAtolyesi.EBService.A_FlightSegment last = flight.Segments.Last();
-                string line = String.Format("     {0} {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9}",
-                    index, first.MarketingAirline, first.DepartureAirport, last.ArrivalAirport,
-                    first.DepartureDate, first.DepartureTime, last.ArrivalTime, first.MarketingAirline,
-                    first.FlightNumber.PadRight(8, ' '), first.BookingClass.PadRight(2, ' '));
-                writer.WriteLine(line);
-            }
-        }
-
-        private void DisplayFlightDetails(BiletAtolyesi.EBService.A_Flight flight)
-        {
-            if (flight == null)
-            {
-                writer.WriteLine();
-                return;
-            }
-            BiletAtolyesi.EBService.A_FlightSegment[] segments = flight.Segments;
-            for (int i = 0; i < segments.Length; ++i)
-            {
-                BiletAtolyesi.EBService.A_FlightSegment segment = segments[i];
-                string index = (i + 1).ToString().PadLeft(3, ' ');
-                string line = String.Format("{0}) {1} {2}-{3} {4:dd-MM-yyyy} {5}-{6} {7} {8} {9:00}",
-                    index, segment.MarketingAirline, segment.DepartureAirport, segment.ArrivalAirport,
-                    segment.DepartureDate, segment.DepartureTime, segment.ArrivalTime,
-                    segment.FlightNumber.PadRight(8, ' '), segment.BookingClass.PadRight(2, ' '),
-                    segment.Availability);
-                writer.WriteLine(line);
-            }
-            writer.WriteLine();
-        }
-
-        public void DisplayFlightDetails(int recNo, int flightNo, bool isDeparture)
-        {
-            BiletAtolyesi.EBService.A_Flight flight = GetFlight(recNo, flightNo, isDeparture);
-            DisplayFlightDetails(flight);
-        }
-
-        #endregion
-
-        public void DisplayAirSearchResults()
-        {
-            writer.WriteLine();
-            if (FlightOptions != null)
-            {
-                writer.WriteLine("FLIGHT OPTIONS");
-                DisplayFlightOptions(FlightOptions);
-                writer.WriteLine();
-            }
-            if (Recommendations != null)
-            {
-                writer.WriteLine("RECOMMENDATIONS");
-                DisplayRecommendations(Recommendations);
-                writer.WriteLine();
-            }
-        }
-
-        #endregion
+        
 
         #region Step-4 :: Allocate
 
@@ -1059,8 +886,7 @@ namespace BiletBankCLClient
         {
             if (authenticationHeader == null)
             {
-                string message = "Not allowed! First call the Login method";
-                throw new ApplicationException(message);
+                Login("EBTURWS", "ws1014?x");
             }
         }
 
