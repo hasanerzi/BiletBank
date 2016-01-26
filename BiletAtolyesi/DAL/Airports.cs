@@ -96,7 +96,7 @@ namespace BiletBankCLClient.DAL
         {
             if (str == null || str == "NULL")
                 return null;
-            return str.Trim().ToUpper();
+            return str.Trim();
         }
 
         private int? ToInteger(string str)
