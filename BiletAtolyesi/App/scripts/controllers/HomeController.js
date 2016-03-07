@@ -10,12 +10,14 @@
 
 		    console.log("HomeController is running...");
 
-		    $scope.people = $http({
-		        method: 'POST',
-		        url: API_URL + '/GetAirports',
-		    }).success(function(res) {
-		        console.log(res);
+		    $scope.Airports = null;
+		    $http({
+		        method: 'GET',
+		        url: API_URL + 'GetAirports',
+		    }).success(function (res) {
+		        $scope.Airports = res.airports;
 		    });
+
 
 
 		    //JQuery Functions

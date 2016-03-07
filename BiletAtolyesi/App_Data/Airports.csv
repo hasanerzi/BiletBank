@@ -1,5 +1,5 @@
 AirportCode;AirportName;CountryCode;CountryName;LocalizedCountryName;CityCode;CityName;LocalizedCityName;StateCode;StateName;Rating;IfActive
-AAA;Anaa;PF;French Polynesia;Fransýz Polinezyasý;AAA;Anaa;NULL;NULL;NULL;0;1
+AAA;Anaa;PF;French Polynesia;FRANSIZ POLÝNEZYASI;AAA;Anaa;NULL;NULL;NULL;0;1
 AAB;Arrabury;AU;Australia;Avustralya;AAB;Arrabury;NULL;QL;Queensland;0;1
 AAC;International;EG;Egypt;Mýsýr;AAC;El Arish;NULL;NULL;NULL;0;1
 AAD;Ad Dabbah;SD;Sudan;Sudan;AAD;Ad Dabbah;NULL;NULL;NULL;0;1

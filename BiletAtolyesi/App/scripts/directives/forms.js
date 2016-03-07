@@ -292,7 +292,7 @@ define(['app'], function (app) {
                                 var searchFields = $scope.searchFields.split(",");
 
                                 var matches = [];
-
+                                
                                 for (var i = 0; i < $scope.localData.length; i++) {
                                     var match = false;
 

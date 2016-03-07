@@ -164,11 +164,19 @@
                                 <div class="w50percent">
                                     <div class="wh90percent textleft">
                                         <span class="opensans size18"><b>Nereden ?</b></span>
-                                        
-                                        <angucomplete id="ex2" placeholder="Search people" pause="300" selectedobject="selectedPerson" localdata="people" searchfields="firstName,surname" titlefield="firstName,surname" descriptionfield="twitter" imagefield="pic" minlength="1" inputclass="form-control form-control-small" />
 
 
-                                        <input type="text" class="form-control departureIcon" placeholder="Şehir veya Havalanı adı">
+                                        <angucomplete id="ex2"
+                                                      placeholder="Şehir veya Havalanı adı"
+                                                      pause="300"
+                                                      selectedobject="selectedAirport"
+                                                      localdata="Airports"
+                                                      searchfields="AirportName,CountryName"
+                                                      titlefield="AirportName"
+                                                      descriptionfield=""
+                                                      minlength="1"
+                                                      inputclass="form-control departureIcon" />
+
                                     </div>
                                 </div>
 
@@ -216,5 +224,5 @@
 
 
 
- 
+
 </div>
