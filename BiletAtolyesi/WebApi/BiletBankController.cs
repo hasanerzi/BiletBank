@@ -45,8 +45,8 @@ namespace BiletAtolyesi.WebApi
 
             return response;
         }
-        [HttpGet]
-        public HttpResponseMessage SearchAir(string test)
+        
+        public HttpResponseMessage GetAir(string test)
         {
          
             var response = Request.CreateResponse(HttpStatusCode.Created, "test");
@@ -54,7 +54,7 @@ namespace BiletAtolyesi.WebApi
             return response;
         }
          [HttpGet]
-        public HttpResponseMessage SearchAir(string departure, string arrival, string flightType, int[] paxCounts, DateTime departureDate, DateTime returnDate, bool departureIsCity = false, bool arrivalIsCity = false)
+        public HttpResponseMessage GetAir(string departure, string arrival, string flightType, int[] paxCounts, DateTime departureDate, DateTime returnDate, bool departureIsCity = false, bool arrivalIsCity = false)
         {
             AirSearchModel result;
             try
