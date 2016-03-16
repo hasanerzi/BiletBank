@@ -45,25 +45,20 @@ namespace BiletAtolyesi.WebApi
 
             return response;
         }
+        [HttpGet]
+        public HttpResponseMessage SearchAir(string test)
+        {
+         
+            var response = Request.CreateResponse(HttpStatusCode.Created, "test");
 
-        public HttpResponseMessage SearchAir(string departure, string arrival, string flightType, string paxes, DateTime departureDate, DateTime returnDate, bool departureIsCity = false, bool arrivalIsCity = false)
+            return response;
+        }
+         [HttpGet]
+        public HttpResponseMessage SearchAir(string departure, string arrival, string flightType, int[] paxCounts, DateTime departureDate, DateTime returnDate, bool departureIsCity = false, bool arrivalIsCity = false)
         {
             AirSearchModel result;
             try
             {
-            string[] paxItems = paxes.Split(';');
-            int[] paxCounts = new int[BiletBankClient.PaxTypes.Length];
-            foreach (string paxItem in paxItems)
-            {
-                string[] pair = paxItem.Split('/');
-                string paxType = pair[0];
-                int count = 1;
-                if (pair.Length == 2)
-                    Int32.TryParse(pair[1], out count);
-                int indexOf = Array.IndexOf(BiletBankClient.PaxTypes, paxType);
-                if (indexOf >= 0 && indexOf < paxCounts.Length)
-                    paxCounts[indexOf] = count;
-            }
               result = new AirSearchModel();
 
                 client.AirSearch(departure, arrival, flightType, paxCounts, departureDate, returnDate, departureIsCity, arrivalIsCity);
