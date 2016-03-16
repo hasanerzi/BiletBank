@@ -297,8 +297,13 @@ define(['app'], function (app) {
                                     var match = false;
 
                                     for (var s = 0; s < searchFields.length; s++) {
-                                        var evalStr = 'match = match || ($scope.localData[i].' + searchFields[s] + '.toLowerCase().indexOf("' + str.toLowerCase() + '") >= 0)';
-                                        eval(evalStr);
+                                        try {
+                                            var evalStr = 'match = match || ($scope.localData[i].' + (searchFields[s] === null ? "" : searchFields[s]) + '.toLowerCase().indexOf("' + (str === null ? "" : str.toLowerCase()) + '") >= 0)';
+                                            eval(evalStr);
+                                        } catch (e) {
+                                            console.log(e);
+                                        }
+                                       
                                     }
 
                                     if (match) {

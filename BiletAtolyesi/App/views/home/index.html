@@ -165,13 +165,12 @@
                                     <div class="wh90percent textleft">
                                         <span class="opensans size18"><b>Nereden ?</b></span>
 
-
-                                        <angucomplete id="ex2"
+                                           <angucomplete id="from"
                                                       placeholder="Şehir veya Havalanı adı"
                                                       pause="300"
                                                       selectedobject="selectedAirport"
                                                       localdata="Airports"
-                                                      searchfields="AirportName,CountryName"
+                                                      searchfields="AirportName"
                                                       titlefield="AirportName"
                                                       descriptionfield=""
                                                       minlength="1"
@@ -183,7 +182,18 @@
                                 <div class="w50percentlast">
                                     <div class="wh90percent textleft right">
                                         <span class="opensans size18"><b> Nereye ? </b></span>
-                                        <input type="text" class="form-control arrivalIcon" placeholder="Şehir veya Havalanı adı">
+                                        
+                                     
+                                          <angucomplete id="to"
+                                                      placeholder="Şehir veya Havalanı adı"
+                                                      pause="300"
+                                                      selectedobject="selectedAirport"
+                                                      localdata="Airports"
+                                                      searchfields="AirportName"
+                                                      titlefield="AirportName"
+                                                      descriptionfield=""
+                                                      minlength="1"
+                                                      inputclass="form-control departureIcon" />
                                     </div>
                                 </div>
                             </div>
