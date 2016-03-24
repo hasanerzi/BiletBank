@@ -54,15 +54,24 @@ namespace BiletAtolyesi.WebApi
             return response;
         }
          [HttpGet]
-        public HttpResponseMessage GetAir(string departure, string arrival, string flightType, int[] paxCounts, DateTime departureDate, DateTime returnDate)
+        public HttpResponseMessage GetAir(string departure, string arrival, string flightType, string pax , DateTime departureDate, DateTime returnDate)
         {
-            // bool departureIsCity = false, bool arrivalIsCity = false
+             // bool departureIsCity = false, bool arrivalIsCity = false
             AirSearchModel result;
+            pax = "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0";
             try
             {
               result = new AirSearchModel();
 
-                client.AirSearch(departure, arrival, flightType, paxCounts, departureDate, returnDate, departureIsCity, arrivalIsCity);
+                var paxlist = pax.Split(';');
+                var paxCounts = new int[6];
+                for (var i = 0; i < paxlist.Length; i++)
+                {
+                    var temp= paxlist[i].Split('/');
+                    paxCounts[i] = Convert.ToInt32(temp[1]);
+                }
+
+                client.AirSearch(departure, arrival, flightType, paxCounts, departureDate, returnDate);
                 result.DepartureFlightOptions = client.DepartureFlightOptions;
                 result.FlightOptions = client.FlightOptions;
                 result.ReturnFlightOptions = client.ReturnFlightOptions;
