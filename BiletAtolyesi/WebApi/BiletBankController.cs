@@ -58,7 +58,7 @@ namespace BiletAtolyesi.WebApi
         {
              // bool departureIsCity = false, bool arrivalIsCity = false
             AirSearchModel result;
-            pax = "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0";
+            //pax = "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0";
             try
             {
               result = new AirSearchModel();

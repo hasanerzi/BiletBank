@@ -18,29 +18,36 @@
 		    $scope.to = undefined;
 
 		    $http({
-		        method: 'POST',
+		        method: 'GET',
 		        url: API_URL + 'GetAirports',
 		    }).success(function (res) {
 		        //$scope.countries = res.airports;
 		        $scope.states = res.airports;
 		    });
 
-		    $scope.dynamicPopover = {
-		        content: 'Hello, World!',
-		        templateUrl: 'myPopoverTemplate.html',
-		        title: 'Title'
-		    };
-
-
             $scope.search = 
 		    {
-		        departure: "AYT",
-		        arrival: "SAW",
+		        departure: "",
+		        arrival: "",
 		        flightType: "OW", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
-		        paxCounts: [1,0,1,1,0,1],
-		        departurDate: "16/03/2016",
-                returnDate:"19/03/2016"
+		        pax: "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0",
+		        departureDate: "01/04/2016",
+                returnDate:"05/04/2016"
 		    }
+
+            $scope.onSelectFrom = function ($item) {
+                setTimeout(function() {
+                    $scope.search.departure = $item.AirportCode;
+                    $scope.$apply();
+                }, 100);
+            };
+
+            $scope.onSelectTo = function ($item) {
+                setTimeout(function () {
+                    $scope.search.arrival = $item.AirportCode;
+                    $scope.$apply();
+                }, 100);
+            };
 
 
             $scope.getFlights = function() {
@@ -55,6 +62,14 @@
 
 
 
+
+            $scope.dynamicPopover = {
+                content: 'Hello, World!',
+                templateUrl: 'chooseFlightDetails.html',
+                title: 'Title'
+            };
+
+
 		    //JQuery Functions
 		    //------------------------------
 		    //Picker
@@ -62,10 +77,25 @@
 
 		    jQuery(function () {
 		        "use strict";
+
+		        var scope = angular.element('[ng-controller=HomeController]').scope();
+
 		        jQuery("#datepickerStart").datepicker({
-		            minDate:0
+		            minDate: 0,
+		            onSelect: function (dateText, inst) {
+		                var date = jQuery(this).val();
+		                scope.search.departureDate = date;
+		                scope.$apply();
+		            }
+
 		        });
-		        jQuery("#datepickerEnd").datepicker();
+		        jQuery("#datepickerEnd").datepicker({
+		            onSelect: function (dateText, inst) {
+		                var date = jQuery(this).val();
+		                scope.search.returnDate = date;
+		                scope.$apply();
+		            }
+		        });
 		    });
 
 
