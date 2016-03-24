@@ -148,6 +148,36 @@
 
 
 
+    <script type="text/ng-template" id="customTemplate.html">
+        <a>
+            <img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16">
+            <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
+        </a>
+    </script>
+
+    <script type="text/ng-template" id="customPopupTemplate.html">
+        <div class="custom-popup-wrapper"
+             ng-style="{top: position().top+'px', left: position().left+'px'}"
+             style="display: block;"
+             ng-show="isOpen() && !moveInProgress"
+             aria-hidden="{{!isOpen()}}">
+            <p class="message">select location from drop down.</p>
+
+            <ul class="dropdown-menu" role="listbox">
+                <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+                    ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+                    <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+
+
+
+
+
+
     <div class="container mt-200 z-index100">
         <div class="row">
             <div class="col-md-12">
@@ -163,18 +193,9 @@
                             <div class="col-md-6">
                                 <div class="w50percent">
                                     <div class="wh90percent textleft">
-                                        <span class="opensans size18"><b>Nereden ?</b></span>
 
-                                           <angucomplete id="from"
-                                                      placeholder="Şehir veya Havalanı adı"
-                                                      pause="300"
-                                                      selectedobject="selectedAirport"
-                                                      localdata="Airports"
-                                                      searchfields="AirportName"
-                                                      titlefield="AirportName"
-                                                      descriptionfield=""
-                                                      minlength="1"
-                                                      inputclass="form-control departureIcon" />
+                                        <span class="opensans size18"><b>Nereden ?</b></span>
+                                        <input class="form-control departureIcon" ng-model="from" uib-typeahead="state.AirportName for state in states | filter:$viewValue | limitTo:8" />
 
                                     </div>
                                 </div>
@@ -182,23 +203,13 @@
                                 <div class="w50percentlast">
                                     <div class="wh90percent textleft right">
                                         <span class="opensans size18"><b> Nereye ? </b></span>
-                                        
-                                     
-                                          <angucomplete id="to"
-                                                      placeholder="Şehir veya Havalanı adı"
-                                                      pause="300"
-                                                      selectedobject="selectedAirport"
-                                                      localdata="Airports"
-                                                      searchfields="AirportName"
-                                                      titlefield="AirportName"
-                                                      descriptionfield=""
-                                                      minlength="1"
-                                                      inputclass="form-control departureIcon" />
+                                        <input class="form-control arrivalIcon" type="text" ng-model="to" uib-typeahead="state.AirportName for state in states | filter:$viewValue | limitTo:8" />
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="w50percent">
                                     <div class="wh90percent textleft">
                                         <span class="opensans size18"><b>Gidiş Tarihi</b></span>
@@ -214,15 +225,61 @@
                                 </div>
                             </div>
 
+ 
 
                         </div>
                         <!--End of 1st tab -->
                     </div>
 
                     <div class="searchbg2">
-                        <div class="left ca01"><a href="#">Advanced +</a></div>
+                        <div class="left ca01">
+
+                            <div class="btn-group">
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Tek Yön</label>
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Gidiş-Dönüş</label>
+                            </div>
+                             
+
+                            <button uib-popover-template="dynamicPopover.templateUrl" popover-title="{{dynamicPopover.title}}" type="button" class="btn btn-default">{{yolcu}} Ekonomi</button>
+
+
+                            <script type="text/ng-template" id="myPopoverTemplate.html">
+
+                                <div class="form-inline">
+
+                                    <div class="form-group">
+                                        <select id="select-list">
+                                            <option selected="selected" shortname="Ekonomi" value="0">
+                                                Ekonomi
+                                            </option>
+                                            <option shortname="Business" value="2">
+                                                Business
+                                            </option>
+                                            <option shortname="Comfort" value="1">
+                                                Comfort
+                                            </option>
+                                            <option shortname="First Class" value="3">
+                                                First Class
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputName2">Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+                                    </div>
+
+
+                                </div>
+                            </script>
+
+                                <div class="clearfix"></div><br>
+
+
+
+                         </div>
                         <form action="#">
-                            <button type="submit" class="btn-search right mr30">Uygun Uçuşları Bul</button>
+                            <button type="button" class="btn-search right mr30" ng-click="getFlights()">Uygun Uçuşları Bul</button>
                         </form>
                     </div>
 

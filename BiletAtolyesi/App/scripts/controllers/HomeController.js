@@ -6,17 +6,52 @@
 		'$http',
 		'$route',
         'API_URL',
-		function ($rootScope, $scope, $http, $route, API_URL) {
+        'limitToFilter',
+		function ($rootScope, $scope, $http, $route, API_URL, limitToFilter) {
 
 		    console.log("HomeController is running...");
-
 		    $scope.Airports = null;
+
+		    var _selected;
+
+		    $scope.from = undefined;
+		    $scope.to = undefined;
+
 		    $http({
-		        method: 'GET',
+		        method: 'POST',
 		        url: API_URL + 'GetAirports',
 		    }).success(function (res) {
-		        $scope.Airports = res.airports;
+		        //$scope.countries = res.airports;
+		        $scope.states = res.airports;
 		    });
+
+		    $scope.dynamicPopover = {
+		        content: 'Hello, World!',
+		        templateUrl: 'myPopoverTemplate.html',
+		        title: 'Title'
+		    };
+
+
+            $scope.search = 
+		    {
+		        departure: "AYT",
+		        arrival: "SAW",
+		        flightType: "OW", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
+		        paxCounts: [1,0,1,1,0,1],
+		        departurDate: "16/03/2016",
+                returnDate:"19/03/2016"
+		    }
+
+
+            $scope.getFlights = function() {
+                $http({
+                    method: 'GET',
+                    url: API_URL + 'GetAir',
+                    params:$scope.search
+                }).success(function (res) {
+                    console.log(res);
+                });
+            }
 
 
 
@@ -287,9 +322,6 @@
 		        jQuery(".mhover", this).removeClass("block");
 		        jQuery(".icon", this).stop().animate({ marginLeft: "0px" }, 100);
 		    });
-
-
-
 
 
 		}
