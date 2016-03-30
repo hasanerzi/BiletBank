@@ -32,7 +32,7 @@ namespace BiletAtolyesi.WebApi
         public HttpResponseMessage GetAirports()
         {
             Airports airports;
-            try
+           try
             {
                 airports = client.airports;
             }
@@ -41,33 +41,36 @@ namespace BiletAtolyesi.WebApi
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            var response = Request.CreateResponse(HttpStatusCode.Created, airports);
+           var response = Request.CreateResponse(HttpStatusCode.Created, airports);
 
             return response;
         }
-
+        
         public HttpResponseMessage GetAir(string test)
         {
-
+         
             var response = Request.CreateResponse(HttpStatusCode.Created, "test");
 
             return response;
         }
-        [HttpGet]
-        public HttpResponseMessage GetAir(string departure, string arrival, string flightType, string pax, DateTime departureDate, DateTime returnDate)
+         [HttpGet]
+        public HttpResponseMessage GetAir(string departure, string arrival, string flightType, string pax , DateTime departureDate, DateTime returnDate)
         {
-            // bool departureIsCity = false, bool arrivalIsCity = false
+             // bool departureIsCity = false, bool arrivalIsCity = false
             AirSearchModel result;
+            //pax = "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0";
             try
             {
-                result = new AirSearchModel();
+              result = new AirSearchModel();
+
                 var paxlist = pax.Split(';');
                 var paxCounts = new int[6];
                 for (var i = 0; i < paxlist.Length; i++)
                 {
-                    var temp = paxlist[i].Split('/');
+                    var temp= paxlist[i].Split('/');
                     paxCounts[i] = Convert.ToInt32(temp[1]);
                 }
+
                 client.AirSearch(departure, arrival, flightType, paxCounts, departureDate, returnDate);
                 result.DepartureFlightOptions = client.DepartureFlightOptions;
                 result.FlightOptions = client.FlightOptions;
