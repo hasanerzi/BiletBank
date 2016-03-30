@@ -304,7 +304,7 @@ namespace BiletBankCLClient
             string departure, string arrival,
             string flightType, int[] paxCounts,
             DateTime departureDate, DateTime? returnDate = null,
-            bool departureIsCity = false, bool arrivalIsCity = false)
+            bool departureIsCity = true, bool arrivalIsCity = true)
         {
             // first check whether there is a route from departure to arrival
             // since routing list contains items for only airport codes, we cannot 
