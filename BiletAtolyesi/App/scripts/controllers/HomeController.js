@@ -6,18 +6,68 @@
 		'$http',
 		'$route',
         'API_URL',
-		function ($rootScope, $scope, $http, $route, API_URL) {
+        'limitToFilter',
+		function ($rootScope, $scope, $http, $route, API_URL, limitToFilter) {
 
 		    console.log("HomeController is running...");
-
 		    $scope.Airports = null;
+
+		    var _selected;
+
+		    $scope.from = undefined;
+		    $scope.to = undefined;
+
 		    $http({
 		        method: 'GET',
 		        url: API_URL + 'GetAirports',
 		    }).success(function (res) {
-		        $scope.Airports = res.airports;
+		        //$scope.countries = res.airports;
+		        $scope.states = res.airports;
 		    });
 
+            $scope.search = 
+		    {
+		        departure: "",
+		        arrival: "",
+		        flightType: "OW", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
+		        pax: "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0",
+		        departureDate: "01/04/2016",
+                returnDate:"05/04/2016"
+		    }
+
+            $scope.onSelectFrom = function ($item) {
+                setTimeout(function() {
+                    $scope.search.departure = $item.AirportCode;
+                    $scope.$apply();
+                }, 100);
+            };
+
+            $scope.onSelectTo = function ($item) {
+                setTimeout(function () {
+                    $scope.search.arrival = $item.AirportCode;
+                    $scope.$apply();
+                }, 100);
+            };
+
+
+            $scope.getFlights = function() {
+                $http({
+                    method: 'GET',
+                    url: API_URL + 'GetAir',
+                    params:$scope.search
+                }).success(function (res) {
+                    console.log(res);
+                });
+            }
+
+
+
+
+            $scope.dynamicPopover = {
+                content: 'Hello, World!',
+                templateUrl: 'chooseFlightDetails.html',
+                title: 'Title'
+            };
 
 
 		    //JQuery Functions
@@ -27,10 +77,25 @@
 
 		    jQuery(function () {
 		        "use strict";
+
+		        var scope = angular.element('[ng-controller=HomeController]').scope();
+
 		        jQuery("#datepickerStart").datepicker({
-		            minDate:0
+		            minDate: 0,
+		            onSelect: function (dateText, inst) {
+		                var date = jQuery(this).val();
+		                scope.search.departureDate = date;
+		                scope.$apply();
+		            }
+
 		        });
-		        jQuery("#datepickerEnd").datepicker();
+		        jQuery("#datepickerEnd").datepicker({
+		            onSelect: function (dateText, inst) {
+		                var date = jQuery(this).val();
+		                scope.search.returnDate = date;
+		                scope.$apply();
+		            }
+		        });
 		    });
 
 
@@ -287,9 +352,6 @@
 		        jQuery(".mhover", this).removeClass("block");
 		        jQuery(".icon", this).stop().animate({ marginLeft: "0px" }, 100);
 		    });
-
-
-
 
 
 		}

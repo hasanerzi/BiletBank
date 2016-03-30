@@ -64,7 +64,8 @@
         .constant('API_URL', '/api/BiletBank/');
 
 
-    app.run(function ($rootScope) {
+    app.run(function ($rootScope,$templateCache) {
+        $templateCache.put('object.html', '<div nz-auto-complete-hint-text></div>');
 
         $rootScope.$on("$routeChangeStart", function (event, next) {
             console.log("route changed");

@@ -148,6 +148,7 @@
 
 
 
+
     <div class="container mt-200 z-index100">
         <div class="row">
             <div class="col-md-12">
@@ -160,59 +161,57 @@
                     <div class="tab-content2" id="QuickSearch">
                         <div id="air" class="tab-pane fade active in">
 
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="w50percent">
                                     <div class="wh90percent textleft">
-                                        <span class="opensans size18"><b>Nereden ?</b></span>
-
-                                           <angucomplete id="from"
-                                                      placeholder="Şehir veya Havalanı adı"
-                                                      pause="300"
-                                                      selectedobject="selectedAirport"
-                                                      localdata="Airports"
-                                                      searchfields="AirportName"
-                                                      titlefield="AirportName"
-                                                      descriptionfield=""
-                                                      minlength="1"
-                                                      inputclass="form-control departureIcon" />
+                                        <span class="opensans size14"><b>Nereden ?</b></span>
+                                        <input class="form-control departureIcon" ng-model="from" uib-typeahead="state.AirportName for state in states | filter:$viewValue | limitTo:8" typeahead-on-select="onSelectFrom($item)" />
 
                                     </div>
                                 </div>
 
                                 <div class="w50percentlast">
                                     <div class="wh90percent textleft right">
-                                        <span class="opensans size18"><b> Nereye ? </b></span>
-                                        
-                                     
-                                          <angucomplete id="to"
-                                                      placeholder="Şehir veya Havalanı adı"
-                                                      pause="300"
-                                                      selectedobject="selectedAirport"
-                                                      localdata="Airports"
-                                                      searchfields="AirportName"
-                                                      titlefield="AirportName"
-                                                      descriptionfield=""
-                                                      minlength="1"
-                                                      inputclass="form-control departureIcon" />
+                                        <span class="opensans size14"><b> Nereye ? </b></span>
+                                        <input class="form-control arrivalIcon" type="text" ng-model="to" uib-typeahead="state.AirportName for state in states | filter:$viewValue | limitTo:8" typeahead-on-select="onSelectTo($item)" />
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+
+                            <div class="col-md-3">
                                 <div class="w50percent">
                                     <div class="wh90percent textleft">
-                                        <span class="opensans size18"><b>Gidiş Tarihi</b></span>
-                                        <input type="text" class="form-control inputCalendar" id="datepickerStart" placeholder="mm/dd/yyyy" />
+                                        <span class="opensans size14"><b>Gidiş Tarihi</b></span>
+                                        <input type="text" class="form-control inputCalendar" id="datepickerStart" placeholder="mm/dd/yyyy"/>
                                     </div>
                                 </div>
 
                                 <div class="w50percentlast">
                                     <div class="wh90percent textleft right">
-                                        <span class="opensans size18"><b>Dönüş Tarihi</b></span>
-                                        <input type="text" class="form-control inputCalendar" id="datepickerEnd" placeholder="mm/dd/yyyy" />
+                                        <span class="opensans size14"><b>Dönüş Tarihi</b></span>
+                                        <input type="text" class="form-control inputCalendar" id="datepickerEnd" placeholder="mm/dd/yyyy"/>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-2">
+                                <div class="w50percent">
+                                    <div class="wh90percent textleft">
+                                        <span class="opensans size13"><b>Adult</b></span>
+                                        <select class="form-control mySelectBoxClass">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
 
 
                         </div>
@@ -220,9 +219,20 @@
                     </div>
 
                     <div class="searchbg2">
-                        <div class="left ca01"><a href="#">Advanced +</a></div>
+                        <div class="left ca01">
+
+                            <div class="btn-group">
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Tek Yön</label>
+                                <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Gidiş-Dönüş</label>
+                            </div>
+
+                            <div class="clearfix"></div><br>
+
+
+
+                        </div>
                         <form action="#">
-                            <button type="submit" class="btn-search right mr30">Uygun Uçuşları Bul</button>
+                            <button type="button" class="btn-search right mr30" ng-click="getFlights()">Uygun Uçuşları Bul</button>
                         </form>
                     </div>
 

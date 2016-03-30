@@ -27,7 +27,7 @@ require.config({
 		'angular-timer'					        : '/bower_components/angular-timer/dist/angular-timer.min',
 
 		//not used....
-		'angular-bindonce': '/bower_components/angular-bindonce/bindonce',
+		'angular-bindonce'                      : '/bower_components/angular-bindonce/bindonce'
 
 	},
 	shim: {
