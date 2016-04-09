@@ -883,7 +883,7 @@ color:#fff;
 
 
 
-#QuickSearch .form-control{border-color: rgba(1, 147, 222,.4); padding: 20px 10px; }
+#QuickSearch .form-control{ border-color: rgba(1, 147, 222,.4); }
 #QuickSearch .form-control:focus{ border-color: #0193de; }
 #QuickSearch span.opensans{ line-height: 45px; }
 
