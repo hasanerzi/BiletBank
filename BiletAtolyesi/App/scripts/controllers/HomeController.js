@@ -28,14 +28,13 @@
 
             $scope.search = 
 		    {
-		        departure: "",
-		        arrival: "",
-		        flightType: "MP", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
-		        departureDate: "",
-                returnDate:""
+		        flightType: "RT", //OW:Tek Yön | RT : Gidiş Dönüş
+		        adt: 1,
+		        chd: 0,
+                inf:0
 		    }
 
-		    $scope.search = { "departure": "IST", "arrival": "BJV", "flightType": "MP", "adt": "4", "chd": "0", "inf": "", "std": "", "src": "", "mil": "", "pax": "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0", "departureDate": "05/18/2016", "returnDate": "05/22/2016" };
+		    $scope.search = { "departure": "IST", "arrival": "BJV", "flightType": "RT", "adt": "4", "chd": "0", "inf": "0", "std": "", "src": "", "mil": "", "pax": "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0", "departureDate": "05/18/2016", "returnDate": "05/22/2016" };
 
 
             $scope.setFlightype = function(is) {
@@ -64,9 +63,10 @@
                     arrival:$scope.search.arrival,
                     flightType:$scope.search.flightType,
                     pax:pax,
-                    departureDate:$scope.departureDate,
-                    returnDate:$scope.returnDate
+                    departureDate:$scope.search.departureDate,
+                    returnDate: $scope.search.returnDate
                 }
+                
                 $http({
                     method: 'GET',
                     url: API_URL + 'GetAir',
@@ -75,13 +75,6 @@
                     $rootScope.userFlight = res; 
                 });
             }
-
-
-            $scope.dynamicPopover = {
-                content: 'Hello, World!',
-                templateUrl: 'chooseFlightDetails.html',
-                title: 'Title'
-            };
 
 
 		    //JQuery Functions
