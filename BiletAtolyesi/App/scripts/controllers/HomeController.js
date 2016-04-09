@@ -13,13 +13,14 @@
 		    $scope.Airports = null;
 
 		    var _selected;
+		    $scope.isOneWay = false;
 
 		    $scope.from = undefined;
 		    $scope.to = undefined;
 
 		    $http({
 		        method: 'GET',
-		        url: API_URL + 'GetAirports',
+		        url: API_URL + 'GetAirports'
 		    }).success(function (res) {
 		        //$scope.countries = res.airports;
 		        $scope.states = res.airports;
@@ -29,11 +30,17 @@
 		    {
 		        departure: "",
 		        arrival: "",
-		        flightType: "OW", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
-		        pax: "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0",
-		        departureDate: "01/04/2016",
-                returnDate:"05/04/2016"
+		        flightType: "MP", //OW:Tek Yön | RT : Aktarmalı | MP : Gidiş Dönüş
+		        departureDate: "",
+                returnDate:""
 		    }
+
+		    $scope.search = { "departure": "IST", "arrival": "BJV", "flightType": "MP", "adt": "4", "chd": "0", "inf": "", "std": "", "src": "", "mil": "", "pax": "ADT/1;CHD/0;INF/0;STD/0;SRC/0;MIL/0", "departureDate": "05/18/2016", "returnDate": "05/22/2016" };
+
+
+            $scope.setFlightype = function(is) {
+                $scope.isOneWay = is;
+            }
 
             $scope.onSelectFrom = function ($item) {
                 setTimeout(function() {
@@ -50,17 +57,24 @@
             };
 
 
-            $scope.getFlights = function() {
+            $scope.getFlights = function () {
+                var pax = "ADT/" + $scope.search.adt + ";CHD/" + $scope.search.chd + ";INF/" + $scope.search.inf + ";STD/0;SRC/0;MIL/0";
+                var m = {
+                    departure:$scope.search.departure,
+                    arrival:$scope.search.arrival,
+                    flightType:$scope.search.flightType,
+                    pax:pax,
+                    departureDate:$scope.departureDate,
+                    returnDate:$scope.returnDate
+                }
                 $http({
                     method: 'GET',
                     url: API_URL + 'GetAir',
-                    params:$scope.search
+                    params:m
                 }).success(function (res) {
-                    console.log(res);
+                    $rootScope.userFlight = res; 
                 });
             }
-
-
 
 
             $scope.dynamicPopover = {
@@ -116,6 +130,8 @@
 		            jQuery('.mySelectBoxClass').trigger('update');
 		        }, 200);
 		    }
+
+		    mySelectUpdate();
 
 		    jQuery(window).resize(function () {
 		        mySelectUpdate();
